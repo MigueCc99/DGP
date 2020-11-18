@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "Vale"
+  "defaultProject": "Vale",
+  "cli": {
+    "analytics": "694771af-6941-46e4-ab86-81d81077efd9"
+  }
 }
