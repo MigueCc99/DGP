@@ -13,7 +13,7 @@ public class Usuario {
         this.fecha_nacimiento = new Date();
     }
 
-    Usuario (String nombre, String apellidos, Date fecha_nacimiento){
+    public Usuario (String nombre, String apellidos, Date fecha_nacimiento){
         super();
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -24,11 +24,11 @@ public class Usuario {
         throw new java.lang.UnsupportedOperationException("Not supported yet.");
     }
 
-    chat mandarMultimedia(Actividad act){
+    void mandarMultimedia(Actividad act){
         throw new java.lang.UnsupportedOperationException("Not supported yet.");
     }
 
-    chat leerChat(Actividad act){
+    void leerChat(Actividad act){
         throw new java.lang.UnsupportedOperationException("Not supported yet.");
     }
 
