@@ -20,7 +20,6 @@ class ValeController {
             yield database_1.default.query('SELECT * FROM objetivos', function (err, result, fields) {
                 if (err)
                     throw err;
-                console.log("aaa");
                 res.json(result);
             });
         });

@@ -7,7 +7,6 @@ class ValeController {
     public async list (req: Request, res: Response): Promise<void> {
         await pool.query('SELECT * FROM objetivos', function(err, result, fields) {
             if (err) throw err;
-            console.log("aaa");
             res.json(result);
         });
     }
