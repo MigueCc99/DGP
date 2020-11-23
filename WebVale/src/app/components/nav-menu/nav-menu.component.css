@@ -59,7 +59,9 @@ a {
     color: white;
 }
 
-#sidebar ul a .active {
-    background: var(--verde-institucional);
-    color: white;
+.disabled {
+    pointer-events: none;
+    background-color: rgb(233, 233, 233);
+    color: gray;
+    border-color: gray;
 }
