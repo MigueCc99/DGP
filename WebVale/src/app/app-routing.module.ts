@@ -5,6 +5,7 @@ import { CentroPageComponent } from './components/pages/centro-page/centro-page.
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { ObjetivosPageComponent } from './components/pages/objetivos-page/objetivos-page.component';
 import { PerfilPageComponent } from './components/pages/perfil-page/perfil-page.component';
+import { SociosPageComponent } from './components/pages/socios-page/socios-page.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'centro',
     component: CentroPageComponent
+  },
+  {
+    path: 'socios',
+    component: SociosPageComponent
   }
 ];
 

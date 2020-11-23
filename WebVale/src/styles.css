@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#content {
+    margin-left: 15%;
+}
