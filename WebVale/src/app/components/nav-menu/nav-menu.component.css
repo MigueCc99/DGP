@@ -5,9 +5,9 @@
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: var(--verde-institucional);
-    color: #fff;
-    font-size: 24px;
+    color: var(--verde-institucional);
+    background: #fff;
+    font-size: 36px;
     text-decoration: none;
     text-align: center;
     transition: all 0.3s;
@@ -18,11 +18,15 @@
 
 #sidebar #logo {
     margin-top: 62px;
+    width: 100%;
+    height: auto;
 }
 
+#sidebar ul {
+    margin-top: 50%;
+}
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
 }
 
 #sidebar ul p {
@@ -30,10 +34,18 @@
     padding: 10px;
 }
 
-#sidebar a, a:hover, a:focus {
-    color: inherit;
+a {
+    color: var(--verde-institucional);
+}
+#sidebar ul a{
     text-decoration: none;
-    transition: all 0.3s;
+    border: solid var(--verde-institucional) 1px;
+    margin: 3px;
+}
+
+#sidebar ul a:hover, a:focus {
+    background: var(--verde-institucional);
+    color: white;
 }
 
 #sidebar ul li a {
@@ -41,16 +53,13 @@
     font-size: 1.1em;
     display: block;
 }
-#sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+
+.active{
+    background: var(--verde-institucional);
+    color: white;
 }
 
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
+#sidebar ul a .active {
+    background: var(--verde-institucional);
+    color: white;
 }
