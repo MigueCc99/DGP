@@ -1,10 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-.wrapper {
+body {
+    font-family: Roboto;
+    --verde-institucional: #308276;
+}
+
+.general-wrapper {
     display: flex;
     width: 100%;
     align-items: stretch;
 }
 
-#content {
+.content {
     margin-left: 15%;
 }
