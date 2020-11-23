@@ -44,7 +44,7 @@ a {
 }
 
 #sidebar ul a:hover, a:focus {
-    background: var(--verde-institucional);
+    background: #3082769d;
     color: white;
 }
 
