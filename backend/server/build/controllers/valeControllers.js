@@ -63,5 +63,21 @@ class ValeController {
             });
         });
     }
+    getUser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { user } = req.params;
+            const { password } = req.params;
+            yield database_1.default.query('SELECT username FROM users WHERE username = ? and password = ?', [user, password], function (err, result, fields) {
+                if (err)
+                    throw err;
+                if (result.length > 0) {
+                    return res.json(1);
+                }
+                else {
+                    return res.json(0);
+                }
+            });
+        });
+    }
 }
 exports.valeController = new ValeController();

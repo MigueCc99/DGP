@@ -7,7 +7,7 @@ CREATE TABLE users(
     password VARCHAR(50)
 );
 
-INSERT INTO users(username,password) VALUES ('david','0123');
+INSERT INTO users(username,password) VALUES ('ana','0123');
 
 CREATE TABLE objetivos(
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,

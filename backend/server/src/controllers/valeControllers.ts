@@ -24,7 +24,7 @@ class ValeController {
 
     public async create (req: Request, res: Response): Promise<void> {
         await pool.query('INSERT INTO objetivos set ?', [req.body]);
-        res.json({message: 'Objetivo creado'})
+        res.json({message: 'Objetivo creado'});
     }
 
     public async delete (req: Request, res: Response): Promise<void> {
@@ -42,6 +42,20 @@ class ValeController {
             res.json({message: "El Objetivo fue actualizado"});
         });
     }
+
+    public async getUser (req: Request, res: Response): Promise<any> {
+        const { user } = req.params;
+        const { password } = req.params;
+        await pool.query('SELECT username FROM users WHERE username = ? and password = ?', [user, password], function(err, result, fields) {
+            if (err) throw err;
+            if (result.length > 0) {
+                return res.json(1);
+            }else{
+                return res.json(0);
+            }
+        });
+    }
+
 }
 
 export const valeController = new ValeController();
