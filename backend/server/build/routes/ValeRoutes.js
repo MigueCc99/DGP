@@ -13,6 +13,7 @@ class ValeRoutes {
         this.router.post('/', valeControllers_1.valeController.create);
         this.router.delete('/:id', valeControllers_1.valeController.delete);
         this.router.put('/:id', valeControllers_1.valeController.update); //update
+        this.router.get('/login/:user/:password', valeControllers_1.valeController.getUser);
     }
 }
 const valeRoutes = new ValeRoutes();

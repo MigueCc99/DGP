@@ -16,6 +16,7 @@ class ValeRoutes {
         this.router.post('/', valeController.create);
         this.router.delete('/:id', valeController.delete);
         this.router.put('/:id', valeController.update);//update
+        this.router.get('/login/:user/:password',valeController.getUser);
     }
 
 }
