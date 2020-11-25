@@ -11,7 +11,7 @@ class LoginRoutes {
     }
 
     public config(): void {
-        this.router.get('/login/:user/:password',loginController.getUser);
+        this.router.get('/login/:correo/:password',loginController.getUser);
     }
 
 }

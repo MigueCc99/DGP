@@ -17,13 +17,14 @@ const database_1 = __importDefault(require("../database"));
 class LoginController {
     getUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { user } = req.params;
+            const { correo } = req.params;
             const { password } = req.params;
-            yield database_1.default.query('SELECT username FROM users WHERE username = ? and password = ?', [user, password], function (err, result, fields) {
+            yield database_1.default.query('SELECT correo FROM facilitadores WHERE correo = ? and contrasena = ?', [correo, password], function (err, result, fields) {
                 if (err)
                     throw err;
                 if (result.length > 0) {
-                    return res.json(1);
+                    console.log(result);
+                    return res.json(result);
                 }
                 else {
                     return res.json(0);

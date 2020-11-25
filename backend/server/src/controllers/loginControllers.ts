@@ -6,12 +6,13 @@ class LoginController {
 
     
     public async getUser (req: Request, res: Response): Promise<any> {
-        const { user } = req.params;
+        const { correo } = req.params;
         const { password } = req.params;
-        await pool.query('SELECT username FROM users WHERE username = ? and password = ?', [user, password], function(err, result, fields) {
+        await pool.query('SELECT correo FROM facilitadores WHERE correo = ? and contrasena = ?', [correo, password], function(err, result, fields) {
             if (err) throw err;
             if (result.length > 0) {
-                return res.json(1);
+                console.log(result);
+                return res.json(result);
             }else{
                 return res.json(0);
             }

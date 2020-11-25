@@ -8,7 +8,7 @@ class LoginRoutes {
         this.config();
     }
     config() {
-        this.router.get('/login/:user/:password', loginControllers_1.loginController.getUser);
+        this.router.get('/login/:correo/:password', loginControllers_1.loginController.getUser);
     }
 }
 const loginRoutes = new LoginRoutes();

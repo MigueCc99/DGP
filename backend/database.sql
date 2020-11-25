@@ -25,7 +25,7 @@ CREATE TABLE objetivos(
 
 
 -- *****************************************************************************
-INSERT INTO users(username,password) VALUES ('ana','0123');
+INSERT INTO facilitadores(nombre,contrasena,centro,correo,telefono) VALUES ('david','0123',false,'david@vale.org','612345678');
 
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Lavarse las manos', 'Debes lavarte las manos que está el coronavirus');
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Hacerse la cama', 'Debes hacerte la cama todos los días al levantarte');
