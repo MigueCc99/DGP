@@ -7,56 +7,25 @@
             <h1>Listado de socios</h1>
             <div class="cuadroBusqueda">
                 <span class="fa fa-search"></span>
-                <input type="text" placeholder="Buscar un socio...">
+                <input 
+                    id="filtro"
+                    [(ngModel)]='filtro'
+                    (ngModelChange)='filtrarListado()'
+                    type="text" 
+                    placeholder="Buscar un socio..."
+                >
             </div>
-            
             <br>
         </div>
        
         <div class="listado">
-            <ul>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
+            <ul *ngFor="let socio of listadoSociosFiltrado">
+                <li>
+                    {{socio.nombre}} {{socio.apellidos}}
+                    <span class="fa fa-eye"></span>
+                </li>
             </ul>
-          </div>
+        </div>
     </div>
 </div>
 

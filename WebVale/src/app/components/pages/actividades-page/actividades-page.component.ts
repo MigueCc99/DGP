@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Actividad } from 'src/app/models/Actividad';
 
 @Component({
   selector: 'app-actividades-page',
@@ -7,9 +8,126 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActividadesPageComponent implements OnInit {
 
-  constructor() { }
+  //Listado
+  listadoActividades : Actividad[];
+  listadoActividadesFiltrado : Actividad[];
+  filtro : string = '';
+
+
+  constructor() {
+    this.listadoActividades = [
+      {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      
+    ];
+    this.listadoActividadesFiltrado = this.listadoActividades;
+   }
 
   ngOnInit(): void {
   }
 
+  filtrarListado (){
+    this.listadoActividadesFiltrado = this.listadoActividades.filter(
+      actividad => 
+      actividad.nombre.toLowerCase().includes(this.filtro.toLowerCase())
+    )
+  }
 }

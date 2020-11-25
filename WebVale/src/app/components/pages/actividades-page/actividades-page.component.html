@@ -7,55 +7,27 @@
             <h1>Listado de actividades</h1>
             <div class="cuadroBusqueda">
                 <span class="fa fa-search"></span>
-                <input type="text" placeholder="Buscar una actividad...">
+                <input 
+                    id="filtro"
+                    [(ngModel)]='filtro'
+                    (ngModelChange)='filtrarListado()'
+                    type="text" 
+                    placeholder="Buscar una actividad..."
+                >
             </div>
-            
+            <button type="button" class="btn btn-success">Crear una nueva actividad</button>
             <br>
         </div>
        
         <div class="listado">
-            <ul>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
+            <ul *ngFor="let actividad of listadoActividadesFiltrado">
+                <li>
+                    {{actividad.nombre}}
+                    <span class="fa fa-eye"></span>
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                </li>
             </ul>
-          </div>
+        </div>
     </div>
 </div>
+
