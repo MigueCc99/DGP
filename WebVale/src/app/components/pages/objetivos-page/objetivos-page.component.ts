@@ -22,7 +22,6 @@ export class ObjetivosPageComponent implements OnInit {
     this.objetivosService.getObjetivos().subscribe(
       res => {
         this.listadoObjetivos = this.listadoObjetivosFiltrado = res as Objetivo[];
-        console.log(res)
       },
       err => console.error(err)
     );
@@ -34,9 +33,8 @@ export class ObjetivosPageComponent implements OnInit {
 
   filtrarListado (){
     this.listadoObjetivosFiltrado = this.listadoObjetivos.filter(
-      objetivo => {
-        objetivo.nombre.toLowerCase().includes(this.filtro.toLowerCase())
-      }
+      objetivo => 
+      objetivo.nombre.toLowerCase().includes(this.filtro.toLowerCase())
     )
   }
 }
