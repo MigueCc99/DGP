@@ -2,12 +2,19 @@ CREATE DATABASE vale;
 
 USE vale;
 -- *****************************************************************************
-CREATE TABLE users(
-    username VARCHAR(50) NOT NULL PRIMARY KEY,
-    password VARCHAR(50)
+CREATE TABLE facilitadores(
+    nombre VARCHAR(50) NOT NULL,
+    contrasena VARCHAR(50) NOT NULL,
+    centro BOOLEAN NOT NULL,
+    correo VARCHAR(50) NOT NULL PRIMARY KEY,
+    telefono VARCHAR(50) NOT NULL
 );
 
-
+CREATE TABLE socios(
+    nombre VARCHAR(50) NOT NULL PRIMARY KEY,
+    nacimiento VARCHAR(50),
+    contrasena VARCHAR(50)
+);
 
 CREATE TABLE objetivos(
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
