@@ -1,46 +1,40 @@
 h1 {
-position: sticky;
-width: 440px;
-height: 52px;
-left: 100px;
-top: 237px;
+    position: sticky;
+    width: 440px;
+    height: 52px;
+    left: 100px;
+    top: 237px;
 
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 48px;
-line-height: 56px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 56px;
 
-color: #308276;
+    color: #308276;
 
 }
 
 .contenedor{
-position:  absolute;
-width: 780px;
-height: auto;
-left: 20px;
-top: 40px;
-margin:300px;
-
-
-border: 3px solid #000000;
-box-sizing: border-box;
+    position:  absolute;
+    width: 780px;
+    height: auto;
+    left: 20px;
+    margin:300px;
+    margin-top: 50px;
+    border: 3px solid #000000;
+    box-sizing: border-box;
 }
 
 .btn{
-     position: absolute;
-
+    position: absolute;
+    top: 550px;
 }
 
 .btn-danger{
-    top:700px;
     right:400px;
 }
 
 .btn-warning{
-
-    top:700px;
     right:700px;
-
 }

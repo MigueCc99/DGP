@@ -14,7 +14,20 @@ form {
   }
   
   button{
-    margin-left: 35%;
+    margin-left: 25%;
+    background: #3082769d;
+    border-radius: 4px;
+    width: 50%;
+  }
+
+  button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color:#2361599d;
+  }
+  
+  label{
+    color: #3082769d;
+    border: black;
   }
   
   /* Center the avatar image inside this container */

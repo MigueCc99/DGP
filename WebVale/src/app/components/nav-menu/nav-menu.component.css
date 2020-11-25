@@ -22,9 +22,6 @@
     height: auto;
 }
 
-#sidebar ul {
-    margin-top: 50%;
-}
 #sidebar ul.components {
     padding: 20px 0;
 }
