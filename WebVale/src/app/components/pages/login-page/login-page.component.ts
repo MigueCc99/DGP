@@ -26,7 +26,7 @@ export class LoginPageComponent {
     this.vale.getLogIn(uname, pass).subscribe(
       res => {
         if(res==1){
-          this.router.navigate(['/objetivos']);
+          this.router.navigate(['/perfil']);
         }else{
           confirm("Error en login");
         }
