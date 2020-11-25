@@ -27,6 +27,94 @@ export class ObjetivosPageComponent implements OnInit {
         nombre: "Lavarse la tienda",
         descripcion: "Hacer algo",
         imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },  {
+        id: 1,
+        nombre: "Lavarse la cara",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
+      },
+      {
+        id: 2,
+        nombre: "Lavarse la tienda",
+        descripcion: "Hacer algo",
+        imagen: "guapa"
       },
       
     ];
@@ -36,7 +124,7 @@ export class ObjetivosPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  filtrarObjetivos (){
+  filtrarListado (){
     this.listadoObjetivosFiltrado = this.listadoObjetivos.filter(
       objetivo => 
       objetivo.nombre.toLowerCase().includes(this.filtro.toLowerCase())

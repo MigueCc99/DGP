@@ -10,20 +10,24 @@
                 <input 
                     id="filtro"
                     [(ngModel)]='filtro'
-                    (ngModelChange)='filtrarObjetivos()'
+                    (ngModelChange)='filtrarListado()'
                     type="text" 
                     placeholder="Buscar un objetivo..."
                 >
             </div>
-            
+            <button type="button" class="btn btn-success">Crear un nuevo objetivo</button>
             <br>
         </div>
        
         <div class="listado">
             <ul *ngFor="let objetivo of listadoObjetivosFiltrado">
-                <li>{{objetivo.nombre}}</li>
+                <li>
+                    {{objetivo.nombre}}
+                    <span class="fa fa-eye"></span>
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                </li>
             </ul>
-          </div>
+        </div>
     </div>
 </div>
 

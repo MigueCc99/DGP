@@ -19,8 +19,9 @@ body {
 /* Cuadro búsqueda en listados */
 
 .cuadroBusqueda {
+    display: inline-block;
     width: 40%;
-    margin: 40px 0px;
+    margin: 40px 30px 40px 0px;
     background-color: white;
     background-position: 0px 0px; 
     background-repeat: no-repeat;
@@ -59,8 +60,31 @@ body {
 }
 
 .listado {
-
+    width: 60%;
+    font-size: 24px;
+    margin: 20px;
+    padding: 10px;
 }
+
+.listado > ul {
+    list-style: none;
+    border-bottom: 1px solid gray;     
+    padding: 5px;
+}
+
+li > button{
+    float: right;
+}
+
+li > span{
+    float: right;
+    margin: 5px 20px;
+}
+
+li > span:hover{
+    color: blue;
+}
+
 
 /* Títulos */
 h1 {
