@@ -20,6 +20,7 @@ import { SocioInfoPageComponent } from './components/pages/socio-info-page/socio
 import { ObjetivoFormComponent } from './components/forms/objetivo-form/objetivo-form.component';
 import { ActividadFormComponent } from './components/forms/actividad-form/actividad-form.component';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

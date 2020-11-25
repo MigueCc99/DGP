@@ -7,54 +7,21 @@
             <h1>Listado de objetivos</h1>
             <div class="cuadroBusqueda">
                 <span class="fa fa-search"></span>
-                <input type="text" placeholder="Buscar un objetivo...">
+                <input 
+                    id="filtro"
+                    [(ngModel)]='filtro'
+                    (ngModelChange)='filtrarObjetivos()'
+                    type="text" 
+                    placeholder="Buscar un objetivo..."
+                >
             </div>
             
             <br>
         </div>
        
         <div class="listado">
-            <ul>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
-              <li>First item</li>
+            <ul *ngFor="let objetivo of listadoObjetivosFiltrado">
+                <li>{{objetivo.nombre}}</li>
             </ul>
           </div>
     </div>
