@@ -4,14 +4,17 @@ USE vale;
 -- *****************************************************************************
 CREATE TABLE facilitadores(
     nombre VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
     contrasena VARCHAR(50) NOT NULL,
     centro BOOLEAN NOT NULL,
     correo VARCHAR(50) NOT NULL PRIMARY KEY,
-    telefono VARCHAR(50) NOT NULL
+    telefono VARCHAR(50) NOT NULL,
+    nacimiento VARCHAR(50)
 );
 
 CREATE TABLE socios(
     nombre VARCHAR(50) NOT NULL PRIMARY KEY,
+    apellidos VARCHAR(50) NOT NULL,
     nacimiento VARCHAR(50),
     contrasena VARCHAR(50)
 );
@@ -25,7 +28,7 @@ CREATE TABLE objetivos(
 
 
 -- *****************************************************************************
-INSERT INTO facilitadores(nombre,contrasena,centro,correo,telefono) VALUES ('david','0123',false,'david@vale.org','612345678');
+INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('david','baez','0123',false,'david@vale.org','612345678','23/07/1995');
 
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Lavarse las manos', 'Debes lavarte las manos que está el coronavirus');
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Hacerse la cama', 'Debes hacerte la cama todos los días al levantarte');
