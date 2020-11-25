@@ -3,7 +3,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 import indexRoutes from './routes/indexRoutes'
-import ValeRoutes from './routes/ValeRoutes'
+import loginRoutes from './routes/LoginRoutes'
+import objetivosRoutes from './routes/objetivosRoutes'
 
 class Server {
 
@@ -24,7 +25,8 @@ class Server {
 
     routes() : void {
         this.app.use('/',indexRoutes);
-        this.app.use('/api/vale/',ValeRoutes);
+        this.app.use('/api/vale/',loginRoutes);
+        this.app.use('/api/vale/objetivos/',objetivosRoutes);
     }
 
     start() : void {

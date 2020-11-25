@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ObjetivosService } from 'src/app/services/objetivos.service';
 import { Objetivo } from '../../../models/Objetivo'
 
 @Component({
@@ -9,125 +10,33 @@ import { Objetivo } from '../../../models/Objetivo'
 export class ObjetivosPageComponent implements OnInit {
 
   //Listado
-  listadoObjetivos : Objetivo[];
-  listadoObjetivosFiltrado : Objetivo[];
+  listadoObjetivos : Objetivo[] = [];
+  listadoObjetivosFiltrado : Objetivo[] = [];
   filtro : string = '';
 
 
-  constructor() {
-    this.listadoObjetivos = [
-      {
-        id: 1,
-        nombre: "Lavarse la cara",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
+  constructor(private objetivosService : ObjetivosService) {
+   }
+
+   getObjetivos() {
+    this.objetivosService.getObjetivos().subscribe(
+      res => {
+        this.listadoObjetivos = this.listadoObjetivosFiltrado = res as Objetivo[];
+        console.log(res)
       },
-      {
-        id: 2,
-        nombre: "Lavarse la tienda",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },  {
-        id: 1,
-        nombre: "Lavarse la cara",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },
-      {
-        id: 2,
-        nombre: "Lavarse la tienda",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },  {
-        id: 1,
-        nombre: "Lavarse la cara",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },
-      {
-        id: 2,
-        nombre: "Lavarse la tienda",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },  {
-        id: 1,
-        nombre: "Lavarse la cara",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },
-      {
-        id: 2,
-        nombre: "Lavarse la tienda",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },  {
-        id: 1,
-        nombre: "Lavarse la cara",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },
-      {
-        id: 2,
-        nombre: "Lavarse la tienda",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },  {
-        id: 1,
-        nombre: "Lavarse la cara",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },
-      {
-        id: 2,
-        nombre: "Lavarse la tienda",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },  {
-        id: 1,
-        nombre: "Lavarse la cara",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },
-      {
-        id: 2,
-        nombre: "Lavarse la tienda",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },  {
-        id: 1,
-        nombre: "Lavarse la cara",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },
-      {
-        id: 2,
-        nombre: "Lavarse la tienda",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },  {
-        id: 1,
-        nombre: "Lavarse la cara",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },
-      {
-        id: 2,
-        nombre: "Lavarse la tienda",
-        descripcion: "Hacer algo",
-        imagen: "guapa"
-      },
-      
-    ];
-    this.listadoObjetivosFiltrado = this.listadoObjetivos;
+      err => console.error(err)
+    );
    }
 
   ngOnInit(): void {
+    this.getObjetivos();
   }
 
   filtrarListado (){
     this.listadoObjetivosFiltrado = this.listadoObjetivos.filter(
-      objetivo => 
-      objetivo.nombre.toLowerCase().includes(this.filtro.toLowerCase())
+      objetivo => {
+        objetivo.nombre.toLowerCase().includes(this.filtro.toLowerCase())
+      }
     )
   }
 }

@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class ValeService {
 
-  API_URI = 'http://localhost:3000/api';
+  API_URI = 'http://localhost:3000/api/vale';
 
   constructor(private http: HttpClient) {}
 
@@ -16,7 +16,7 @@ export class ValeService {
   }*/
 
   getLogIn(username: string, password: string) {
-    return this.http.get(`${this.API_URI}/vale/login/${username}/${password}`)
+    return this.http.get(`${this.API_URI}/login/${username}/${password}`)
   }
 
 
