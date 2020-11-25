@@ -11,8 +11,7 @@ class LoginController {
         await pool.query('SELECT correo FROM facilitadores WHERE correo = ? and contrasena = ?', [correo, password], function(err, result, fields) {
             if (err) throw err;
             if (result.length > 0) {
-                console.log(result);
-                return res.json(result);
+                return res.json(result[0]);
             }else{
                 return res.json(0);
             }

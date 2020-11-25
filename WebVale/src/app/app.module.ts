@@ -21,6 +21,7 @@ import { ObjetivoFormComponent } from './components/forms/objetivo-form/objetivo
 import { ActividadFormComponent } from './components/forms/actividad-form/actividad-form.component';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { FormsModule } from '@angular/forms';
+import { ConstantsComponent } from './components/constants/constants.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FormsModule } from '@angular/forms';
     SocioInfoPageComponent,
     ObjetivoFormComponent,
     ActividadFormComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ConstantsComponent
   ],
   imports: [
     BrowserModule,
