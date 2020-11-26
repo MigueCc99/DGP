@@ -4,6 +4,7 @@ import { FacilitadoresService } from '../../../services/facilitadores.service';
 import { Facilitador } from '../../../models/Facilitador'
 
 import { ConstantsComponent } from '../../constants/constants.component'
+import { __values } from 'tslib';
 
 
 @Component({
@@ -13,14 +14,17 @@ import { ConstantsComponent } from '../../constants/constants.component'
 })
 export class PerfilPageComponent implements OnInit {
 
+  facilitador: any = {};
   correo: string = ConstantsComponent.usuarioactual;
 
-
-  constructor(private facilitadoresService: FacilitadoresService, ) { }
+  constructor(private facilitadoresService: FacilitadoresService) { }
 
   ngOnInit(): void {
        this.facilitadoresService.getFacilitador(this.correo).subscribe(
-        res => console.log(res),
+        res => { 
+          this.facilitador = res
+           console.log(this.facilitador);
+        },
         err => console.log(err)
       );
     }
