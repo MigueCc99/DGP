@@ -1,4 +1,4 @@
-package com.dgp.appvale;
+package com.dgp.appvale.clases;
 
 import java.util.Date;
 

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AppVale</string>
+    <string name="logoVale">Asociacion Vale</string>
+    <string name="entrar">Entrar</string>
+    <string name="inicioSesion">INICIO DE SESIÓN</string>
+    <string name="acceder">ACCEDER</string>
+    <string name="descripcionBotonesContra">Boton para poner los símbolos de la contraseña</string>
 </resources>

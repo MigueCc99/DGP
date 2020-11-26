@@ -1,4 +1,4 @@
-package com.dgp.appvale;
+package com.dgp.appvale.clases;
 
 // ****IMPORTANTE*****
 //Símbolos están por determinar.

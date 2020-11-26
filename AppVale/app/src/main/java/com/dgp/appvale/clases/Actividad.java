@@ -1,4 +1,4 @@
-package com.dgp.appvale;
+package com.dgp.appvale.clases;
 
 public class Actividad{
     private String nombre;
