@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+import { FacilitadoresService } from '../../../services/facilitadores.service';
+import { Facilitador } from '../../../models/Facilitador'
+
+import { ConstantsComponent } from '../../constants/constants.component'
+
+
 @Component({
   selector: 'app-perfil-page',
   templateUrl: './perfil-page.component.html',
@@ -7,9 +13,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilPageComponent implements OnInit {
 
-  constructor() { }
+  correo: string = ConstantsComponent.usuarioactual;
+
+
+  constructor(private facilitadoresService: FacilitadoresService, ) { }
 
   ngOnInit(): void {
+       this.facilitadoresService.getFacilitador(this.correo).subscribe(
+        res => console.log(res),
+        err => console.log(err)
+      );
+    }
+    
   }
-
-}

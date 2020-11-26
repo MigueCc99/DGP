@@ -10,7 +10,11 @@ export class FacilitadoresService {
 
   constructor(private http: HttpClient) {}
 
-  getObjetivos() {
-    return this.http.get(`${this.API_URI}/`)
+  getFacilitadores() {
+    return this.http.get(`${this.API_URI}/`);
+  }
+
+  getFacilitador(correo: string){
+    return this.http.get(`${this.API_URI}/${correo}`);
   }
 }

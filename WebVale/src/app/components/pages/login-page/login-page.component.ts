@@ -27,7 +27,7 @@ export class LoginPageComponent {
     this.vale.getLogIn(correo, pass).subscribe(
       res => {
         if(res!=0){
-          this.mail=res;
+          this.mail=correo;
           ConstantsComponent.usuarioactual=this.mail;
           this.router.navigate(['/perfil']);
         }else{
