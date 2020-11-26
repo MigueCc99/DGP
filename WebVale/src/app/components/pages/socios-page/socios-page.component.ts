@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Socio } from 'src/app/models/Socio';
 import { Router } from '@angular/router';
+import { SociosService } from 'src/app/services/socios.service';
 
 @Component({
   selector: 'app-socios-page',
@@ -9,25 +10,26 @@ import { Router } from '@angular/router';
 })
 export class SociosPageComponent implements OnInit {
   //Listado
-  listadoSocios : Socio[];
-  listadoSociosFiltrado : Socio[];
+  listadoSocios : Socio[] = [];
+  listadoSociosFiltrado : Socio[] = [];
   filtro : string = '';
 
 
-  constructor( private router: Router) {
-    this.listadoSocios = [
-      {
-        id: 1,
-        nombre: "Cayetana",
-        apellidos: "Alvarez"
-      },
-      
-    ];
-    this.listadoSociosFiltrado = this.listadoSocios;
+  constructor( private sociosService : SociosService, private router: Router) {
    }
 
   ngOnInit(): void {
+    this.getSocios();
   }
+
+  getSocios() {
+    this.sociosService.getSocios().subscribe(
+      res => {
+        this.listadoSocios = this.listadoSociosFiltrado = res as Socio[];
+      },
+      err => console.error(err)
+    );
+   }
 
   filtrarListado (){
     this.listadoSociosFiltrado = this.listadoSocios.filter(

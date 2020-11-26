@@ -3,5 +3,5 @@ export interface Socio {
     nombre: string;
     apellidos: string;
     contraseña?: string;
-    nacimiento?: Date;
+    nacimiento?: string;
 }   

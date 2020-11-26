@@ -7,6 +7,7 @@ import loginRoutes from './routes/LoginRoutes'
 import objetivosRoutes from './routes/objetivosRoutes'
 import facilitadoresRoutes from './routes/facilitadoresRoutes'
 import actividadesRoutes from './routes/actividadesRoutes'
+import sociosRoutes from './routes/sociosRoutes'
 
 class Server {
 
@@ -31,6 +32,7 @@ class Server {
         this.app.use('/api/vale/objetivos/',objetivosRoutes);
         this.app.use('/api/vale/facilitadores/',facilitadoresRoutes);
         this.app.use('/api/vale/actividades/', actividadesRoutes);
+        this.app.use('/api/vale/socios/', sociosRoutes);
     }
 
     start() : void {
