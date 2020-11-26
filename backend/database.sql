@@ -47,6 +47,7 @@ INSERT INTO objetivos(nombre,descripcion) VALUES ('Ofimática', 'Habilidades par
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Dibujo', 'Habilidades para distinguir figuras y dibujar objetos simples para crear escenas');
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Deporte', 'Habilidad para jugar a deportes de equipo y constancia constatada');
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Lectura', 'Constancia para leer todos los días y uso de diccionario');
+INSERT INTO objetivos(nombre,descripcion) VALUES ('Meditación', 'Poder tranquilizarse en situaciones de presión');
 
 INSERT INTO actividades(nombre,descripcion) VALUES ('Lavarse las manos', 'Debes lavarte las manos que está el coronavirus');
 INSERT INTO actividades(nombre,descripcion) VALUES ('Hacerse la cama', 'Debes hacerte la cama todos los días al levantarte');

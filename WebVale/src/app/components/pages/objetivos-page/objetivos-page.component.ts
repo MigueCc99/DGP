@@ -18,6 +18,10 @@ export class ObjetivosPageComponent implements OnInit {
   constructor(private objetivosService : ObjetivosService) {
    }
 
+   ngOnInit(): void {
+    this.getObjetivos();
+  }
+  
    getObjetivos() {
     this.objetivosService.getObjetivos().subscribe(
       res => {
@@ -26,10 +30,6 @@ export class ObjetivosPageComponent implements OnInit {
       err => console.error(err)
     );
    }
-
-  ngOnInit(): void {
-    this.getObjetivos();
-  }
 
   filtrarListado (){
     this.listadoObjetivosFiltrado = this.listadoObjetivos.filter(
