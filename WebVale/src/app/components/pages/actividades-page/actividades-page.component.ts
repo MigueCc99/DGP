@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actividad } from 'src/app/models/Actividad';
 import { ActividadesService } from 'src/app/services/actividades.service';
 
@@ -15,7 +16,7 @@ export class ActividadesPageComponent implements OnInit {
   filtro : string = '';
 
 
-  constructor(private actividadesService : ActividadesService) {
+  constructor(private actividadesService : ActividadesService, private router: Router) {
    }
 
   ngOnInit(): void {
@@ -36,5 +37,21 @@ export class ActividadesPageComponent implements OnInit {
       actividad => 
       actividad.nombre.toLowerCase().includes(this.filtro.toLowerCase())
     )
+  }
+
+  navegaVer (id : number | string) {
+    this.router.navigate(['/actividades/ver/' + id]);
+  }
+
+  navegaEditar (id : number | string) {
+    this.router.navigate(['/actividades/editar/' + id]);
+  }
+
+  eliminar (id : number | string) {
+
+  }
+
+  crear () {
+    this.router.navigate(['/actividades/crear']);
   }
 }

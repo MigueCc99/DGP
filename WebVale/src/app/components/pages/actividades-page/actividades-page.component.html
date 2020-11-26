@@ -15,7 +15,7 @@
                     placeholder="Buscar una actividad..."
                 >
             </div>
-            <button type="button" class="btn btn-success">Crear una nueva actividad</button>
+            <button type="button" (click)="crear()" class="btn btn-success">Crear una nueva actividad</button>
             <br>
         </div>
        
@@ -23,9 +23,9 @@
             <ul *ngFor="let actividad of listadoActividadesFiltrado">
                 <li>
                     {{actividad.nombre}}
-                    <button class="boton-ver fa fa-eye"></button>
-                    <button type="button" class="btn btn-warning">Editar</button>
-                    <button type="button" class="btn btn-danger">Eliminar</button>
+                    <button type="button" (click)="navegaVer(actividad.id)" class="boton-ver fa fa-eye"></button>
+                    <button type="button" (click)="navegaEditar(actividad.id)" class="btn btn-warning">Editar</button>
+                    <button type="button" (click)="eliminar(actividad.id)" class="btn btn-danger">Eliminar</button>
                 </li>
             </ul>
         </div>

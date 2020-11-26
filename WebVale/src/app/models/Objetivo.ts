@@ -3,4 +3,5 @@ export interface Objetivo {
     nombre: string;
     descripcion?: string;
     imagen?: string;
+    toggle?: boolean;
 }   

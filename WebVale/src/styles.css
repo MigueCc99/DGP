@@ -83,6 +83,10 @@ li > .boton-ver:hover{
     color: blue;
 }
 
+li > p {
+    font-size: 18px;
+}
+
 
 /* Títulos */
 h1 {

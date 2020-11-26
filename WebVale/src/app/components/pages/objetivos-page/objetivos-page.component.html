@@ -15,7 +15,7 @@
                     placeholder="Buscar un objetivo..."
                 >
             </div>
-            <button type="button" class="btn btn-success">Crear un nuevo objetivo</button>
+            <button type="button" (click)="crear()" class="btn btn-success">Crear un nuevo objetivo</button>
             <br>
         </div>
        
@@ -23,9 +23,10 @@
             <ul *ngFor="let objetivo of listadoObjetivosFiltrado">
                 <li>
                     {{objetivo.nombre}}
-                    <button class="boton-ver fa fa-eye"></button>
-                    <button type="button" class="btn btn-warning">Editar</button>
-                    <button type="button" class="btn btn-danger">Eliminar</button>
+                    <button type="button" (click)="objetivo.toggle=!objetivo.toggle" class="boton-ver fa fa-eye"></button>
+                    <button type="button" (click)="navegaEditar(objetivo.id)" class="btn btn-warning">Editar</button>
+                    <button type="button" (click)="eliminar(objetivo.id)" class="btn btn-danger">Eliminar</button>
+                    <p *ngIf="objetivo.toggle">{{objetivo.descripcion}}</p>
                 </li>
             </ul>
         </div>
