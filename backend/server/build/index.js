@@ -10,6 +10,7 @@ const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const LoginRoutes_1 = __importDefault(require("./routes/LoginRoutes"));
 const objetivosRoutes_1 = __importDefault(require("./routes/objetivosRoutes"));
 const facilitadoresRoutes_1 = __importDefault(require("./routes/facilitadoresRoutes"));
+const actividadesRoutes_1 = __importDefault(require("./routes/actividadesRoutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -27,6 +28,7 @@ class Server {
         this.app.use('/api/vale/', LoginRoutes_1.default);
         this.app.use('/api/vale/objetivos/', objetivosRoutes_1.default);
         this.app.use('/api/vale/facilitadores/', facilitadoresRoutes_1.default);
+        this.app.use('/api/vale/actividades/', actividadesRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {
