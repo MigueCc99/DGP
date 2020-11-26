@@ -13,7 +13,8 @@ CREATE TABLE facilitadores(
 );
 
 CREATE TABLE socios(
-    nombre VARCHAR(50) NOT NULL PRIMARY KEY,
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
     apellidos VARCHAR(50) NOT NULL,
     nacimiento VARCHAR(50),
     contrasena VARCHAR(50)
@@ -36,6 +37,9 @@ CREATE TABLE actividades(
 
 -- *****************************************************************************
 INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('david','baez','0123',false,'david@vale.org','612345678','23/07/1995');
+
+
+
 
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Matemáticas', 'Desarrollar habilidades matemáticas para el manejo de situaciones de la vida cotidiana');
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Inglés', 'Hablar y entender inglés correctamente');

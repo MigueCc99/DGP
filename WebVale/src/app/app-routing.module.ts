@@ -9,6 +9,7 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
 import { ObjetivoInfoPageComponent } from './components/pages/objetivo-info-page/objetivo-info-page.component';
 import { ObjetivosPageComponent } from './components/pages/objetivos-page/objetivos-page.component';
 import { PerfilPageComponent } from './components/pages/perfil-page/perfil-page.component';
+import { SocioInfoPageComponent } from './components/pages/socio-info-page/socio-info-page.component';
 import { SociosPageComponent } from './components/pages/socios-page/socios-page.component';
 
 const routes: Routes = [
@@ -60,6 +61,10 @@ const routes: Routes = [
   {
     path: 'socios',
     component: SociosPageComponent
+  },
+  {
+    path: 'socios/ver/:id',
+    component: SocioInfoPageComponent
   },
   
 ];

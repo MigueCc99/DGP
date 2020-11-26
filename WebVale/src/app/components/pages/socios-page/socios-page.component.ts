@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Socio } from 'src/app/models/Socio';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-socios-page',
@@ -13,7 +14,7 @@ export class SociosPageComponent implements OnInit {
   filtro : string = '';
 
 
-  constructor() {
+  constructor( private router: Router) {
     this.listadoSocios = [
       {
         id: 1,
@@ -33,5 +34,9 @@ export class SociosPageComponent implements OnInit {
       socio => 
       (socio.nombre + " " + socio.apellidos).toLowerCase().includes(this.filtro.toLowerCase()) 
     )
+  }
+
+  navegaVer (id : number | string) {
+    this.router.navigate(['/socios/ver/' + id]);
   }
 }

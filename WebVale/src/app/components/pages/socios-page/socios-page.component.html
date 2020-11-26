@@ -22,7 +22,7 @@
             <ul *ngFor="let socio of listadoSociosFiltrado">
                 <li>
                     {{socio.nombre}} {{socio.apellidos}}
-                    <button class="boton-ver fa fa-eye"></button>
+                    <button (click)="navegaVer(socio.id)"  class="boton-ver fa fa-eye"></button>
                 </li>
             </ul>
         </div>
