@@ -69,19 +69,17 @@ body {
 .listado > ul {
     list-style: none;
     border-bottom: 1px solid gray;     
-    padding: 5px;
+    padding: 10px;
 }
 
 li > button{
     float: right;
+    margin: 5px;
+    border: none;
+    background-color: white;
 }
 
-li > span{
-    float: right;
-    margin: 5px 20px;
-}
-
-li > span:hover{
+li > .boton-ver:hover{
     color: blue;
 }
 

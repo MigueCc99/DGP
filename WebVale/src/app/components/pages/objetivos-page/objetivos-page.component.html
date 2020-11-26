@@ -23,7 +23,8 @@
             <ul *ngFor="let objetivo of listadoObjetivosFiltrado">
                 <li>
                     {{objetivo.nombre}}
-                    <span class="fa fa-eye"></span>
+                    <button class="boton-ver fa fa-eye"></button>
+                    <button type="button" class="btn btn-warning">Editar</button>
                     <button type="button" class="btn btn-danger">Eliminar</button>
                 </li>
             </ul>
