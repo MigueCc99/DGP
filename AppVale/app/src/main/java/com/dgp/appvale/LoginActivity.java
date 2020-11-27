@@ -2,7 +2,9 @@ package com.dgp.appvale;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,6 +32,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_botonCambio = null;
     }
 
+    private void reset (){
+        for(int i = 0; i < contraseniaProvisional.length; i++)
+            contraseniaProvisional[i] = -1;
+
+        ultimaPosContr = -1;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +52,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_botonContra4.setOnClickListener(this);
         et_botonContra5.setOnClickListener(this);
         et_botonContra6.setOnClickListener(this);
+
+        et_botonContra1.setImageResource(R.drawable.imagen_gris);
+        et_botonContra2.setImageResource(R.drawable.imagen_gris);
+        et_botonContra3.setImageResource(R.drawable.imagen_gris);
+        et_botonContra4.setImageResource(R.drawable.imagen_gris);
+        et_botonContra5.setImageResource(R.drawable.imagen_gris);
+        et_botonContra6.setImageResource(R.drawable.imagen_gris);
+
+        et_botonAcceso.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
     }
 
     @Override
@@ -75,6 +94,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 et_botonCambio.setImageResource(idImage);
             }
+        }
+
+        boolean contrCompleta = true;
+        for(int i = 0; i < contraseniaProvisional.length && contrCompleta; i++){
+            if(contraseniaProvisional[i] == -1)
+                contrCompleta = false;
+        }
+
+        if(contrCompleta) {
+            et_botonAcceso.setEnabled(true);
+        }else {
+            et_botonAcceso.setEnabled(false);
         }
     }
 
@@ -127,5 +158,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 contraseniaProvisional[ultimaPosContr] = codigoContr;
             }
         }
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        reset();
     }
 }
