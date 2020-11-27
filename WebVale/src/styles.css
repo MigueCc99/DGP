@@ -93,3 +93,17 @@ h1 {
     color: var(--verde-institucional);
     font-size: 48px;
 }
+
+.opcionesFacilitadores > button{
+    margin: 5px;
+    border: none;
+}
+
+.opcionesFacilitadores > h3{
+    margin-top:50px;
+}
+
+.opcionesSocios > button{
+    margin: 5px;
+    border: none;
+}
