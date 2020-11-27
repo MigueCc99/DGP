@@ -12,53 +12,66 @@ import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int SELECCION_REQUEST_CODE = 0;
-
     private static int[] contraseniaProvisional = {-1, -1, -1, -1, -1, -1};
     private static int ultimaPosContr = -1;
 
+    private ImageButton et_botonContra1, et_botonContra2, et_botonContra3, et_botonContra4, et_botonContra5, et_botonContra6, et_botonCambio;
+    private Button et_botonAcceso;
+
+    private void init (){
+        et_botonAcceso = (Button)findViewById(R.id.botonAcceso);
+        et_botonContra1 = (ImageButton)findViewById(R.id.botonContra1);
+        et_botonContra2 = (ImageButton)findViewById(R.id.botonContra2);
+        et_botonContra3 = (ImageButton)findViewById(R.id.botonContra3);
+        et_botonContra4 = (ImageButton)findViewById(R.id.botonContra4);
+        et_botonContra5 = (ImageButton)findViewById(R.id.botonContra5);
+        et_botonContra6 = (ImageButton)findViewById(R.id.botonContra6);
+        et_botonCambio = null;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        init();
 
-        findViewById(R.id.botonAcceso).setOnClickListener(this);
-        findViewById(R.id.botonContra1).setOnClickListener(this);
-        findViewById(R.id.botonContra2).setOnClickListener(this);
-        findViewById(R.id.botonContra3).setOnClickListener(this);
-        findViewById(R.id.botonContra4).setOnClickListener(this);
-        findViewById(R.id.botonContra5).setOnClickListener(this);
-        findViewById(R.id.botonContra6).setOnClickListener(this);
+        et_botonAcceso.setOnClickListener(this);
+        et_botonContra1.setOnClickListener(this);
+        et_botonContra2.setOnClickListener(this);
+        et_botonContra3.setOnClickListener(this);
+        et_botonContra4.setOnClickListener(this);
+        et_botonContra5.setOnClickListener(this);
+        et_botonContra6.setOnClickListener(this);
 
         // Actualizo la imagen que ha seleccionado el usuario
+        super.onStart();
         int idBotonCambio = -1;
 
         if(ultimaPosContr != -1){
             if(contraseniaProvisional[ultimaPosContr] != -1){
                 switch(ultimaPosContr){
                     case 0:
-                        idBotonCambio = R.id.botonContra1;
+                        et_botonCambio = et_botonContra1;
                         break;
                     case 1:
-                        idBotonCambio = R.id.botonContra2;
+                        et_botonCambio = et_botonContra2;
                         break;
                     case 2:
-                        idBotonCambio = R.id.botonContra3;
+                        et_botonCambio = et_botonContra3;
                         break;
                     case 3:
-                        idBotonCambio = R.id.botonContra4;
+                        et_botonCambio = et_botonContra4;
                         break;
                     case 4:
-                        idBotonCambio = R.id.botonContra5;
+                        et_botonCambio = et_botonContra5;
                         break;
                     case 5:
-                        idBotonCambio = R.id.botonContra6;
+                        et_botonCambio = et_botonContra6;
                 }
                 int idImage = Global.getIdImagen(contraseniaProvisional[ultimaPosContr]);
 
-                if( idBotonCambio != -11 && idImage != -1){
-                    findViewById(idBotonCambio).setBackgroundResource(idImage);
-                }
+                et_botonCambio.setImageResource(idImage);
+
             }
         }
     }

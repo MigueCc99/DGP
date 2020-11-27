@@ -37,7 +37,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonContra5"
+        app:layout_constraintVertical_bias="0.771" />
 
     <ImageButton
         android:id="@+id/botonContra1"
@@ -74,7 +77,6 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="54dp"
-        android:layout_marginEnd="102dp"
         android:layout_marginBottom="49dp"
         android:contentDescription="@string/descripcionBotonesContra"
         app:layout_constraintBottom_toTopOf="@+id/botonContra5"
@@ -100,8 +102,10 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="54dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="48dp"
         android:contentDescription="@string/descripcionBotonesContra"
+        app:layout_constraintEnd_toStartOf="@+id/botonContra6"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonContra3"
         app:srcCompat="@drawable/imagen_gris" />

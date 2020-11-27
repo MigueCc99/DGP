@@ -6,4 +6,6 @@
     <string name="acceder">ACCEDER</string>
     <string name="descripcionBotonesContra">Boton para poner los símbolos de la contraseña</string>
     <string name="seleccionSimbolo">SELECCIÓN DE SÍMBOLO</string>
+    <string name="botonContra1">BOTON CONTRASEÑA 1</string>
+    <string name="idBotonCambio">idBotonCambio</string>
 </resources>
