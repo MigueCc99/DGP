@@ -1,14 +1,33 @@
 
 <!-- Sidebar -->
-<nav id="sidebar">
-    <a  href="https://asvale.org/" target="_blanket">
-        <img id="logo" src="assets/LogoAVale.png">
-    </a>
-    <ul class="list-unstyled components">
-        <li><a id="centro" class="disabled" routerLink="/centro" [routerLinkActive]="'active'">Centro</a></li>
-        <li><a id="objetivos" routerLink="/objetivos" [routerLinkActive]="'active'">Objetivos</a></li>
-        <li><a id="socios" routerLink="/socios" [routerLinkActive]="'active'">Socios</a></li>
-        <li><a id="actividades" routerLink="/actividades" [routerLinkActive]="'active'">Actividades</a></li>
-        <li><a id="perfil" routerLink="/perfil" [routerLinkActive]="'active'">Mi perfil</a></li>
-    </ul>
-</nav>
+<ng-container *ngIf="isCentro(); then centroF; else ElseBlock"></ng-container>
+<!--If-->
+<ng-template #centroF>
+    <nav id="sidebar">
+        <a  href="https://asvale.org/" target="_blanket">
+            <img id="logo" src="assets/LogoAVale.png">
+        </a>
+        <ul class="list-unstyled components">
+            <li><a id="centro" class="disabled" routerLink="/centro" [routerLinkActive]="'active'">Centro</a></li>
+            <li><a id="objetivos" routerLink="/objetivos" [routerLinkActive]="'active'">Objetivos</a></li>
+            <li><a id="socios" routerLink="/socios" [routerLinkActive]="'active'">Socios</a></li>
+            <li><a id="actividades" routerLink="/actividades" [routerLinkActive]="'active'">Actividades</a></li>
+            <li><a id="perfil" routerLink="/perfil" [routerLinkActive]="'active'">Mi perfil</a></li>
+        </ul>
+    </nav>
+</ng-template>
+<ng-template #ElseBlock>
+    <!--Else-->
+    <nav id="sidebar">
+        <a  href="https://asvale.org/" target="_blanket">
+            <img id="logo" src="assets/LogoAVale.png">
+        </a>
+        <ul class="list-unstyled components">
+            <li><a id="centro" routerLink="/centro" [routerLinkActive]="'active'">Centro</a></li>
+            <li><a id="objetivos" routerLink="/objetivos" [routerLinkActive]="'active'">Objetivos</a></li>
+            <li><a id="socios" routerLink="/socios" [routerLinkActive]="'active'">Socios</a></li>
+            <li><a id="actividades" routerLink="/actividades" [routerLinkActive]="'active'">Actividades</a></li>
+            <li><a id="perfil" routerLink="/perfil" [routerLinkActive]="'active'">Mi perfil</a></li>
+        </ul>
+    </nav>
+</ng-template>

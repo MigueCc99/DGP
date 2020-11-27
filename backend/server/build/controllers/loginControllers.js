@@ -19,7 +19,7 @@ class LoginController {
         return __awaiter(this, void 0, void 0, function* () {
             const { correo } = req.params;
             const { password } = req.params;
-            yield database_1.default.query('SELECT correo FROM facilitadores WHERE correo = ? and contrasena = ?', [correo, password], function (err, result, fields) {
+            yield database_1.default.query('SELECT correo,centro FROM facilitadores WHERE correo = ? and contrasena = ?', [correo, password], function (err, result, fields) {
                 if (err)
                     throw err;
                 if (result.length > 0) {

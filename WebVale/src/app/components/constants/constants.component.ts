@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
 export class ConstantsComponent {
 
   public static usuarioactual: string;
+  public static centro: boolean;
 
 }

@@ -37,7 +37,7 @@ CREATE TABLE actividades(
 
 -- *****************************************************************************
 INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('david','baez','0123',false,'david@vale.org','612345678','23/07/1995');
-
+INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('ana','baez','0123',true,'ana@vale.org','612345678','23/07/1995');
 
 
 

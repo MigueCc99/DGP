@@ -14,6 +14,7 @@ export class LoginPageComponent {
   constructor(private user: LoginService, private router: Router, private vale: ValeService) {}
 
   mail: any;
+  prueba: any;
 
   logIn(correo: any, pass: any) {
     this.user.correo = correo;
@@ -28,7 +29,9 @@ export class LoginPageComponent {
       res => {
         if(res!=0){
           this.mail=correo;
+          this.prueba=res;
           ConstantsComponent.usuarioactual=this.mail;
+          ConstantsComponent.centro=this.prueba.centro;
           this.router.navigate(['/perfil']);
         }else{
           confirm("Error en login");

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConstantsComponent } from '../../components/constants/constants.component';
 
 @Component({
   selector: 'app-nav-menu',
@@ -9,7 +10,13 @@ export class NavMenuComponent implements OnInit {
 
   constructor() { }
 
+  centro: boolean = ConstantsComponent.centro;
+
   ngOnInit(): void {
+  }
+
+  isCentro() {
+    return !this.centro;
   }
 
 }
