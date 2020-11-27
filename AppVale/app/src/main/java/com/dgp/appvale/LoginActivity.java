@@ -10,13 +10,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.dgp.appvale.clases.Sistema;
 
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int SELECCION_REQUEST_CODE = 0;
-    private static int[] contraseniaProvisional = {-1, -1, -1, -1, -1, -1};
-    private static int ultimaPosContr = -1;
+    private static int[] contraseniaProvisional = new int[6];
+    private static int ultimaPosContr;
 
     private ImageButton et_botonContra1, et_botonContra2, et_botonContra3, et_botonContra4, et_botonContra5, et_botonContra6, et_botonCambio;
     private Button et_botonAcceso;
@@ -37,6 +40,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             contraseniaProvisional[i] = -1;
 
         ultimaPosContr = -1;
+
+        et_botonContra1.setImageResource(R.drawable.imagen_gris);
+        et_botonContra2.setImageResource(R.drawable.imagen_gris);
+        et_botonContra3.setImageResource(R.drawable.imagen_gris);
+        et_botonContra4.setImageResource(R.drawable.imagen_gris);
+        et_botonContra5.setImageResource(R.drawable.imagen_gris);
+        et_botonContra6.setImageResource(R.drawable.imagen_gris);
+
+        et_botonAcceso.setEnabled(false);
     }
 
     @Override
@@ -44,6 +56,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
+        reset();
 
         et_botonAcceso.setOnClickListener(this);
         et_botonContra1.setOnClickListener(this);
@@ -53,15 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_botonContra5.setOnClickListener(this);
         et_botonContra6.setOnClickListener(this);
 
-        et_botonContra1.setImageResource(R.drawable.imagen_gris);
-        et_botonContra2.setImageResource(R.drawable.imagen_gris);
-        et_botonContra3.setImageResource(R.drawable.imagen_gris);
-        et_botonContra4.setImageResource(R.drawable.imagen_gris);
-        et_botonContra5.setImageResource(R.drawable.imagen_gris);
-        et_botonContra6.setImageResource(R.drawable.imagen_gris);
-
         et_botonAcceso.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-
     }
 
     @Override
@@ -104,17 +109,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if(contrCompleta) {
             et_botonAcceso.setEnabled(true);
-        }else {
-            et_botonAcceso.setEnabled(false);
         }
     }
 
     @Override
     public void onClick(View v){
+
         if(v.getId() == R.id.botonAcceso){
-            Intent i = new Intent(this, MenuActivity.class);
-            // Lanzo Activity Menu
-            startActivity(i);
+            Sistema sistema = new Sistema();
+
+            if(sistema.comparaContrasenia(contraseniaProvisional)){
+                Intent i = new Intent(this, MenuActivity.class);
+                // Lanzo Activity Menu
+                startActivity(i);
+            }else{
+                Toast toast = Toast.makeText(getApplicationContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT);
+                toast.show();
+                reset();
+            }
         }else {
             // Guardo la última posición donde clicka el usuario
 
