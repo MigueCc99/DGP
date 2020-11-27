@@ -19,4 +19,8 @@ public class Sistema {
 
         return iguales;
     }
+
+    public String getNombreSocio(){
+        return socioPrueba.getNombre();
+    }
 }

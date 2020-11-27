@@ -8,4 +8,11 @@
     <string name="seleccionSimbolo">SELECCIÓN DE SÍMBOLO</string>
     <string name="botonContra1">BOTON CONTRASEÑA 1</string>
     <string name="idBotonCambio">idBotonCambio</string>
+
+    <string name="textoHolaDefecto">HOLA, NOMBRE</string>
+    <string name="textoHolaSecundario">¿QUÉ QUIERES HACER AHORA?</string>
+
+    <string name="textoSalir">SALIR</string>
+    <string name="textoPerfil">PERFIL</string>
+    <string name="textoObjetivos">OBJETIVOS</string>
 </resources>

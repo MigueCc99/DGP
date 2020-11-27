@@ -119,6 +119,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Sistema sistema = new Sistema();
 
             if(sistema.comparaContrasenia(contraseniaProvisional)){
+                reset();
                 Intent i = new Intent(this, MenuActivity.class);
                 // Lanzo Activity Menu
                 startActivity(i);
