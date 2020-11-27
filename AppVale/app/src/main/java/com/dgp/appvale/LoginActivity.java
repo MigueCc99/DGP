@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -42,12 +43,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_botonContra4.setOnClickListener(this);
         et_botonContra5.setOnClickListener(this);
         et_botonContra6.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
 
         // Actualizo la imagen que ha seleccionado el usuario
-
-        if(ultimaPosContr != -1){
-            if(contraseniaProvisional[ultimaPosContr] != -1){
-                switch(ultimaPosContr){
+        if(ultimaPosContr != -1) {
+            if (contraseniaProvisional[ultimaPosContr] != -1) {
+                switch (ultimaPosContr) {
                     case 0:
                         et_botonCambio = et_botonContra1;
                         break;
