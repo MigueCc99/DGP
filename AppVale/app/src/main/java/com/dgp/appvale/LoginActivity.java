@@ -44,8 +44,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_botonContra6.setOnClickListener(this);
 
         // Actualizo la imagen que ha seleccionado el usuario
-        super.onStart();
-        int idBotonCambio = -1;
 
         if(ultimaPosContr != -1){
             if(contraseniaProvisional[ultimaPosContr] != -1){
@@ -71,7 +69,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 int idImage = Global.getIdImagen(contraseniaProvisional[ultimaPosContr]);
 
                 et_botonCambio.setImageResource(idImage);
-
             }
         }
     }
@@ -84,6 +81,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(i);
         }else {
             // Guardo la última posición donde clicka el usuario
+
             switch(v.getId()){
                 case R.id.botonContra1:
                     ultimaPosContr = 0;
@@ -109,6 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // Lanzo la Activity de seleccion símbolos para que devuelva un resultado.
             // Tiene que tener un Request Code asociado.
             startActivityForResult(i, SELECCION_REQUEST_CODE);
+
         }
     }
 
@@ -117,7 +116,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == SELECCION_REQUEST_CODE){
             if (resultCode == RESULT_OK){
                 int codigoContr = data.getIntExtra("codigoContr",-1); // -1 como default
