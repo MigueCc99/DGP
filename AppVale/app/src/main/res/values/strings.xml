@@ -5,4 +5,5 @@
     <string name="inicioSesion">INICIO DE SESIÓN</string>
     <string name="acceder">ACCEDER</string>
     <string name="descripcionBotonesContra">Boton para poner los símbolos de la contraseña</string>
+    <string name="seleccionSimbolo">SELECCIÓN DE SÍMBOLO</string>
 </resources>

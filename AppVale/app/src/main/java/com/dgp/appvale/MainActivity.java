@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view){
         Intent i = new Intent(this, LoginActivity.class);
+        //Lanzo activity Login
         startActivity(i);
     }
 }
