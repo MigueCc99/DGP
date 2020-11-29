@@ -11,8 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+import java.io.Serializable;
 
 import com.dgp.appvale.clases.Sistema;
+import com.dgp.appvale.clases.Socio;
 
 import java.util.ArrayList;
 
@@ -24,6 +26,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ImageButton et_botonContra1, et_botonContra2, et_botonContra3, et_botonContra4, et_botonContra5, et_botonContra6, et_botonCambio;
     private Button et_botonAcceso;
 
+    private Socio socioSesion;
+    private Sistema sistema;
+
     private void init (){
         et_botonAcceso = (Button)findViewById(R.id.botonAcceso);
         et_botonContra1 = (ImageButton)findViewById(R.id.botonContra1);
@@ -33,6 +38,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_botonContra5 = (ImageButton)findViewById(R.id.botonContra5);
         et_botonContra6 = (ImageButton)findViewById(R.id.botonContra6);
         et_botonCambio = null;
+
+        sistema = (Sistema) getIntent().getExtras().getSerializable("sistema");
+        socioSesion = sistema.getSocio("Miguel Ángel");
     }
 
     private void reset (){
@@ -116,9 +124,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v){
 
         if(v.getId() == R.id.botonAcceso){
-            Sistema sistema = new Sistema();
 
-            if(sistema.comparaContrasenia(contraseniaProvisional)){
+            if(sistema.comparaContrasenia(socioSesion,contraseniaProvisional)){
                 reset();
                 Intent i = new Intent(this, MenuActivity.class);
                 // Lanzo Activity Menu

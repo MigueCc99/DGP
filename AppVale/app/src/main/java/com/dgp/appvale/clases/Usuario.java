@@ -1,24 +1,25 @@
 package com.dgp.appvale.clases;
 
-import com.dgp.appvale.clases.Actividad;
-
 import java.util.Date;
 
 public class Usuario {
     private String nombre;
     private String apellidos;
-    private Date fecha_nacimiento;
+    private Date fechaNacimiento;
 
-    public Usuario (String nombre, String apellidos){
+    public Usuario (String nombre, String apellidos, Date fechaNacimiento){
         super();
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.fecha_nacimiento = fecha_nacimiento;
+        this.fechaNacimiento = fechaNacimiento;
     }
-
 
     public String getNombre(){
-        return nombre + " " + apellidos;
+        return nombre;
     }
+
+    public String getApellidos() { return apellidos; }
+
+    public Date getFechaNacimiento() { return fechaNacimiento; }
 
 }

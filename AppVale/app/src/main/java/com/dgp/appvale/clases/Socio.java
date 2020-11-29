@@ -8,8 +8,8 @@ public class Socio extends Usuario {
     private int[] contrasenia;
 
 
-    public Socio(String nombre, String apellidos){
-        super(nombre, apellidos);
+    public Socio(String nombre, String apellidos, Date fechaNacimiento){
+        super(nombre, apellidos, fechaNacimiento);
         this.contrasenia = new int[]{1, 1, 1, 1, 1, 1};
     }
 
