@@ -9,10 +9,16 @@ import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.ImageButton;
 
+import com.dgp.appvale.clases.Sistema;
+import com.dgp.appvale.clases.Socio;
+
 public class PerfilActivity extends AppCompatActivity implements  View.OnClickListener {
     private TextView nombrePerfil, apellidosPerfil, fechaNacPerfil;
     private ImageView iconoAvatar;
     private ImageButton botonAtrasPerfil;
+
+    private Sistema sistema;
+    private Socio socioSesion;
 
     private void init(){
         nombrePerfil = findViewById(R.id.nombrePerfil);
@@ -20,6 +26,17 @@ public class PerfilActivity extends AppCompatActivity implements  View.OnClickLi
         fechaNacPerfil = findViewById(R.id.fechaNacPerfil);
         iconoAvatar = findViewById(R.id.iconoAvatar);
         botonAtrasPerfil = findViewById(R.id.botonAtrasPerfil);
+
+        sistema = (Sistema) getIntent().getExtras().getSerializable("sistema");
+        socioSesion = sistema.getSocio("Miguel Ángel");
+    }
+
+    private void generarDatosPerfil(){
+        if(socioSesion != null){
+            nombrePerfil.setText("Nombre: " + socioSesion.getNombre());
+            apellidosPerfil.setText("Apellidos: " + socioSesion.getApellidos());
+            fechaNacPerfil.setText("FechaNac: " + socioSesion.getFechaNacimiento().toString());
+        }
     }
 
     @Override
@@ -28,6 +45,7 @@ public class PerfilActivity extends AppCompatActivity implements  View.OnClickLi
         setContentView(R.layout.activity_perfil);
 
         init();
+        generarDatosPerfil();
 
         botonAtrasPerfil.setOnClickListener(this);
     }

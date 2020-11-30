@@ -128,6 +128,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if(sistema.comparaContrasenia(socioSesion,contraseniaProvisional)){
                 reset();
                 Intent i = new Intent(this, MenuActivity.class);
+                i.putExtra("sistema", sistema);
                 // Lanzo Activity Menu
                 startActivity(i);
             }else{

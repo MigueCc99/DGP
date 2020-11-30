@@ -5,11 +5,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Calendar;
 
-public class Sistema implements Serializable {
+public class Sistema extends AppCompatActivity implements Serializable {
 
     public Sistema(){
         crearSocioPrueba();
@@ -26,7 +28,7 @@ public class Sistema implements Serializable {
         Date fecha = cal.getTime();
         Socio socio = new Socio("Miguel Ángel", "Campos", fecha);
 
-        ContentValues register = new ContentValues;
+        ContentValues register = new ContentValues();
 
         register.put("nombre", socio.getNombre());
         register.put("apellidos", socio.getApellidos());
