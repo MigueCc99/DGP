@@ -11,12 +11,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import java.io.Serializable;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import com.dgp.appvale.clases.Sistema;
 import com.dgp.appvale.clases.Socio;
-
-import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int SELECCION_REQUEST_CODE = 0;
@@ -40,7 +40,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_botonCambio = null;
 
         sistema = (Sistema) getIntent().getExtras().getSerializable("sistema");
-        socioSesion = sistema.getSocio("Miguel Ángel");
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, 1999);
+        cal.set(Calendar.MONTH, Calendar.FEBRUARY);
+        cal.set(Calendar.DAY_OF_MONTH, 17);
+        Date fecha = cal.getTime();
+        socioSesion = new Socio("Miguel Ángel", "Campos", fecha, 100);
     }
 
     private void reset (){

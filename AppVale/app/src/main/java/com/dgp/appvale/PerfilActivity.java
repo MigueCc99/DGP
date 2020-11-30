@@ -28,7 +28,7 @@ public class PerfilActivity extends AppCompatActivity implements  View.OnClickLi
         botonAtrasPerfil = findViewById(R.id.botonAtrasPerfil);
 
         sistema = (Sistema) getIntent().getExtras().getSerializable("sistema");
-        socioSesion = sistema.getSocio("Miguel Ángel");
+        //socioSesion = sistema.getSocio("Miguel Ángel");
     }
 
     private void generarDatosPerfil(){

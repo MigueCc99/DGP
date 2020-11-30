@@ -24,7 +24,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         botonObjetivos = findViewById(R.id.botonObjetivos);
 
         sistema = (Sistema) getIntent().getExtras().getSerializable("sistema");
-        socioSesion = sistema.getSocio("Miguel Ángel");
+        //socioSesion = sistema.getSocio("Miguel Ángel");
     }
 
     @Override

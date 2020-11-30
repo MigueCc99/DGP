@@ -17,7 +17,7 @@ public class Sistema extends AppCompatActivity implements Serializable {
         crearSocioPrueba();
     }
 
-    private void crearSocioPrueba(){
+    private void crearSocioPrueba(){/*
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administration", null, 1);
         SQLiteDatabase database = admin.getWritableDatabase();
 
@@ -37,9 +37,11 @@ public class Sistema extends AppCompatActivity implements Serializable {
         database.insert("socios",null, register);
 
         database.close();
+*/
     }
-
+/*
     public Socio getSocio (String n){
+
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administration", null, 1);
         SQLiteDatabase database = admin.getWritableDatabase();
 
@@ -58,6 +60,7 @@ public class Sistema extends AppCompatActivity implements Serializable {
 
         return socio;
     }
+    */
 
     public boolean comparaContrasenia(Socio socio, int[] otra_contrasenia){
         boolean iguales = false;

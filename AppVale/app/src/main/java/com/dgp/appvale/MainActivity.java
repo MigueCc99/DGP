@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.dgp.appvale.R;
 import com.dgp.appvale.clases.Sistema;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
