@@ -18,7 +18,6 @@ public class PerfilActivity extends AppCompatActivity implements  View.OnClickLi
     private ImageButton botonAtrasPerfil;
 
     private Sistema sistema;
-    private Socio socioSesion;
 
     private void init(){
         nombrePerfil = findViewById(R.id.nombrePerfil);
@@ -27,16 +26,13 @@ public class PerfilActivity extends AppCompatActivity implements  View.OnClickLi
         iconoAvatar = findViewById(R.id.iconoAvatar);
         botonAtrasPerfil = findViewById(R.id.botonAtrasPerfil);
 
-        sistema = (Sistema) getIntent().getExtras().getSerializable("sistema");
-        //socioSesion = sistema.getSocio("Miguel Ángel");
+        sistema = new Sistema();
     }
 
     private void generarDatosPerfil(){
-        if(socioSesion != null){
-            nombrePerfil.setText("Nombre: " + socioSesion.getNombre());
-            apellidosPerfil.setText("Apellidos: " + socioSesion.getApellidos());
-            fechaNacPerfil.setText("FechaNac: " + socioSesion.getFechaNacimiento().toString());
-        }
+        nombrePerfil.setText("Nombre: " + sistema.getSocio().getNombre());
+        apellidosPerfil.setText("Apellidos: " + sistema.getSocio().getApellidos());
+        fechaNacPerfil.setText("FechaNac: " + sistema.getSocio().getFechaNacimiento());
     }
 
     @Override

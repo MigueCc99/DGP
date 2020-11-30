@@ -12,11 +12,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.util.Calendar;
-import java.util.Date;
-
 import com.dgp.appvale.clases.Sistema;
-import com.dgp.appvale.clases.Socio;
+
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int SELECCION_REQUEST_CODE = 0;
@@ -25,9 +23,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private ImageButton et_botonContra1, et_botonContra2, et_botonContra3, et_botonContra4, et_botonContra5, et_botonContra6, et_botonCambio;
     private Button et_botonAcceso;
-
-    private Socio socioSesion;
-    private Sistema sistema;
 
     private void init (){
         et_botonAcceso = (Button)findViewById(R.id.botonAcceso);
@@ -38,14 +33,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_botonContra5 = (ImageButton)findViewById(R.id.botonContra5);
         et_botonContra6 = (ImageButton)findViewById(R.id.botonContra6);
         et_botonCambio = null;
-
-        sistema = (Sistema) getIntent().getExtras().getSerializable("sistema");
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, 1999);
-        cal.set(Calendar.MONTH, Calendar.FEBRUARY);
-        cal.set(Calendar.DAY_OF_MONTH, 17);
-        Date fecha = cal.getTime();
-        socioSesion = new Socio("Miguel Ángel", "Campos", fecha, 100);
     }
 
     private void reset (){
@@ -129,11 +116,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v){
 
         if(v.getId() == R.id.botonAcceso){
+            Sistema sistema = new Sistema();
 
-            if(sistema.comparaContrasenia(socioSesion,contraseniaProvisional)){
+            if(sistema.comparaContrasenia(contraseniaProvisional)){
                 reset();
                 Intent i = new Intent(this, MenuActivity.class);
-                i.putExtra("sistema", sistema);
                 // Lanzo Activity Menu
                 startActivity(i);
             }else{

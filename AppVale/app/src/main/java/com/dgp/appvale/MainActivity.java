@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view){
         Intent i = new Intent(this, LoginActivity.class);
-        i.putExtra("sistema", sistema);
         //Lanzo activity Login
         startActivity(i);
     }
