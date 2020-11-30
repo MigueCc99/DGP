@@ -24,4 +24,5 @@ public class Usuario {
 
     public Date getFechaNacimiento() { return fechaNacimiento; }
 
+    public int getID() { return ID; }
 }

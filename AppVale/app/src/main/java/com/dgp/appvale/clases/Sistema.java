@@ -1,9 +1,25 @@
 package com.dgp.appvale.clases;
 
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Sistema {
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Sistema extends AppCompatActivity {
     private Socio socioPrueba;
 
     public Sistema(){
@@ -12,8 +28,9 @@ public class Sistema {
         cal.set(Calendar.MONTH, Calendar.FEBRUARY);
         cal.set(Calendar.DAY_OF_MONTH, 17);
         Date fecha = cal.getTime();
-        socioPrueba = new Socio("Thomas", "Yowwww", fecha, 100);
+        socioPrueba = new Socio("Miguel Ángel", "Campos", fecha, 100);
     }
+
 
     public boolean comparaContrasenia(int[] otra_contrasenia){
         boolean iguales = false;
@@ -28,9 +45,7 @@ public class Sistema {
         return iguales;
     }
 
-    public String getNombreSocio(){
-        return socioPrueba.getNombre();
-    }
     public Socio getSocio(){ return socioPrueba; }
+
 }
 

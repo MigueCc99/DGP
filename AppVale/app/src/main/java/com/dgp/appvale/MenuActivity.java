@@ -35,7 +35,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         botonPerfil.setOnClickListener(this);
         botonObjetivos.setOnClickListener(this);
 
-        textoHola.setText("Hola, "+ sistema.getNombreSocio());
+        textoHola.setText("Hola, "+ sistema.getSocio().getNombre());
     }
 
     @Override
