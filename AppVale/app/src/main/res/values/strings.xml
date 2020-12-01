@@ -19,4 +19,7 @@
     <string name="nombrePerfil">Nombre:</string>
     <string name="apellidosPerfil">Apellidos:</string>
     <string name="fechaNacimientoPerfil">Fecha Nacimiento:</string>
+
+    <string name="nombreObjetivo">Nombre Objetivo Default</string>
+    <string name="descripcionObjetivo">Descripcion Objetivo Default</string>
 </resources>
