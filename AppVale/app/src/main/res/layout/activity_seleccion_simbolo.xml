@@ -27,8 +27,9 @@
         android:layout_height="242dp"
         android:layout_marginStart="17dp"
         android:layout_marginTop="34dp"
-        android:scaleY="0.9"
         android:contentDescription="@string/descripcionBotonesContra"
+        android:scaleType="fitCenter"
+        android:scaleY="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoSeleccionSimbolo"
         app:srcCompat="@drawable/icono_arbol" />
@@ -40,6 +41,7 @@
         android:layout_marginTop="34dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/descripcionBotonesContra"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoSeleccionSimbolo"
         app:srcCompat="@drawable/icono_corazon" />
@@ -51,6 +53,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/descripcionBotonesContra"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonArbol"
         app:srcCompat="@drawable/icono_estrella" />
@@ -62,6 +65,7 @@
         android:layout_marginTop="35dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/descripcionBotonesContra"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonCorazon"
         app:srcCompat="@drawable/icono_perro" />

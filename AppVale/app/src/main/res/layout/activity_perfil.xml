@@ -21,12 +21,12 @@
         android:id="@+id/nombrePerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="50dp"
         android:text="@string/nombrePerfil"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iconoAvatar" />
+        app:layout_constraintTop_toBottomOf="@+id/imagenAvatar" />
 
     <TextView
         android:id="@+id/fechaNacPerfil"
@@ -39,16 +39,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apellidosPerfil" />
 
-    <ImageView
-        android:id="@+id/iconoAvatar"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="136dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/avatar" />
-
     <ImageButton
         android:id="@+id/botonAtrasPerfil"
         android:layout_width="100dp"
@@ -58,6 +48,17 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fechaNacPerfil"
-        app:srcCompat="@drawable/atras" />
+        app:srcCompat="@drawable/atras"
+        android:contentDescription="TODO" />
+
+    <ImageView
+        android:id="@+id/imagenAvatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="125dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/avatar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

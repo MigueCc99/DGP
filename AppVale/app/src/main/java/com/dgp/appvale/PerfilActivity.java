@@ -23,7 +23,7 @@ public class PerfilActivity extends AppCompatActivity implements  View.OnClickLi
         nombrePerfil = findViewById(R.id.nombrePerfil);
         apellidosPerfil = findViewById(R.id.apellidosPerfil);
         fechaNacPerfil = findViewById(R.id.fechaNacPerfil);
-        iconoAvatar = findViewById(R.id.iconoAvatar);
+        iconoAvatar = findViewById(R.id.imagenAvatar);
         botonAtrasPerfil = findViewById(R.id.botonAtrasPerfil);
 
         sistema = new Sistema();
