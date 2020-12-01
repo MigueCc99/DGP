@@ -35,11 +35,27 @@ CREATE TABLE actividades(
     multimedia VARCHAR(50)
 );
 
+CREATE TABLE actividad_pertenece_objetivo(
+    idActividad INT(11) REFERENCES actividades(id),
+    idObjetivo INT(11) REFERENCES objetivos(id),
+    PRIMARY KEY(idObjetivo,idActividad)
+);
+
+CREATE TABLE actividad_asignada_socio(
+    idActividad INT(11) REFERENCES actividad(id),
+    idSocio INT(11) REFERENCES socio(id),
+    multimediaSolucion VARCHAR(50),
+    aceptada BOOLEAN,
+    es_util BOOLEAN,
+    es_dificil BOOLEAN,
+    es_gustado BOOLEAN,
+    comentario VARCHAR(200),
+    PRIMARY KEY (idActividad, idSocio)
+);
+
 -- *****************************************************************************
 INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('david','baez','0123',false,'david@vale.org','612345678','23/07/1995');
 INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('ana','baez','0123',true,'ana@vale.org','612345678','23/07/1995');
-
-
 
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Matemáticas', 'Desarrollar habilidades matemáticas para el manejo de situaciones de la vida cotidiana');
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Inglés', 'Hablar y entender inglés correctamente');
@@ -64,3 +80,28 @@ INSERT INTO actividades(nombre,descripcion) VALUES ('Hacer una foto de tu lugar 
 INSERT INTO actividades(nombre,descripcion) VALUES ('Ver una película en inglés', 'Debes seleccionar el idioma: inglés/English. Puedes activar los subtítulos si lo necesitas');
 INSERT INTO actividades(nombre,descripcion) VALUES ('Hacer una videollamada con tu mejor amigo', 'Debes llamar a tu mejor amigo porque hay que cuidarlo');
 INSERT INTO actividades(nombre,descripcion) VALUES ('Hacer un dibujo con el programa: paint', 'Debes abrir tu ordenador y usar el programa ');
+
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('4','1');
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('9','2');
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('1','3');
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('2','3');
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('3','3');
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('4','3');
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('5','3');
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('4','4');
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('10','4');
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('4','5');
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('10','7');
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('11','7');
+INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('11','8');
+
+INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('1','1');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('2','1');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('3','1');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('4','1');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('5','1');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('5','2');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('2','2');
+
+
+
