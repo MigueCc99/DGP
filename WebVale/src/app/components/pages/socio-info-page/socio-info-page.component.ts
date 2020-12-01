@@ -52,4 +52,8 @@ export class SocioInfoPageComponent implements OnInit {
     );
    }
 
+   navegaVerActividad(idActividad : number){
+    this.router.navigate(['/socios/ver/actividad/' + this.id + '-' + idActividad]);
+   }
+
 }

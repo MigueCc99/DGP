@@ -4,5 +4,4 @@ export interface Actividad {
     descripcion?: string;
     imagen?: string;
     multimedia?: string;
-    aceptada?:boolean;
 }   

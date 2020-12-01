@@ -12,16 +12,18 @@
             <div class="order-3 p-2 lista">
                 <img src="../../../../assets/actividad.png" class="img-fluid" style="max-width: 15%; height: auto; " alt="Responsive image">
                 <h2>Actividades</h2>
-                <ul class="list-group" *ngFor="let actividad of listadoActividades">
+                <ul class="list-group ul_lista" *ngFor="let actividad of listadoActividades">
                     <li  class="list-group-item">
                        {{actividad.nombre}}
+                       <button (click)="navegaVerActividad(actividad.id)"  class="boton-ver fa fa-eye"></button>
                     </li>
                 </ul>
+                <button type="button" class="btn btn-lg btn-outline-success asignar">Asignar una nueva actividad</button>
             </div>
             <div class="order-2 p-2 lista">
                 <img src="../../../../assets/medalla.png" style="max-width: 15%; height: auto; " class="img-fluid" alt="Responsive image">
                 <h2>Objetivos</h2>
-                <ul  class="list-group" *ngFor="let objetivo of listadoObjetivos">
+                <ul  class="list-group ul_lista" *ngFor="let objetivo of listadoObjetivos">
                     <li class="list-group-item">
                         {{objetivo.nombre}}
                     </li>
