@@ -41,7 +41,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v){
         if(v.getId() == R.id.botonSalida){
-            finish();
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
         }else if(v.getId() == R.id.botonPerfil){
             Intent i = new Intent(this, PerfilActivity.class);
             startActivity(i);
