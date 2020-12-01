@@ -52,7 +52,7 @@ import { SociosRecuperaContraPageComponent } from './components/pages/socios-rec
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

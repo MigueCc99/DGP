@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Actividad } from 'src/app/models/Actividad';
+import { Objetivo } from 'src/app/models/Objetivo';
 import { Socio } from 'src/app/models/Socio';
 import { SociosService } from 'src/app/services/socios.service';
 
@@ -11,17 +13,43 @@ import { SociosService } from 'src/app/services/socios.service';
 export class SocioInfoPageComponent implements OnInit {
 
   socio : any = new Socio();
+  listadoActividades : Actividad[] = [];
+  listadoObjetivos : Objetivo[] = [];
+  id : number;
 
-  constructor(private sociosService: SociosService, private router: Router, private activeRoute : ActivatedRoute) { }
+  constructor(private sociosService: SociosService, private router: Router, private activeRoute : ActivatedRoute) { 
+    this.id = this.activeRoute.snapshot.params.id;
+  }
 
   ngOnInit(): void {
-    const {id} = this.activeRoute.snapshot.params;
-   this.sociosService.getSocio(id)
+   
+   this.sociosService.getSocio(this.id)
     .subscribe(
       res => {
         this.socio = res;
       }
     );
+
+    this.getActividades();
+    this.getObjetivos();
   }
+
+  getActividades() {
+    this.sociosService.getActividadesSocio(this.id).subscribe(
+      res => {
+        this.listadoActividades = res as Actividad[];
+      },
+      err => console.error(err)
+    );
+   }
+
+   getObjetivos() {
+    this.sociosService.getObjetivosSocio(this.id).subscribe(
+      res => {
+        this.listadoObjetivos = res as Objetivo[];
+      },
+      err => console.error(err)
+    );
+   }
 
 }
