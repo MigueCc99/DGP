@@ -6,6 +6,7 @@ export class Facilitador implements Object {
     correo?: string;
     telefono?: string;
     nacimiento?: string;
+    toggle?: boolean;
 
     constructor() {
         this.nombre = "";
@@ -15,6 +16,7 @@ export class Facilitador implements Object {
         this.nombre = "";
         this.nombre = "";
         this.nombre = "";
+        this.toggle = false;
     }
 }   
 
