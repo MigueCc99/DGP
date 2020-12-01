@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Socio } from 'src/app/models/Socio';
+import { SociosService } from 'src/app/services/socios.service';
 
 @Component({
   selector: 'app-socio-info-page',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SocioInfoPageComponent implements OnInit {
 
-  constructor() { }
+  socio : any = new Socio();
+
+  constructor(private sociosService: SociosService, private router: Router, private activeRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
+    const {id} = this.activeRoute.snapshot.params;
+   this.sociosService.getSocio(id)
+    .subscribe(
+      res => {
+        this.socio = res;
+      }
+    );
   }
 
 }
