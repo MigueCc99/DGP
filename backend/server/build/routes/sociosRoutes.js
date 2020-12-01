@@ -13,6 +13,8 @@ class SociosRoutes {
         this.router.post('/', sociosController_1.sociosController.create);
         this.router.delete('/:id', sociosController_1.sociosController.delete);
         this.router.put('/:id', sociosController_1.sociosController.update); //updat
+        this.router.get('/:id/actividades', sociosController_1.sociosController.getActividades);
+        this.router.get('/:id/objetivos', sociosController_1.sociosController.getObjetivos);
     }
 }
 const sociosRoutes = new SociosRoutes();

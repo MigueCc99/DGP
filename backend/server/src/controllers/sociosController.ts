@@ -43,7 +43,21 @@ class SociosController {
         });
     }
 
+    public async getActividades (req: Request, res: Response): Promise<void> {
+        const id = req.params.id;
+        await pool.query('SELECT * FROM actividades WHERE id in (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio=?)',[id], function(err, result, fields) {
+            if (err) throw err;
+            res.json(result);
+        });
+    }
 
+    public async getObjetivos (req: Request, res: Response): Promise<void> {
+        const id = req.params.id;
+        await pool.query('SELECT DISTINCT * FROM objetivos WHERE id in (SELECT id_objetivo FROM actividad_pertenece_objetivo WHERE id_actividad IN (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio=?))',[id], function(err, result, fields) {
+            if (err) throw err;
+            res.json(result);
+        });
+    }
 }
 
 export const sociosController = new SociosController();

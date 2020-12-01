@@ -43,17 +43,9 @@ class ActividadesController {
         });
     }
 
-    public async getActividadesAsignadasASocio (req: Request, res: Response): Promise<void> {
+    public async getObjetivosDeActividad (req: Request, res: Response): Promise<void> {
         const id = req.params.id;
-        await pool.query('SELECT * FROM actividades WHERE id in (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio=?)',[id], function(err, result, fields) {
-            if (err) throw err;
-            res.json(result);
-        });
-    }
-
-    public async getActividadesDeObjetivo (req: Request, res: Response): Promise<void> {
-        const id = req.params.id;
-        await pool.query('SELECT * FROM actividades WHERE id in (SELECT id_actividad FROM actividad_pertenece_objetivo WHERE id_objetivo=?)',[id], function(err, result, fields) {
+        await pool.query('SELECT * FROM objetivos WHERE id in (SELECT id_objetivo FROM actividad_pertenece_objetivo WHERE id_actividad=?)',[id], function(err, result, fields) {
             if (err) throw err;
             res.json(result);
         });

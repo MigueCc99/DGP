@@ -13,7 +13,7 @@ class ObjetivosRoutes {
         this.router.post('/', objetivosController_1.objetivosController.create);
         this.router.delete('/:id', objetivosController_1.objetivosController.delete);
         this.router.put('/:id', objetivosController_1.objetivosController.update); //updat
-        this.router.get('/actividad/:id', objetivosController_1.objetivosController.getObjetivosDeActividad);
+        this.router.get('/:id/actividades', objetivosController_1.objetivosController.getActividadesDeObjetivo);
     }
 }
 const objetivosRoutes = new ObjetivosRoutes();
