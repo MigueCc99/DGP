@@ -95,13 +95,13 @@ INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('10','
 INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('11','7');
 INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('11','8');
 
-INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('1','1');
-INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('2','1');
-INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('3','1');
-INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('4','1');
-INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('5','1');
-INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('5','2');
-INSERT INTO actividad_asignada_socio (idActividad, idSocio) VALUES ('2','2');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('1','1', 'false');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('2','1', 'false');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('3','1', 'false');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('4','1', 'false');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('5','1', 'false');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('5','2', 'false');
+INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('2','2', 'false');
 
 
 
