@@ -36,10 +36,7 @@ export class SociosRecuperaContraPageComponent implements OnInit {
        socio.nombre.toLowerCase().includes(this.filtro.toLowerCase())
      )
    }
-
-   mostrarContrasena(contra: string) : string {
-     return "hey"
-   }
+   
 }
 
 

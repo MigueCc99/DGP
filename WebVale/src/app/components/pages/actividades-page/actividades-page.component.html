@@ -23,9 +23,9 @@
             <ul *ngFor="let actividad of listadoActividadesFiltrado">
                 <li>
                     {{actividad.nombre}}
+                    <button type="button" (click)="eliminar(actividad.id)" class="btn btn-danger fa fa-trash"></button>
+                    <button type="button" (click)="navegaEditar(actividad.id)" class="btn btn-warning fa fa-edit"></button>
                     <button type="button" (click)="navegaVer(actividad.id)" class="boton-ver fa fa-eye"></button>
-                    <button type="button" (click)="navegaEditar(actividad.id)" class="btn btn-warning">Editar</button>
-                    <button type="button" (click)="eliminar(actividad.id)" class="btn btn-danger">Eliminar</button>
                 </li>
             </ul>
         </div>
