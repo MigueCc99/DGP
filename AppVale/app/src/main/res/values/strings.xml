@@ -22,4 +22,6 @@
 
     <string name="nombreObjetivo">Nombre Objetivo Default</string>
     <string name="descripcionObjetivo">Descripcion Objetivo Default</string>
+
+    <string name="iconoAvatar">Avatar</string>
 </resources>

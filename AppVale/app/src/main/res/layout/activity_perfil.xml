@@ -45,6 +45,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="152dp"
         android:layout_marginTop="136dp"
+        android:contentDescription="@string/iconoAvatar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/avatar" />
@@ -58,6 +59,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fechaNacPerfil"
-        app:srcCompat="@drawable/atras" />
+        app:srcCompat="@drawable/atras"
+        android:contentDescription="TODO" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
