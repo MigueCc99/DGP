@@ -12,6 +12,7 @@ import { ObjetivosPageComponent } from './components/pages/objetivos-page/objeti
 import { PerfilPageComponent } from './components/pages/perfil-page/perfil-page.component';
 import { SocioInfoPageComponent } from './components/pages/socio-info-page/socio-info-page.component';
 import { SociosPageComponent } from './components/pages/socios-page/socios-page.component';
+import { SociosRecuperaContraPageComponent } from './components/pages/socios-recupera-contra-page/socios-recupera-contra-page.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,10 @@ const routes: Routes = [
   {
     path: 'centro/recuperar-contra/facilitadores',
     component: FacilitadoresPageComponent
+  },
+  {
+    path: 'centro/recuperar-contra/socios',
+    component: SociosRecuperaContraPageComponent
   },
   {
     path: 'socios',

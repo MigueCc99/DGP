@@ -18,10 +18,10 @@ export class FacilitadoresPageComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.getObjetivos();
+    this.getFacilitadores();
   }
   
-   getObjetivos() {
+   getFacilitadores() {
     this.facilitadoresService.getFacilitadores().subscribe(
       res => {
         this.listadoFacilitadores = this.listadoFacilitadoresFiltrado = res as Facilitador[];

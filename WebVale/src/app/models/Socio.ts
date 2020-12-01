@@ -2,6 +2,7 @@ export interface Socio {
     id: number;
     nombre: string;
     apellidos: string;
-    contraseña?: string;
+    contrasena?: string;
     nacimiento?: string;
+    toggle?: boolean;
 }   

@@ -17,4 +17,8 @@ export class CentroPageComponent implements OnInit {
     this.router.navigate(['/centro/recuperar-contra/facilitadores']);
   }
 
+  navegaRecuperarContraSocio () {
+    this.router.navigate(['/centro/recuperar-contra/socios']);
+  }
+
 }

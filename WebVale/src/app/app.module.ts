@@ -23,6 +23,7 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
 import { FormsModule } from '@angular/forms';
 import { ConstantsComponent } from './components/constants/constants.component';
 import { FacilitadoresPageComponent } from './components/pages/facilitadores-page/facilitadores-page.component';
+import { SociosRecuperaContraPageComponent } from './components/pages/socios-recupera-contra-page/socios-recupera-contra-page.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { FacilitadoresPageComponent } from './components/pages/facilitadores-pag
     ActividadFormComponent,
     LoginPageComponent,
     ConstantsComponent,
-    FacilitadoresPageComponent
+    FacilitadoresPageComponent,
+    SociosRecuperaContraPageComponent,
   ],
   imports: [
     BrowserModule,
