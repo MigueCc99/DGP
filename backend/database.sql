@@ -36,21 +36,21 @@ CREATE TABLE actividades(
 );
 
 CREATE TABLE actividad_pertenece_objetivo(
-    idActividad INT(11) REFERENCES actividades(id),
-    idObjetivo INT(11) REFERENCES objetivos(id),
-    PRIMARY KEY(idObjetivo,idActividad)
+    id_actividad INT(11) REFERENCES actividades(id),
+    id_objetivo INT(11) REFERENCES objetivos(id),
+    PRIMARY KEY(id_objetivo,id_actividad)
 );
 
 CREATE TABLE actividad_asignada_socio(
-    idActividad INT(11) REFERENCES actividad(id),
-    idSocio INT(11) REFERENCES socio(id),
-    multimediaSolucion VARCHAR(50),
+    id_actividad INT(11) REFERENCES actividad(id),
+    id_socio INT(11) REFERENCES socio(id),
+    multimedia_solucion VARCHAR(50),
     aceptada BOOLEAN,
     es_util BOOLEAN,
     es_dificil BOOLEAN,
     es_gustado BOOLEAN,
     comentario VARCHAR(200),
-    PRIMARY KEY (idActividad, idSocio)
+    PRIMARY KEY (id_actividad, id_socio)
 );
 
 -- *****************************************************************************
@@ -81,27 +81,27 @@ INSERT INTO actividades(nombre,descripcion) VALUES ('Ver una película en inglé
 INSERT INTO actividades(nombre,descripcion) VALUES ('Hacer una videollamada con tu mejor amigo', 'Debes llamar a tu mejor amigo porque hay que cuidarlo');
 INSERT INTO actividades(nombre,descripcion) VALUES ('Hacer un dibujo con el programa: paint', 'Debes abrir tu ordenador y usar el programa ');
 
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('4','1');
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('9','2');
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('1','3');
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('2','3');
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('3','3');
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('4','3');
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('5','3');
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('4','4');
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('10','4');
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('4','5');
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('10','7');
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('11','7');
-INSERT INTO actividad_pertenece_objetivo (idActividad,idObjetivo) VALUES ('11','8');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('4','1');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('9','2');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('1','3');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('2','3');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('3','3');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('4','3');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('5','3');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('4','4');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('10','4');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('4','5');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('10','7');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('11','7');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('11','8');
 
-INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('1','1', 'false');
-INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('2','1', 'false');
-INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('3','1', 'false');
-INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('4','1', 'false');
-INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('5','1', 'false');
-INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('5','2', 'false');
-INSERT INTO actividad_asignada_socio (idActividad, idSocio, aceptada) VALUES ('2','2', 'false');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('1','1', 'false');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('2','1', 'false');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('3','1', 'false');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('4','1', 'false');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('5','1', 'false');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('5','2', 'false');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('2','2', 'false');
 
 
 

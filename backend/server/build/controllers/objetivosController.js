@@ -63,5 +63,15 @@ class ObjetivosController {
             });
         });
     }
+    getObjetivosDeActividad(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            yield database_1.default.query('SELECT * FROM objetivos WHERE id in (SELECT id_objetivo FROM actividad_pertenece_objetivo WHERE id_actividad=?)', [id], function (err, result, fields) {
+                if (err)
+                    throw err;
+                res.json(result);
+            });
+        });
+    }
 }
 exports.objetivosController = new ObjetivosController();

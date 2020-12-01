@@ -16,6 +16,7 @@ class ObjetivosRoutes {
         this.router.post('/', objetivosController.create);
         this.router.delete('/:id', objetivosController.delete);
         this.router.put('/:id', objetivosController.update);//updat
+        this.router.get('/actividad/:id', objetivosController.getObjetivosDeActividad);
     }
 
 }

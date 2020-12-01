@@ -16,6 +16,8 @@ class ActividadesRoutes {
         this.router.post('/', actividadesController.create);
         this.router.delete('/:id', actividadesController.delete);
         this.router.put('/:id', actividadesController.update);//updat
+        this.router.get('/objetivo/:id', actividadesController.getActividadesDeObjetivo);  
+        this.router.get('/socio/:id', actividadesController.getActividadesAsignadasASocio);
     }
 
 }

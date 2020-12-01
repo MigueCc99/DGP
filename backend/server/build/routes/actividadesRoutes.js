@@ -13,6 +13,8 @@ class ActividadesRoutes {
         this.router.post('/', actividadesController_1.actividadesController.create);
         this.router.delete('/:id', actividadesController_1.actividadesController.delete);
         this.router.put('/:id', actividadesController_1.actividadesController.update); //updat
+        this.router.get('/objetivo/:id', actividadesController_1.actividadesController.getActividadesDeObjetivo);
+        this.router.get('/socio/:id', actividadesController_1.actividadesController.getActividadesAsignadasASocio);
     }
 }
 const actividadesRoutes = new ActividadesRoutes();
