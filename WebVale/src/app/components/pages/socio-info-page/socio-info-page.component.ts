@@ -13,7 +13,8 @@ import { SociosService } from 'src/app/services/socios.service';
 export class SocioInfoPageComponent implements OnInit {
 
   socio : any = new Socio();
-  listadoActividades : Actividad[] = [];
+  listadoActividadesNoAceptadas : Actividad[] = [];
+  listadoActividadesNoEntregadas : Actividad[] = [];
   listadoObjetivos : Objetivo[] = [];
   id : number;
 
@@ -35,9 +36,15 @@ export class SocioInfoPageComponent implements OnInit {
   }
 
   getActividades() {
-    this.sociosService.getActividadesSocio(this.id).subscribe(
+    this.sociosService.getActividadesNoAceptadasSocio(this.id).subscribe(
       res => {
-        this.listadoActividades = res as Actividad[];
+        this.listadoActividadesNoAceptadas = res as Actividad[];
+      },
+      err => console.error(err)
+    );
+    this.sociosService.getActividadesNoEntregadasSocio(this.id).subscribe(
+      res => {
+        this.listadoActividadesNoEntregadas = res as Actividad[];
       },
       err => console.error(err)
     );

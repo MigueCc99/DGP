@@ -51,6 +51,30 @@ class SociosController {
         });
     }
 
+    public async getActividadesPendientesCorregir (req: Request, res: Response): Promise<void> {
+        const id = req.params.id;
+        await pool.query('SELECT * FROM actividades WHERE id in (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio=? AND (multimedia_solucion IS NOT NULL OR solucion_texto IS NOT NULL) AND aceptada=false)',[id], function(err, result, fields) {
+            if (err) throw err;
+            res.json(result);
+        });
+    }
+
+    public async getActividadesEntregadas (req: Request, res: Response): Promise<void> {
+        const id = req.params.id;
+        await pool.query('SELECT * FROM actividades WHERE id in (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio=? AND aceptada=false AND (multimedia_solucion IS NOT NULL OR solucion_texto IS NOT NULL))',[id], function(err, result, fields) {
+            if (err) throw err;
+            res.json(result);
+        });
+    }
+
+    public async getActividadesSinEntregar (req: Request, res: Response): Promise<void> {
+        const id = req.params.id;
+        await pool.query('SELECT * FROM actividades WHERE id in (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio=? AND solucion_texto IS NULL AND multimedia_solucion IS NULL)',[id], function(err, result, fields) {
+            if (err) throw err;
+            res.json(result);
+        });
+    }
+
     public async getObjetivos (req: Request, res: Response): Promise<void> {
         const id = req.params.id;
         await pool.query('SELECT DISTINCT * FROM objetivos WHERE id in (SELECT id_objetivo FROM actividad_pertenece_objetivo WHERE id_actividad IN (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio=?))',[id], function(err, result, fields) {

@@ -73,6 +73,36 @@ class SociosController {
             });
         });
     }
+    getActividadesPendientesCorregir(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            yield database_1.default.query('SELECT * FROM actividades WHERE id in (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio=? AND (multimedia_solucion IS NOT NULL OR solucion_texto IS NOT NULL) AND aceptada=false)', [id], function (err, result, fields) {
+                if (err)
+                    throw err;
+                res.json(result);
+            });
+        });
+    }
+    getActividadesEntregadas(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            yield database_1.default.query('SELECT * FROM actividades WHERE id in (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio=? AND aceptada=false AND (multimedia_solucion IS NOT NULL OR solucion_texto IS NOT NULL))', [id], function (err, result, fields) {
+                if (err)
+                    throw err;
+                res.json(result);
+            });
+        });
+    }
+    getActividadesSinEntregar(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            yield database_1.default.query('SELECT * FROM actividades WHERE id in (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio=? AND solucion_texto IS NULL AND multimedia_solucion IS NULL)', [id], function (err, result, fields) {
+                if (err)
+                    throw err;
+                res.json(result);
+            });
+        });
+    }
     getObjetivos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const id = req.params.id;

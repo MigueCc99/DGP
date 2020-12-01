@@ -15,6 +15,9 @@ class SociosRoutes {
         this.router.put('/:id', sociosController_1.sociosController.update); //updat
         this.router.get('/:id/actividades', sociosController_1.sociosController.getActividades);
         this.router.get('/:id/objetivos', sociosController_1.sociosController.getObjetivos);
+        this.router.get('/:id/actividades/entregadas', sociosController_1.sociosController.getActividadesEntregadas);
+        this.router.get('/:id/actividades/no-aceptadas', sociosController_1.sociosController.getActividadesPendientesCorregir);
+        this.router.get('/:id/actividades/no-entregadas', sociosController_1.sociosController.getActividadesSinEntregar);
     }
 }
 const sociosRoutes = new SociosRoutes();
