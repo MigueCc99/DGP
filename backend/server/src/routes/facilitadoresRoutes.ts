@@ -14,7 +14,7 @@ class FacilitadoresRoutes {
         this.router.get('/', facilitadoresController.list);
         this.router.get('/:correo', facilitadoresController.getOne); 
         this.router.post('/', facilitadoresController.create);
-        this.router.delete('/:correo', facilitadoresController.delete)
+        this.router.delete('/:correo', facilitadoresController.delete);
         this.router.put('/:correo', facilitadoresController.update);
        
     }

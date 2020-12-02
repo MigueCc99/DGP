@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ActividadFormComponent } from './components/forms/actividad-form/actividad-form.component';
 import { ObjetivoFormComponent } from './components/forms/objetivo-form/objetivo-form.component';
+import { FacilitadorFormComponent } from './components/forms/facilitador-form/facilitador-form.component';
 import { ActividadInfoPageComponent } from './components/pages/actividad-info-page/actividad-info-page.component';
 import { ActividadesPageComponent } from './components/pages/actividades-page/actividades-page.component';
 import { CentroPageComponent } from './components/pages/centro-page/centro-page.component';
@@ -81,6 +82,12 @@ const routes: Routes = [
     path: 'socios/ver/actividad/:idSocio-:idActividad',
     component: SocioActividadPageComponent
   },
+
+  {
+    path: 'perfil/form/:correo',
+    component: FacilitadorFormComponent
+  },
+
 ];
 
 @NgModule({
