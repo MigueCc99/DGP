@@ -26,7 +26,6 @@ export class FacilitadorFormComponent implements OnInit {
     }*/
 
    cambiarDatos(tlf: any) {
-    console.log(tlf)
     if (tlf == '') {
       confirm("Faltan parámetros");
     } 

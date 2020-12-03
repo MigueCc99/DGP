@@ -19,7 +19,7 @@
         </div>
 
         <div class="row botones">
-            <button type="button" class="btn btn-lg btn-danger">Cambiar contraseña</button>
+            <button type="button" [routerLink]= "['/perfil/editarPsw', facilitador.correo]" class="btn btn-lg btn-danger">Cambiar contraseña</button>
             <button type="button" [routerLink]= "['/perfil/editar', facilitador.correo]" class="btn btn-lg btn-warning">Cambiar datos de contacto</button>
       
     </div>

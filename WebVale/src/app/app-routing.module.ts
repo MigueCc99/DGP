@@ -15,6 +15,7 @@ import { SocioActividadPageComponent } from './components/pages/socio-actividad-
 import { SocioInfoPageComponent } from './components/pages/socio-info-page/socio-info-page.component';
 import { SociosPageComponent } from './components/pages/socios-page/socios-page.component';
 import { SociosRecuperaContraPageComponent } from './components/pages/socios-recupera-contra-page/socios-recupera-contra-page.component';
+import { NuevaContraFormComponent } from './components/forms/nueva-contra-form/nueva-contra-form.component';
 
 const routes: Routes = [
   {
@@ -86,6 +87,10 @@ const routes: Routes = [
   {
     path: 'perfil/editar/:correo',
     component: FacilitadorFormComponent
+  },
+  {
+    path: 'perfil/editarPsw/:correo',
+    component: NuevaContraFormComponent
   },
 
 ];

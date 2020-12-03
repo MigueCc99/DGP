@@ -23,6 +23,11 @@ export class FacilitadoresService {
     console.log(correo);
     return this.http.put(`${this.API_URI}/${correo}`,{"telefono" :[tlfCambiado]}); 
   }
+
+  getNuevaPsw(correo: string, psw: any){
+    return this.http.put(`${this.API_URI}/${correo}`, { "contrasena": [psw] }); 
+
+  }
   
   }
 

@@ -1,1 +1,18 @@
-<p>nueva-contra-form works!</p>
+
+<div class="col-md-4 offset-md-4">
+    <form action="/perfil/editarPsw">
+        <div class="text-center">
+            <img id="img1" src="./../../../../assets/LogoAVale.png" />
+        </div>
+        <div class="container">
+
+            <label for="psw1"><b>Nueva contraseña</b></label>
+            <input type="password" placeholder="Introduzca contaseña" #psw1 name="psw1" required>
+
+            <label for="psw2"><b>Repita la nueva contraseña</b></label>
+            <input type="password" placeholder="Confirmar contraseña" #psw2 name="psw2" required>
+
+            <button type="button" (click)="cambiarPsw(psw1.value, psw2.value)">Aceptar</button>
+        </div>
+    </form>
+</div>
