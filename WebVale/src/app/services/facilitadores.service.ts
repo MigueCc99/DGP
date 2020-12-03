@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,4 +18,11 @@ export class FacilitadoresService {
   getFacilitador(correo: string){
     return this.http.get(`${this.API_URI}/${correo}`);
   }
-}
+
+  cambiarDatos(correo: string, tlfCambiado: any) {
+    console.log(correo);
+    return this.http.put(`${this.API_URI}/${correo}`,{"telefono" :[tlfCambiado]}); 
+  }
+  
+  }
+

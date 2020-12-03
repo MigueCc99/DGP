@@ -84,7 +84,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'perfil/form/:correo',
+    path: 'perfil/editar/:correo',
     component: FacilitadorFormComponent
   },
 

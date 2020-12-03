@@ -1,6 +1,6 @@
 
 <div class="col-md-4 offset-md-4">
-    <form action="/perfil/form">
+    <form action="/perfil/editar">
         <div class="text-center">
             <img id="img1" src="./../../../../assets/LogoAVale.png" />
         </div>
@@ -9,7 +9,7 @@
             <label for="tlf"><b>Teléfono</b></label>
             <input type="number" placeholder="Actualizar telefono del usuario" #tlf name="tlf" required>
 
-            <button type="button" (click)="cambiarDatos(correo.value, tlf.value)">Aceptar</button>
+            <button type="button" (click)="cambiarDatos(tlf.value)">Aceptar</button>
         </div>
     </form>
 </div>

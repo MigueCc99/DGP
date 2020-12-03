@@ -30,7 +30,7 @@ class Server {
         this.app.use('/',indexRoutes);
         this.app.use('/api/vale/',loginRoutes);
         this.app.use('/api/vale/objetivos/',objetivosRoutes);
-        this.app.use('/api/vale/facilitadores/',facilitadoresRoutes);
+        this.app.use('/api/vale/facilitadores/', facilitadoresRoutes);
         this.app.use('/api/vale/actividades/', actividadesRoutes);
         this.app.use('/api/vale/socios/', sociosRoutes);
     }

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import pool from '../database'
+import pool from '../database';
 
 class FacilitadoresController {
 
@@ -13,7 +13,7 @@ class FacilitadoresController {
     }
 
     //recuperar datos de un facilitador 
-    public async getOne(req: Request, res: Response): Promise<any> {
+    public async getOne(req: Request, res: Response): Promise<void> {
         const { correo } = req.params; 
         await pool.query('SELECT * FROM facilitadores WHERE correo=?', [correo], function (err, result, fields){
             if (err) throw err;
@@ -32,7 +32,7 @@ class FacilitadoresController {
 
     //Borrar un facilitador
     public async delete(req: Request, res: Response): Promise<void> {
-        const correo = req.params;
+        const { correo }= req.params;
         await pool.query('DELETE FROM facilitadores WHERE correo=?', [correo], function (err, result, fields) {
             if (err) throw err;
             res.json({ message: "El facilitador fue eliminado" });
@@ -40,8 +40,9 @@ class FacilitadoresController {
     }
 
 //Para cambiar contraseña
+
     public async update(req: Request, res: Response): Promise<void> {
-        const correo = req.params;
+        const { correo } = req.params;
         await pool.query('UPDATE facilitadores set ? WHERE correo=?', [req.body, correo], function (err, result, fields) {
             if (err) throw err;
             res.json({ message: "El facilitador fue actualizado" });
