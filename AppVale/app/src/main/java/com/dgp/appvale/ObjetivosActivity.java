@@ -16,12 +16,14 @@ import java.util.ArrayList;
 
 public class ObjetivosActivity extends AppCompatActivity implements View.OnClickListener{
     private ImageButton botonAtrasObjetivos;
+    private ImageButton botonActividades;
 
     private ListView lvObjetivos;
     private AdaptadorObjetivos adaptador;
 
     private void init(){
         botonAtrasObjetivos = findViewById(R.id.botonAtrasObj);
+        botonActividades = findViewById(R.id.botonActividades);
         lvObjetivos = (ListView) findViewById(R.id.listaObjetivos);
         adaptador = new AdaptadorObjetivos(this, getArrayItems());
         lvObjetivos.setAdapter(adaptador);
@@ -40,11 +42,17 @@ public class ObjetivosActivity extends AppCompatActivity implements View.OnClick
         init();
 
         botonAtrasObjetivos.setOnClickListener(this);
+        botonActividades.setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View view){
-        Intent i = new Intent(this, MenuActivity.class);
-        startActivity(i);
+    public void onClick(View v){
+        if(v.getId() == R.id.botonActividades){
+            Intent i = new Intent(this, ActividadesActivity.class);
+            startActivity(i);
+        }else if(v.getId() == R.id.botonAtrasObj){
+            Intent i = new Intent(this, MenuActivity.class);
+            startActivity(i);
+        }
     }
 }

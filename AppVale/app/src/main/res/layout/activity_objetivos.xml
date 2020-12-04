@@ -9,9 +9,9 @@
     <ListView
         android:id="@+id/listaObjetivos"
         android:layout_width="350dp"
-        android:layout_height="500dp"
-        android:layout_marginTop="80dp"
+        android:layout_height="400dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,9 +20,20 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="152dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonActividades"
+        app:srcCompat="@drawable/atras" />
+
+    <ImageButton
+        android:id="@+id/botonActividades"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listaObjetivos"
-        app:srcCompat="@drawable/atras" />
+        app:srcCompat="@drawable/actividades" />
 </androidx.constraintlayout.widget.ConstraintLayout>
