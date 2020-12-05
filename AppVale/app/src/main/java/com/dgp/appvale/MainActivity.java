@@ -23,10 +23,11 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Sistema sistema;
+    private boolean debug = false;
 
     private void init (){
         sistema = new Sistema();
-        ejecutarServicio("http://192.168.1.101:80/appVale/insertar_socio.php");
+        //ejecutarServicio("http://192.168.1.101:80/appVale/insertar_socio.php");
     }
 
     private void ejecutarServicio(String URL){
@@ -68,8 +69,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view){
-        Intent i = new Intent(this, LoginActivity.class);
-        //Lanzo activity Login
-        startActivity(i);
+        if(!debug){
+            Intent i = new Intent(this, LoginActivity.class);
+            //Lanzo activity Login
+            startActivity(i);
+        }else{
+            Intent i = new Intent(this, ActividadesActivity.class);
+            //Lanzo activity Login
+            startActivity(i);
+        }
     }
 }

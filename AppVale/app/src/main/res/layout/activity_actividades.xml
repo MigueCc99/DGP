@@ -11,10 +11,10 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="25dp"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloActAct"
         app:srcCompat="@drawable/activity" />
 
     <ImageButton
@@ -49,4 +49,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonActActividades"
         app:srcCompat="@drawable/flecha_izquierda" />
+
+    <TextView
+        android:id="@+id/tituloActAct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/tituloActAct"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

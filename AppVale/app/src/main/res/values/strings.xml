@@ -24,4 +24,7 @@
     <string name="descripcionObjetivo">Descripcion Objetivo Default</string>
 
     <string name="iconoAvatar">Avatar</string>
+
+    <string name="tituloActividad">Título Actividad</string>
+    <string name="tituloActAct">Título Actividad</string>
 </resources>

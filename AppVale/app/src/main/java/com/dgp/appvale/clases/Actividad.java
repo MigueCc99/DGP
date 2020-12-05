@@ -3,17 +3,28 @@ package com.dgp.appvale.clases;
 public class Actividad{
     private String nombre;
     private String descripcion;
-    private String direccion_foto;
-    private String direccion_multimedia;
+    private String direccionFoto;
+    private String direccionMultimedia;
 
-    public Actividad(String nombre, String descripcion, String direccion_foto, String direccion_multimedia){
+    public Actividad(){
+        this.nombre = "Nombre Actividad";
+        this.descripcion = "Descripcion Actividad";
+        this.direccionFoto = "URL Foto";
+        this.direccionMultimedia = "URL Multimedia";
+    }
+
+    public Actividad(String nombre, String descripcion, String direccionFoto, String direccionMultimedia){
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.direccion_foto = direccion_foto;
-        this.direccion_multimedia = direccion_multimedia;
+        this.direccionFoto = direccionFoto;
+        this.direccionMultimedia = direccionMultimedia;
     }
 
-    public void mostrarActividad(){
-        throw new java.lang.UnsupportedOperationException("Not supported yet.");
-    }
+    public String getNombre(){ return nombre; }
+
+    public String getDescripcion(){ return descripcion; }
+
+    public String getDireccionFoto(){ return direccionFoto; }
+
+    public String getDireccionMultimedia(){ return direccionMultimedia; }
 }
