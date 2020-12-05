@@ -48,7 +48,6 @@ public class PerfilActivity extends AppCompatActivity implements  View.OnClickLi
 
     @Override
     public void onClick(View v){
-        Intent i = new Intent(this, MenuActivity.class);
-        startActivity(i);
+        finish();
     }
 }
