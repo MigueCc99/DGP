@@ -35,10 +35,10 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
         Actividad actividadAux;
         actividadesTest = new ArrayList<>();
 
-        actividadAux = new Actividad("Atarse los cordones", "Debes atarte los cordones y enviar un vídeo", "cordones.png", "URL Multimedia");
+        actividadAux = new Actividad("Atarse los cordones", "Debes atarte los cordones y enviar un vídeo", "cordones.png", "https://www.youtube.com/watch?v=QmjQAl_-tiI");
         actividadesTest.add(actividadAux);
 
-        actividadAux = new Actividad("Poner la lavadora", "Debes poner la lavadora y enviar un vídeo", "lavadora.png", "URL Multimedia");
+        actividadAux = new Actividad("Poner la lavadora", "Debes poner la lavadora y enviar un vídeo", "lavadora.png", "https://www.youtube.com/watch?v=XGKF5hxTnfo");
         actividadesTest.add(actividadAux);
     }
 
@@ -72,6 +72,9 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         if(v.getId() == R.id.botonActActividades){
             // Intent a Actividad concreta
+            Intent i = new Intent(this, ActividadActivity.class);
+            i.putExtra("actividad", actividad);
+            startActivity(i);
         }else if(v.getId() == R.id.botonAtrasActividades){
             Intent i = new Intent(this, ObjetivosActivity.class);
             startActivity(i);

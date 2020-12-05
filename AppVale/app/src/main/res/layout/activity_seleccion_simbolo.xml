@@ -23,8 +23,8 @@
 
     <ImageButton
         android:id="@+id/botonArbol"
-        android:layout_width="167dp"
-        android:layout_height="242dp"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
         android:layout_marginStart="17dp"
         android:layout_marginTop="34dp"
         android:contentDescription="@string/descripcionBotonesContra"
@@ -36,8 +36,8 @@
 
     <ImageButton
         android:id="@+id/botonCorazon"
-        android:layout_width="185dp"
-        android:layout_height="239dp"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
         android:layout_marginTop="34dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/descripcionBotonesContra"
@@ -48,10 +48,10 @@
 
     <ImageButton
         android:id="@+id/botonEstrella"
-        android:layout_width="168dp"
-        android:layout_height="240dp"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="35dp"
         android:contentDescription="@string/descripcionBotonesContra"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,8 +60,8 @@
 
     <ImageButton
         android:id="@+id/botonPerro"
-        android:layout_width="184dp"
-        android:layout_height="240dp"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/descripcionBotonesContra"

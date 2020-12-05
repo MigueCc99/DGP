@@ -1,34 +1,55 @@
 package com.dgp.appvale;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.VideoView;
+
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.dgp.appvale.clases.Actividad;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 public class ActividadActivity  extends AppCompatActivity implements View.OnClickListener{
     TextView tituloActividad;
     ImageButton botonEnviar, botonAtrasActividad;
-    VideoView videoActividad;
+    YouTubePlayerView youtubePlayer;
+
+    Actividad actividad;
 
     private void init(){
         tituloActividad = findViewById(R.id.tituloActividad);
         botonEnviar = findViewById(R.id.botonActividadEnviar);
         botonAtrasActividad = findViewById(R.id.botonAtrasActividad);
-        videoActividad = findViewById(R.id.videoActividad);
+        youtubePlayer = findViewById(R.id.youtubePlayer);
+        actividad = getIntent().getExtras().getParcelable("actividad");
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_actividades);
+        setContentView(R.layout.activity_actividad);
         init();
 
         botonEnviar.setOnClickListener(this);
         botonAtrasActividad.setOnClickListener(this);
+
+        getLifecycle().addObserver(youtubePlayer);
+
+        youtubePlayer.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+            @Override
+            public void onApiChange(YouTubePlayer youTubePlayer) {
+                super.onApiChange(youTubePlayer);
+
+                String id ="bCnn-o6gEaQ";
+                //youTubePlayer.loadVideo(id,0);
+            }
+        });
     }
 
     @Override
