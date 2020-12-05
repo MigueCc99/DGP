@@ -28,10 +28,11 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
 
         actividad = new Actividad();
         generarArrayActividadesTest();
+        gestiónActividadActual();
     }
 
     private void generarArrayActividadesTest(){
-        Actividad actividadAux = new Actividad();
+        Actividad actividadAux;
         actividadesTest = new ArrayList<>();
 
         actividadAux = new Actividad("Atarse los cordones", "Debes atarte los cordones y enviar un vídeo", "cordones.png", "URL Multimedia");
