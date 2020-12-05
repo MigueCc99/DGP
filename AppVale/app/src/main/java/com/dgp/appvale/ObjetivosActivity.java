@@ -51,8 +51,7 @@ public class ObjetivosActivity extends AppCompatActivity implements View.OnClick
             Intent i = new Intent(this, ActividadesActivity.class);
             startActivity(i);
         }else if(v.getId() == R.id.botonAtrasObj){
-            Intent i = new Intent(this, MenuActivity.class);
-            startActivity(i);
+            finish();
         }
     }
 }

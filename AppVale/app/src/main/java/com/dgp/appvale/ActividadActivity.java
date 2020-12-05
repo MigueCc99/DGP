@@ -34,10 +34,10 @@ public class ActividadActivity  extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.botonActividadEnviar){
-            // Enviar Actividad
-        }else if(v.getId() == R.id.botonAtrasActividad){
-            Intent i = new Intent(this, ActividadesActivity.class);
+            Intent i = new Intent(this, EnviarSolucionActivity.class);
             startActivity(i);
+        }else if(v.getId() == R.id.botonAtrasActividad){
+            finish();
         }
     }
 }

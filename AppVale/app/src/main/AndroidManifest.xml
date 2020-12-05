@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dgp.appvale">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera"
+                    android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -11,9 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActividadActivity"></activity>
-        <activity android:name=".ActividadesActivity"></activity>
-        <activity android:name=".ObjetivosActivity"></activity>
+        <activity android:name=".EnviarSolucionActivity"></activity>
+        <activity android:name=".ActividadActivity" />
+        <activity android:name=".ActividadesActivity" />
+        <activity android:name=".ObjetivosActivity" />
         <activity android:name=".PerfilActivity" />
         <activity android:name=".SeleccionSimboloActivity" />
         <activity android:name=".MenuActivity" />

@@ -73,8 +73,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
         if(v.getId() == R.id.botonActActividades){
             // Intent a Actividad concreta
         }else if(v.getId() == R.id.botonAtrasActividades){
-            Intent i = new Intent(this, ObjetivosActivity.class);
-            startActivity(i);
+            finish();
         }else if(v.getId() == R.id.botonFlechaDerecha){
             /* Enlaza a actividad siguiente si la hay
                ACT1 -- ACT2 -- ACT3 (array 3 actividades)
