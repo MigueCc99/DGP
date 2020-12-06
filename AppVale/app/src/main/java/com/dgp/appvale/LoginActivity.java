@@ -12,13 +12,23 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.dgp.appvale.clases.Data;
 import com.dgp.appvale.clases.Sistema;
+import com.dgp.appvale.clases.Socio;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int SELECCION_REQUEST_CODE = 0;
-    private static int[] contraseniaProvisional = new int[6];
+    private static String[] contraseniaProvisional = {"0","0","0","0","0","0"};
     private static int ultimaPosContr;
 
     private ImageButton et_botonContra1, et_botonContra2, et_botonContra3, et_botonContra4, et_botonContra5, et_botonContra6, et_botonCambio;
@@ -37,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void reset (){
         for(int i = 0; i < contraseniaProvisional.length; i++)
-            contraseniaProvisional[i] = -1;
+            contraseniaProvisional[i] = "0";
 
         ultimaPosContr = -1;
 
@@ -49,6 +59,44 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_botonContra6.setImageResource(R.drawable.imagen_gris);
 
         et_botonAcceso.setEnabled(false);
+    }
+
+    private boolean checkUser(){
+        String url = Global.URL_FIJA + Global.URL_LOGIN + contraseniaProvisional;
+
+        new JsonObjectRequest(Request.Method.GET, url , null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        String nombreSocio = null;
+                        String apellidoSocio = null;
+                        String nacimiento = null;
+                        String contraseniaSocio = null;
+                        int idSocio = 0;
+                        try {
+                            nombreSocio = response.getString("nombre");
+                            apellidoSocio = response.getString("apellidos");
+                            nacimiento = response.getString("nacimiento");
+                            contraseniaSocio = response.getString("contrasena");
+                            idSocio = response.getInt("id");
+                            Data.getData().setRegistrado(true);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Data.getData().setRegistrado(false);
+                        }
+
+                        Data.getData().setSocio(new Socio(nombreSocio, apellidoSocio, new Date(), idSocio));
+                    }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError e) {
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), e + "Contraseña Incorrecta", Toast.LENGTH_LONG).show();
+                            Data.getData().setRegistrado(false);
+                        }
+                    });
+
+        return Data.getData().getRegistrado();
     }
 
     @Override
@@ -75,7 +123,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         // Actualizo la imagen que ha seleccionado el usuario
         if(ultimaPosContr != -1) {
-            if (contraseniaProvisional[ultimaPosContr] != -1) {
+            if (contraseniaProvisional[ultimaPosContr] != "-1") {
                 switch (ultimaPosContr) {
                     case 0:
                         et_botonCambio = et_botonContra1;
@@ -95,7 +143,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     case 5:
                         et_botonCambio = et_botonContra6;
                 }
-                int idImage = Global.getIdImagen(contraseniaProvisional[ultimaPosContr]);
+                int idImage = Global.getIdImagen( Integer.parseInt(contraseniaProvisional[ultimaPosContr]));
 
                 et_botonCambio.setImageResource(idImage);
             }
@@ -103,7 +151,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         boolean contrCompleta = true;
         for(int i = 0; i < contraseniaProvisional.length && contrCompleta; i++){
-            if(contraseniaProvisional[i] == -1)
+            if(contraseniaProvisional[i] == "-1")
                 contrCompleta = false;
         }
 
@@ -118,7 +166,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(v.getId() == R.id.botonAcceso){
             Sistema sistema = new Sistema();
 
-            if(sistema.comparaContrasenia(contraseniaProvisional)){
+            if(checkUser()){
                 reset();
                 Intent i = new Intent(this, MenuActivity.class);
                 // Lanzo Activity Menu
@@ -168,7 +216,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (requestCode == SELECCION_REQUEST_CODE){
             if (resultCode == RESULT_OK){
                 int codigoContr = data.getIntExtra("codigoContr",-1); // -1 como default
-                contraseniaProvisional[ultimaPosContr] = codigoContr;
+                contraseniaProvisional[ultimaPosContr] = Integer.toString(codigoContr);
             }
         }
     }
