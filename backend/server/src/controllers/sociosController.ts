@@ -82,6 +82,17 @@ class SociosController {
             res.json(result);
         });
     }
+
+    public async getSocio (req: Request, res: Response): Promise<void> {
+        const contrasena = req.params.contrasena;
+        await pool.query('SELECT * FROM socios WHERE contrasena=?',[contrasena], function(err, result, fields) {
+            if (err) throw err;
+            if (result.length > 0) {
+                return res.json(result[0]);
+            }
+            res.status(404).json({message: "El socio no existe"});
+        });
+    }
 }
 
 export const sociosController = new SociosController();

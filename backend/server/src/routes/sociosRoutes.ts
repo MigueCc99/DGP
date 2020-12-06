@@ -21,6 +21,7 @@ class SociosRoutes {
         this.router.get('/:id/actividades/entregadas', sociosController.getActividadesEntregadas);
         this.router.get('/:id/actividades/no-aceptadas', sociosController.getActividadesPendientesCorregir);
         this.router.get('/:id/actividades/no-entregadas', sociosController.getActividadesSinEntregar);
+        this.router.get('/login/:contrasena', sociosController.getSocio);
     }
 
 }  

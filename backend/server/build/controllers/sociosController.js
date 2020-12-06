@@ -113,5 +113,18 @@ class SociosController {
             });
         });
     }
+    getSocio(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const contrasena = req.params.contrasena;
+            yield database_1.default.query('SELECT * FROM socios WHERE contrasena=?', [contrasena], function (err, result, fields) {
+                if (err)
+                    throw err;
+                if (result.length > 0) {
+                    return res.json(result[0]);
+                }
+                res.status(404).json({ message: "El socio no existe" });
+            });
+        });
+    }
 }
 exports.sociosController = new SociosController();
