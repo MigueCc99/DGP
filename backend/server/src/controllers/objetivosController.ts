@@ -27,20 +27,17 @@ class ObjetivosController {
         res.json({message: 'Objetivo creado'});
     }
 
-    public async delete (req: Request, res: Response): Promise<void> {
-        const id = req.params;
-        await pool.query('DELETE FROM objetivos WHERE id=?',[id], function(err, result, fields) {
-            if (err) throw err;
-            res.json({message: "El Objetivo fue eliminado"});
-        });
+    public async update (req: Request, res: Response) : Promise <void>{
+        const { id } = req.params;
+        await pool.query('UPDATE objetivos set ? WHERE id = ?', [req.body, id]);
+        res.json({message: id});
     }
 
-    public async update (req: Request, res: Response): Promise<void> {
-        const id = req.params;
-        await pool.query('UPDATE objetivos set ? WHERE id=?',[req.body, id], function(err, result, fields) {
-            if (err) throw err;
-            res.json({message: "El Objetivo fue actualizado"});
-        });
+    public async delete(req: Request, res: Response) : Promise<void> {
+        const { id } = req.params;
+        console.log(id)
+        await pool.query('DELETE FROM objetivos WHERE id=?', [id]);
+        res.json({message: 'The objetive was deleted'});
     }
 
     public async getActividadesDeObjetivo (req: Request, res: Response): Promise<void> {

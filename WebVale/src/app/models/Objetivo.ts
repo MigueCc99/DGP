@@ -1,6 +1,6 @@
 export interface Objetivo {
     id: number;
-    nombre: string;
+    nombre?: string;
     descripcion?: string;
     imagen?: string;
     toggle?: boolean;

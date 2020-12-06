@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ObjetivosService } from 'src/app/services/objetivos.service';
 import { Objetivo } from '../../../models/Objetivo'
@@ -34,16 +34,25 @@ export class ObjetivosPageComponent implements OnInit {
   filtrarListado (){
     this.listadoObjetivosFiltrado = this.listadoObjetivos.filter(
       objetivo => 
-      objetivo.nombre.toLowerCase().includes(this.filtro.toLowerCase())
+      objetivo.nombre!.toLowerCase().includes(this.filtro.toLowerCase())
     )
   }
 
-  navegaEditar (id : number | string) {
+  navegaEditar (id : number | string | undefined) {
     this.router.navigate(['/objetivos/editar/' + id]);
   }
 
-  eliminar (id : number | string) {
-
+  deleteObjetivo(id: any) : void {
+    this.objetivosService.deleteObjetivo(id)
+      .subscribe(
+        res => {
+          console.log(res);
+            setTimeout( () =>{
+              this.getObjetivos()}, 100
+            )
+        },
+        err => console.log(err)
+      );   
   }
 
   crear () {

@@ -43,24 +43,19 @@ class ObjetivosController {
             res.json({ message: 'Objetivo creado' });
         });
     }
-    delete(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const id = req.params;
-            yield database_1.default.query('DELETE FROM objetivos WHERE id=?', [id], function (err, result, fields) {
-                if (err)
-                    throw err;
-                res.json({ message: "El Objetivo fue eliminado" });
-            });
-        });
-    }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const id = req.params;
-            yield database_1.default.query('UPDATE objetivos set ? WHERE id=?', [req.body, id], function (err, result, fields) {
-                if (err)
-                    throw err;
-                res.json({ message: "El Objetivo fue actualizado" });
-            });
+            const { id } = req.params;
+            yield database_1.default.query('UPDATE objetivos set ? WHERE id = ?', [req.body, id]);
+            res.json({ message: id });
+        });
+    }
+    delete(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            console.log(id);
+            yield database_1.default.query('DELETE FROM objetivos WHERE id=?', [id]);
+            res.json({ message: 'The objetive was deleted' });
         });
     }
     getActividadesDeObjetivo(req, res) {

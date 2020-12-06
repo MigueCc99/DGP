@@ -23,7 +23,7 @@
             <ul *ngFor="let objetivo of listadoObjetivosFiltrado">
                 <li>
                     {{objetivo.nombre}}
-                    <button type="button" (click)="eliminar(objetivo.id)" class="btn btn-danger fa fa-trash"></button>
+                    <button type="button" (click)="deleteObjetivo(objetivo.id)" class="btn btn-danger fa fa-trash"></button>
                     <button type="button" (click)="navegaEditar(objetivo.id)" class="btn btn-warning fa fa-edit"></button>
                     <button type="button" (click)="objetivo.toggle=!objetivo.toggle" class="boton-ver fa fa-eye"></button>
                     <p *ngIf="objetivo.toggle">{{objetivo.descripcion}}</p>
