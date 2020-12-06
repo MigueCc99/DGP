@@ -48,7 +48,16 @@ export class ActividadesPageComponent implements OnInit {
   }
 
   eliminar (id : number | string) {
-
+    this.actividadesService.deleteActividad(id)
+      .subscribe(
+        res => {
+          console.log(res);
+            setTimeout( () =>{
+              this.getActividades()}, 100
+            )
+        },
+        err => console.log(err)
+      );
   }
 
   crear () {

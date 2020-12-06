@@ -28,19 +28,15 @@ class ActividadesController {
     }
 
     public async delete (req: Request, res: Response): Promise<void> {
-        const id = req.params;
-        await pool.query('DELETE FROM actividades WHERE id=?',[id], function(err, result, fields) {
-            if (err) throw err;
-            res.json({message: "La actividad fue eliminada"});
-        });
+        const {id} = req.params;
+        await pool.query('DELETE FROM actividades WHERE id=?',[id]);
+        res.json({message: "La actividad fue eliminada"});
     }
 
     public async update (req: Request, res: Response): Promise<void> {
-        const id = req.params;
-        await pool.query('UPDATE actividades set ? WHERE id=?',[req.body, id], function(err, result, fields) {
-            if (err) throw err;
-            res.json({message: "La actividad fue actualizada"});
-        });
+        const {id} = req.params;
+        await pool.query('UPDATE actividades set ? WHERE id=?',[req.body, id]);
+        res.json({message: "La actividad fue actualizada"});
     }
 
     public async getObjetivosDeActividad (req: Request, res: Response): Promise<void> {

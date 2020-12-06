@@ -45,22 +45,16 @@ class ActividadesController {
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const id = req.params;
-            yield database_1.default.query('DELETE FROM actividades WHERE id=?', [id], function (err, result, fields) {
-                if (err)
-                    throw err;
-                res.json({ message: "La actividad fue eliminada" });
-            });
+            const { id } = req.params;
+            yield database_1.default.query('DELETE FROM actividades WHERE id=?', [id]);
+            res.json({ message: "La actividad fue eliminada" });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const id = req.params;
-            yield database_1.default.query('UPDATE actividades set ? WHERE id=?', [req.body, id], function (err, result, fields) {
-                if (err)
-                    throw err;
-                res.json({ message: "La actividad fue actualizada" });
-            });
+            const { id } = req.params;
+            yield database_1.default.query('UPDATE actividades set ? WHERE id=?', [req.body, id]);
+            res.json({ message: "La actividad fue actualizada" });
         });
     }
     getObjetivosDeActividad(req, res) {
