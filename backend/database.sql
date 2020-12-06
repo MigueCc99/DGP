@@ -45,7 +45,7 @@ CREATE TABLE actividad_asignada_socio(
     id_actividad INT(11) REFERENCES actividad(id),
     id_socio INT(11) REFERENCES socio(id),
     solucion_texto VARCHAR(200),
-    multimedia_solucion VARCHAR(50),
+    multimedia_solucion MEDIUMBLOB,
     aceptada BOOLEAN,
     es_util BOOLEAN,
     es_dificil BOOLEAN,

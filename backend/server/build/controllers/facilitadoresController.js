@@ -49,7 +49,7 @@ class FacilitadoresController {
     //Borrar un facilitador
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const correo = req.params;
+            const { correo } = req.params;
             yield database_1.default.query('DELETE FROM facilitadores WHERE correo=?', [correo], function (err, result, fields) {
                 if (err)
                     throw err;
@@ -60,7 +60,7 @@ class FacilitadoresController {
     //Para cambiar contraseña
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const correo = req.params;
+            const { correo } = req.params;
             yield database_1.default.query('UPDATE facilitadores set ? WHERE correo=?', [req.body, correo], function (err, result, fields) {
                 if (err)
                     throw err;
