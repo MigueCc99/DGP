@@ -36,14 +36,14 @@ CREATE TABLE actividades(
 );
 
 CREATE TABLE actividad_pertenece_objetivo(
-    id_actividad INT(11) REFERENCES actividades(id),
-    id_objetivo INT(11) REFERENCES objetivos(id),
+    id_actividad INT(11) REFERENCES actividades(id) ON DELETE CASCADE,
+    id_objetivo INT(11) REFERENCES objetivos(id) ON DELETE CASCADE,
     PRIMARY KEY(id_objetivo,id_actividad)
 );
 
 CREATE TABLE actividad_asignada_socio(
-    id_actividad INT(11) REFERENCES actividad(id),
-    id_socio INT(11) REFERENCES socio(id),
+    id_actividad INT(11) REFERENCES actividad(id) ON DELETE CASCADE,
+    id_socio INT(11) REFERENCES socio(id) ON DELETE CASCADE,
     solucion_texto VARCHAR(200),
     multimedia_solucion MEDIUMBLOB,
     aceptada BOOLEAN,
