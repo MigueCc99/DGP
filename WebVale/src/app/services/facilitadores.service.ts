@@ -29,5 +29,14 @@ export class FacilitadoresService {
 
   }
   
+  crearFacilitador(nombre: string, apellidos: string, fN: string, correo: string, tlf: number){
+    return this.http.post(`${this.API_URI}/`, { "nombre": [nombre], 
+                                                "apellidos": [apellidos],
+                                                "contrasena": "",
+                                                "centro": 0,
+                                                "nacimiento": [fN],
+                                                "correo": [correo],
+                                                "telefono":[tlf] }); 
+  }
   }
 

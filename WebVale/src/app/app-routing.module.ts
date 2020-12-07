@@ -16,6 +16,7 @@ import { SocioInfoPageComponent } from './components/pages/socio-info-page/socio
 import { SociosPageComponent } from './components/pages/socios-page/socios-page.component';
 import { SociosRecuperaContraPageComponent } from './components/pages/socios-recupera-contra-page/socios-recupera-contra-page.component';
 import { NuevaContraFormComponent } from './components/forms/nueva-contra-form/nueva-contra-form.component';
+import { Facilitador } from './models/Facilitador';
 
 const routes: Routes = [
   {
@@ -91,6 +92,10 @@ const routes: Routes = [
   {
     path: 'perfil/editarPsw/:correo',
     component: NuevaContraFormComponent
+  },
+  {
+    path: 'centro/crearFacilitador',
+    component: FacilitadorFormComponent
   },
 
 ];
