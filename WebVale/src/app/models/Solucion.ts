@@ -1,13 +1,13 @@
 export class Solucion implements Object{
     id_actividad: number;
     id_socio: number;
-    solucion_texto?: string;
-    multimedia_solucion?: string;
+    solucion_texto: string;
+    multimedia_solucion: string;
     aceptada: boolean;
-    es_util?: boolean;
-    es_gustado?: boolean;
-    es_dificil?: boolean;
-    comentario?: string;
+    es_util: boolean;
+    es_gustado: boolean;
+    es_dificil: boolean;
+    comentario: string;
 
     constructor() {
         this.id_actividad = 0;

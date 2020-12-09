@@ -50,7 +50,17 @@ class SociosController {
             res.json(result);
         });
     }
-
+    public async getActividad (req: Request, res: Response): Promise<void> {
+        const id = req.params.id;
+        const actividad = req.params.actividad;
+        await pool.query('SELECT * FROM actividad_asignada_socio WHERE id_socio=? AND id_actividad=?',[id,actividad], function(err, result, fields) {
+            if (err) throw err;
+            if (result.length > 0) {
+                return res.json(result[0]);
+            }
+            res.status(404).json({message: "La solucion no existe"});
+        });
+    }
     public async getActividadesPendientesCorregir (req: Request, res: Response): Promise<void> {
         const id = req.params.id;
         await pool.query('SELECT * FROM actividades WHERE id in (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio=? AND (multimedia_solucion IS NOT NULL OR solucion_texto IS NOT NULL) AND aceptada=false)',[id], function(err, result, fields) {

@@ -20,6 +20,12 @@ export class SociosService {
   getActividadesSocio(id : number){
     return this.http.get(`${this.API_URI}/${id}/actividades`)
   }
+  
+  getActividadSocio(idSocio: number, idActividad : number )
+  {
+    return this.http.get(`${this.API_URI}/${idSocio}/actividades/solucion/${idActividad}`)
+  }
+
   getActividadesNoAceptadasSocio(id : number){
     return this.http.get(`${this.API_URI}/${id}/actividades/no-aceptadas`)
   }

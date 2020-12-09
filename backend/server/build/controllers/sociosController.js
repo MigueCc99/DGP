@@ -73,6 +73,20 @@ class SociosController {
             });
         });
     }
+    getActividad(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            const actividad = req.params.actividad;
+            yield database_1.default.query('SELECT * FROM actividad_asignada_socio WHERE id_socio=? AND id_actividad=?', [id, actividad], function (err, result, fields) {
+                if (err)
+                    throw err;
+                if (result.length > 0) {
+                    return res.json(result[0]);
+                }
+                res.status(404).json({ message: "La solucion no existe" });
+            });
+        });
+    }
     getActividadesPendientesCorregir(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const id = req.params.id;
