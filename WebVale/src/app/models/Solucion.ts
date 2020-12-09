@@ -3,7 +3,9 @@ export class Solucion implements Object{
     id_socio: number;
     solucion_texto: string;
     multimedia_solucion: string;
+    multimedia_mime: string;
     aceptada: boolean;
+    a_repetir: boolean;
     es_util: boolean;
     es_gustado: boolean;
     es_dificil: boolean;
@@ -14,6 +16,8 @@ export class Solucion implements Object{
         this.id_socio = 0;
         this.solucion_texto = "";
         this.multimedia_solucion = "";
+        this.multimedia_mime = "";
+        this.a_repetir = false;
         this.aceptada = false;
         this.es_util = false;
         this.es_gustado = false;
