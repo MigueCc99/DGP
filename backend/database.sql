@@ -55,11 +55,11 @@ CREATE TABLE actividad_asignada_socio(
 );
 
 -- *****************************************************************************
-INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('David','Baez','0123',false,'david@vale.org','612345678','23/07/1995');
-INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('Ana','Baez','0123',true,'ana@vale.org','612345678','23/07/1995');
+INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('david','baez','0123',false,'david@vale.org','612345678','23/07/1995');
+INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('ana','baez','0123',true,'ana@vale.org','612345678','23/07/1995');
 
-INSERT INTO socios (nombre, apellidos, nacimiento, contrasena) VALUES ('Thomas', 'Ruiz', '14/07/1998', '123123');
-INSERT INTO socios (nombre, apellidos, nacimiento, contrasena) VALUES ('Miguel', 'María', '14/07/1998', '143143');
+INSERT INTO socios(id,nombre,apellidos,nacimiento,contrasena) VALUES ("1","Federico","García Lorca", "10/02/1959","111111");
+INSERT INTO socios(id,nombre,apellidos,nacimiento,contrasena) VALUES ("2","María","Rodriguez de los Santos", "01/05/1979","222222");
 
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Matemáticas', 'Desarrollar habilidades matemáticas para el manejo de situaciones de la vida cotidiana');
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Inglés', 'Hablar y entender inglés correctamente');
@@ -99,13 +99,13 @@ INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('10'
 INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('11','7');
 INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('11','8');
 
-INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('1','1', 'false');
-INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('2','1', 'false');
-INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('3','1', 'false');
-INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('4','1', 'false');
-INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('5','1', 'false');
-INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('5','2', 'false');
-INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('2','2', 'false');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('1','1', '0');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('2','1', '0');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('3','1', '0');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('4','1', '0');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('5','1', '0');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('5','2', '0');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('2','2', '0');
 
 
 

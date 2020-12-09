@@ -1,7 +1,7 @@
 package com.dgp.appvale;
 
 public class Global {
-    static final String URL_FIJA = "localhost:3000/api/vale/socios/";
+    static final String URL_FIJA = "http://10.0.2.2:3000/api/vale/socios";
     static final String URL_LOGIN = "/login/";
 
     public static final int CODIGO_ARBOL = 1;

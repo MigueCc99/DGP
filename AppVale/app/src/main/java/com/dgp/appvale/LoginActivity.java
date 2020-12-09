@@ -2,17 +2,15 @@ package com.dgp.appvale;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -28,7 +26,7 @@ import java.util.Date;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int SELECCION_REQUEST_CODE = 0;
-    private static String[] contraseniaProvisional = {"0","0","0","0","0","0"};
+    private ArrayList<Integer> contraseniaProvisional = new ArrayList<>();
     private static int ultimaPosContr;
 
     private ImageButton et_botonContra1, et_botonContra2, et_botonContra3, et_botonContra4, et_botonContra5, et_botonContra6, et_botonCambio;
@@ -43,11 +41,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_botonContra5 = (ImageButton)findViewById(R.id.botonContra5);
         et_botonContra6 = (ImageButton)findViewById(R.id.botonContra6);
         et_botonCambio = null;
+
+        contraseniaProvisional.clear();
+        for(int i=0; i<6; i++)
+            contraseniaProvisional.add(-1);
     }
 
     private void reset (){
-        for(int i = 0; i < contraseniaProvisional.length; i++)
-            contraseniaProvisional[i] = "0";
+        contraseniaProvisional.clear();
+        for(int i=0; i<6; i++)
+            contraseniaProvisional.add(-1);
 
         ultimaPosContr = -1;
 
@@ -62,39 +65,44 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private boolean checkUser(){
-        String url = Global.URL_FIJA + Global.URL_LOGIN + contraseniaProvisional;
+        String url = Global.URL_FIJA + Global.URL_LOGIN;
+        for(int i=0; i < contraseniaProvisional.size();i++){
+            //url += Integer.toString(contraseniaProvisional.get(i));
+        }
+        url += "111111";
 
-        new JsonObjectRequest(Request.Method.GET, url , null, new Response.Listener<JSONObject>() {
+        RequestQueue requestQueue = SingletonRequestQueue.getInstance(getApplicationContext()).getRequestQueue();
 
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        String nombreSocio = null;
-                        String apellidoSocio = null;
-                        String nacimiento = null;
-                        String contraseniaSocio = null;
-                        int idSocio = 0;
-                        try {
-                            nombreSocio = response.getString("nombre");
-                            apellidoSocio = response.getString("apellidos");
-                            nacimiento = response.getString("nacimiento");
-                            contraseniaSocio = response.getString("contrasena");
-                            idSocio = response.getInt("id");
-                            Data.getData().setRegistrado(true);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Data.getData().setRegistrado(false);
-                        }
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url , null, new Response.Listener<JSONObject>() {
 
-                        Data.getData().setSocio(new Socio(nombreSocio, apellidoSocio, new Date(), idSocio));
-                    }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError e) {
-                            e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), e + "Contraseña Incorrecta", Toast.LENGTH_LONG).show();
-                            Data.getData().setRegistrado(false);
-                        }
-                    });
+            @Override
+            public void onResponse(JSONObject response) {
+                String nombreSocio = null;
+                String apellidoSocio = null;
+                int idSocio = 0;
+                try {
+                    nombreSocio = response.getString("nombre");
+                    apellidoSocio = response.getString("apellidos");
+                    idSocio = response.getInt("id");
+                    Data.getData().setRegistrado(true);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Data.getData().setRegistrado(false);
+                }
+
+                Data.getData().setSocio(new Socio(nombreSocio, apellidoSocio, new Date(), idSocio));
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                System.out.println("error... " + e.toString());
+                Data.getData().setRegistrado(false);
+            }
+        });
+
+        requestQueue.add(jsonObjectRequest);
 
         return Data.getData().getRegistrado();
     }
@@ -123,7 +131,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         // Actualizo la imagen que ha seleccionado el usuario
         if(ultimaPosContr != -1) {
-            if (contraseniaProvisional[ultimaPosContr] != "-1") {
+            if (contraseniaProvisional.get(ultimaPosContr) != -1) {
                 switch (ultimaPosContr) {
                     case 0:
                         et_botonCambio = et_botonContra1;
@@ -143,15 +151,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     case 5:
                         et_botonCambio = et_botonContra6;
                 }
-                int idImage = Global.getIdImagen( Integer.parseInt(contraseniaProvisional[ultimaPosContr]));
+                int idImage = Global.getIdImagen( contraseniaProvisional.get(ultimaPosContr));
 
                 et_botonCambio.setImageResource(idImage);
             }
         }
 
         boolean contrCompleta = true;
-        for(int i = 0; i < contraseniaProvisional.length && contrCompleta; i++){
-            if(contraseniaProvisional[i] == "-1")
+        for(int i = 0; i < contraseniaProvisional.size() && contrCompleta; i++){
+            if(contraseniaProvisional.get(i) != -1)
                 contrCompleta = false;
         }
 
@@ -172,9 +180,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 // Lanzo Activity Menu
                 startActivity(i);
             }else{
-                Toast toast = Toast.makeText(getApplicationContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT);
-                toast.show();
                 reset();
+                Toast.makeText(getApplicationContext(), "Contraseña Incorrecta", Toast.LENGTH_LONG).show();
             }
         }else {
             // Guardo la última posición donde clicka el usuario
@@ -216,7 +223,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (requestCode == SELECCION_REQUEST_CODE){
             if (resultCode == RESULT_OK){
                 int codigoContr = data.getIntExtra("codigoContr",-1); // -1 como default
-                contraseniaProvisional[ultimaPosContr] = Integer.toString(codigoContr);
+                contraseniaProvisional.add(ultimaPosContr, codigoContr);
             }
         }
     }
