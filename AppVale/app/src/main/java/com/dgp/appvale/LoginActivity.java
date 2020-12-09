@@ -17,12 +17,21 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.dgp.appvale.clases.Data;
 import com.dgp.appvale.clases.Sistema;
 import com.dgp.appvale.clases.Socio;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.security.ProviderInstaller;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.Provider;
 import java.util.ArrayList;
 import java.util.Date;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLEngine;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int SELECCION_REQUEST_CODE = 0;
@@ -64,12 +73,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_botonAcceso.setEnabled(false);
     }
 
-    private boolean checkUser(){
+    private void updateAndroidSecurityProvider() {
+        try {
+            ProviderInstaller.installIfNeeded(this);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+
+    private boolean checkUser() {
         String url = Global.URL_FIJA + Global.URL_LOGIN;
         for(int i=0; i < contraseniaProvisional.size();i++){
             //url += Integer.toString(contraseniaProvisional.get(i));
         }
         url += "111111";
+
+        updateAndroidSecurityProvider();
 
         RequestQueue requestQueue = SingletonRequestQueue.getInstance(getApplicationContext()).getRequestQueue();
 
