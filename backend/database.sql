@@ -55,8 +55,11 @@ CREATE TABLE actividad_asignada_socio(
 );
 
 -- *****************************************************************************
-INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('david','baez','0123',false,'david@vale.org','612345678','23/07/1995');
-INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('ana','baez','0123',true,'ana@vale.org','612345678','23/07/1995');
+INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('David','Baez','0123',false,'david@vale.org','612345678','23/07/1995');
+INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('Ana','Baez','0123',true,'ana@vale.org','612345678','23/07/1995');
+
+INSERT INTO socios (nombre, apellidos, nacimiento, contrasena) VALUES ('Thomas', 'Ruiz', '14/07/1998', '123123');
+INSERT INTO socios (nombre, apellidos, nacimiento, contrasena) VALUES ('Miguel', 'María', '14/07/1998', '143143');
 
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Matemáticas', 'Desarrollar habilidades matemáticas para el manejo de situaciones de la vida cotidiana');
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Inglés', 'Hablar y entender inglés correctamente');
