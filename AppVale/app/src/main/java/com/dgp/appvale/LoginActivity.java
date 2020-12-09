@@ -41,25 +41,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ImageButton et_botonContra1, et_botonContra2, et_botonContra3, et_botonContra4, et_botonContra5, et_botonContra6, et_botonCambio;
     private Button et_botonAcceso;
 
-    private void init (){
-        et_botonAcceso = (Button)findViewById(R.id.botonAcceso);
-        et_botonContra1 = (ImageButton)findViewById(R.id.botonContra1);
-        et_botonContra2 = (ImageButton)findViewById(R.id.botonContra2);
-        et_botonContra3 = (ImageButton)findViewById(R.id.botonContra3);
-        et_botonContra4 = (ImageButton)findViewById(R.id.botonContra4);
-        et_botonContra5 = (ImageButton)findViewById(R.id.botonContra5);
-        et_botonContra6 = (ImageButton)findViewById(R.id.botonContra6);
+    private void init() {
+        et_botonAcceso = (Button) findViewById(R.id.botonAcceso);
+        et_botonContra1 = (ImageButton) findViewById(R.id.botonContra1);
+        et_botonContra2 = (ImageButton) findViewById(R.id.botonContra2);
+        et_botonContra3 = (ImageButton) findViewById(R.id.botonContra3);
+        et_botonContra4 = (ImageButton) findViewById(R.id.botonContra4);
+        et_botonContra5 = (ImageButton) findViewById(R.id.botonContra5);
+        et_botonContra6 = (ImageButton) findViewById(R.id.botonContra6);
         et_botonCambio = null;
 
         contraseniaProvisional.clear();
-        for(int i=0; i<6; i++)
+        for (int i = 0; i < 6; i++)
             contraseniaProvisional.add(-1);
     }
 
-    private void reset (){
-        contraseniaProvisional.clear();
-        for(int i=0; i<6; i++)
-            contraseniaProvisional.add(-1);
+    private void reset() {
+
+        for (int i = 0; i < contraseniaProvisional.size(); i++)
+            contraseniaProvisional.set(i, -1);
 
         ultimaPosContr = -1;
 
@@ -83,16 +83,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private boolean checkUser() {
         String url = Global.URL_FIJA + Global.URL_LOGIN;
-        for(int i=0; i < contraseniaProvisional.size();i++){
-            //url += Integer.toString(contraseniaProvisional.get(i));
+        for (int i = 0; i < contraseniaProvisional.size(); i++) {
+            url += Integer.toString(contraseniaProvisional.get(i));
         }
-        url += "111111";
 
         updateAndroidSecurityProvider();
 
         RequestQueue requestQueue = SingletonRequestQueue.getInstance(getApplicationContext()).getRequestQueue();
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url , null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
@@ -108,7 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 } catch (JSONException e) {
                     e.printStackTrace();
                     System.out.println("error... " + e.toString());
-                    Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                     Data.getData().setRegistrado(false);
                 }
 
@@ -150,11 +149,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    protected void onStart(){
+    protected void onStart() {
         super.onStart();
 
         // Actualizo la imagen que ha seleccionado el usuario
-        if(ultimaPosContr != -1) {
+        if (ultimaPosContr != -1) {
             if (contraseniaProvisional.get(ultimaPosContr) != -1) {
                 switch (ultimaPosContr) {
                     case 0:
@@ -175,42 +174,42 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     case 5:
                         et_botonCambio = et_botonContra6;
                 }
-                int idImage = Global.getIdImagen( contraseniaProvisional.get(ultimaPosContr));
+                int idImage = Global.getIdImagen(contraseniaProvisional.get(ultimaPosContr));
 
                 et_botonCambio.setImageResource(idImage);
             }
         }
 
         boolean contrCompleta = true;
-        for(int i = 0; i < contraseniaProvisional.size() && contrCompleta; i++){
-            if(contraseniaProvisional.get(i) != -1)
+        for (int i = 0; i < contraseniaProvisional.size() && contrCompleta; i++) {
+            if (contraseniaProvisional.get(i) != -1)
                 contrCompleta = false;
         }
 
-        if(contrCompleta) {
+        if (contrCompleta) {
             et_botonAcceso.setEnabled(true);
         }
     }
 
     @Override
-    public void onClick(View v){
+    public void onClick(View v) {
 
-        if(v.getId() == R.id.botonAcceso){
+        if (v.getId() == R.id.botonAcceso) {
             Sistema sistema = new Sistema();
 
-            if(checkUser()){
+            if (checkUser()) {
                 reset();
                 Intent i = new Intent(this, MenuActivity.class);
                 // Lanzo Activity Menu
                 startActivity(i);
-            }else{
+            } else {
                 reset();
                 Toast.makeText(getApplicationContext(), "Contraseña Incorrecta", Toast.LENGTH_LONG).show();
             }
-        }else {
+        } else {
             // Guardo la última posición donde clicka el usuario
 
-            switch(v.getId()){
+            switch (v.getId()) {
                 case R.id.botonContra1:
                     ultimaPosContr = 0;
                     break;
@@ -244,16 +243,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == SELECCION_REQUEST_CODE){
-            if (resultCode == RESULT_OK){
-                int codigoContr = data.getIntExtra("codigoContr",-1); // -1 como default
-                contraseniaProvisional.add(ultimaPosContr, codigoContr);
+        if (requestCode == SELECCION_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                int codigoContr = data.getIntExtra("codigoContr", -1); // -1 como default
+                contraseniaProvisional.set(ultimaPosContr, codigoContr);
             }
         }
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
         reset();
     }

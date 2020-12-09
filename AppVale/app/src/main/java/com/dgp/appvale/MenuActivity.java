@@ -31,7 +31,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_menu);
         init();
 
-        textoHola.setText("Hola, "+ Data.getData().getSocio().getNombre());
+        textoHola.setText("Hola, " + Data.getData().getSocio().getNombre());
 
         botonSalida.setOnClickListener(this);
         botonPerfil.setOnClickListener(this);
