@@ -12,7 +12,35 @@
         </div>
 
         <h2>Solucion propuesta</h2>
+        <br>
         <h2>Feedback recibido</h2>
+        <div *ngIf="solucion.es_util!=null">  
+            <ul>
+                <li>
+                    <span *ngIf="solucion.es_util"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
+                    <span *ngIf="!solucion.es_util"><i class="fa fa-close" aria-hidden="true"></i></span>
+                    ¿Te ha parecido útil?
+                </li>
+                <li>
+                    <span *ngIf="solucion.es_dificil"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
+                    <span *ngIf="!solucion.es_dificil"><i class="fa fa-close" aria-hidden="true"></i></span>
+                    ¿Te ha parecido difícil?
+                </li>
+                <li>
+                    <span *ngIf="solucion.es_gustado"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
+                    <span *ngIf="!solucion.es_gustado"><i class="fa fa-close" aria-hidden="true"></i></span>
+                    ¿Te ha gustado la actividad?
+                </li>
+                <li>
+                    <p *ngIf="solucion.comentario">Comentarios: <br>{{solucion.comentario}}</p>
+                    <p *ngIf="!solucion.comentario">No hay comentarios adicionales</p>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="solucion.es_util==null"> 
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            No se ha recibido feedback del usuario
+        </div>
     </div>
     
 </div>

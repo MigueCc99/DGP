@@ -41,6 +41,7 @@ export class SocioActividadPageComponent implements OnInit {
     .subscribe(
       res => {
         this.solucion = res as Solucion;
+        console.log(res)
       },
       err => console.error(err)
     );

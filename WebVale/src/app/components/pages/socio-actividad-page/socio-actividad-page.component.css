@@ -1,0 +1,17 @@
+ul {
+list-style-type: none;
+}
+
+li {
+    margin: 10px;
+}
+
+.fa{
+    margin: 20px;
+    color: var(--verde-institucional);
+}
+
+p{
+    font-family: Roboto;
+    font-size: 24px;
+}
