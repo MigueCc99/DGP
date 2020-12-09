@@ -63,6 +63,14 @@ class SociosController {
             });
         });
     }
+    updateSolucion(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const { actividad } = req.params;
+            yield database_1.default.query('UPDATE actividad_asignada_socio set ? WHERE id_socio=? AND id_actividad=?', [req.body, id, actividad]);
+            res.json({ message: "La solucion fue actualizada" });
+        });
+    }
     getActividades(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const id = req.params.id;
