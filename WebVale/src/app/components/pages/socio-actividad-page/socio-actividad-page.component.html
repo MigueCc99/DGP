@@ -11,7 +11,13 @@
             <br>
         </div>
 
-        <h2>Solucion propuesta</h2>
+        <h2>Solucion propuesta</h2> 
+        <button type="button"  (click)="aceptarSolucion()"  class="btn btn-outline-success fa fa-check-circle"></button>
+        <button type="button"   (click)="rechazarSolucion()"  class="btn btn-outline-danger fa fa-close"></button>
+        
+        <div *ngIf="solucion.solucion_texto!=null" id="solucion-texto"> 
+            {{solucion.solucion_texto}}
+        </div>
         <br>
         <h2>Feedback recibido</h2>
         <div *ngIf="solucion.es_util!=null">  

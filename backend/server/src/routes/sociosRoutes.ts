@@ -18,6 +18,7 @@ class SociosRoutes {
         this.router.put('/:id', sociosController.update);//updat
         this.router.get('/:id/actividades', sociosController.getActividades);
         this.router.get('/:id/actividades/solucion/:actividad', sociosController.getActividad);
+        this.router.put('/:id/actividades/solucion/:actividad', sociosController.updateSolucion);
         this.router.get('/:id/objetivos', sociosController.getObjetivos);
         this.router.get('/:id/actividades/entregadas', sociosController.getActividadesEntregadas);
         this.router.get('/:id/actividades/no-aceptadas', sociosController.getActividadesPendientesCorregir);

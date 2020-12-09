@@ -15,3 +15,33 @@ p{
     font-family: Roboto;
     font-size: 24px;
 }
+
+#solucion-texto{
+    border: var(--verde-institucional) 1px solid;
+    width: 70%;
+    padding: 10px;
+    margin: 10px 00px;
+}
+h2{
+    display: inline;
+}
+
+button.fa
+{
+    color: black;
+    display: inline;
+    padding: 10px;
+}
+
+.btn.fa-close{
+    color: rgb(204, 3, 3);
+}
+.btn.fa-close:hover{
+    color: rgb(255, 255, 255);
+}
+.btn.fa-check-circle{
+    color: rgb(3, 149, 59);
+}
+.btn.fa-check-circle:hover{
+    color: rgb(255, 255, 255);
+}

@@ -42,6 +42,12 @@ class SociosController {
             res.json({message: "El socio fue actualizado"});
         });
     }
+    public async updateSolucion (req: Request, res: Response): Promise<void> {
+        const {id} = req.params;
+        const {actividad} = req.params;
+        await pool.query('UPDATE actividad_asignada_socio set ? WHERE id_socio=? AND id_actividad=?',[req.body, id, actividad]);
+        res.json({message: "La solucion fue actualizada"});
+    }
 
     public async getActividades (req: Request, res: Response): Promise<void> {
         const id = req.params.id;

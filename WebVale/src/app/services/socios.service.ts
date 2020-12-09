@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Solucion } from '../models/Solucion';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,14 @@ export class SociosService {
 
   getObjetivosSocio(id : number){
     return this.http.get(`${this.API_URI}/${id}/objetivos`)
+  }
+
+  actualizaSolucion (id : number, actividad : number, solucion : Solucion)
+  {
+    console.log(solucion)
+    let a_repetir = (solucion.a_repetir == true)? 1 : 0;
+    let aceptada = (solucion.aceptada == true)? 1 : 0;
+    return this.http.put(`${this.API_URI}/${id}/actividades/solucion/${actividad}`, { "a_repetir": [a_repetir], 
+                                                                                      "aceptada": [aceptada]});
   }
 }
