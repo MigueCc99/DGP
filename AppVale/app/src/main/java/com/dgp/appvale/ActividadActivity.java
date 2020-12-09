@@ -27,7 +27,7 @@ public class ActividadActivity  extends AppCompatActivity implements View.OnClic
         botonEnviar = findViewById(R.id.botonActividadEnviar);
         botonAtrasActividad = findViewById(R.id.botonAtrasActividad);
         youtubePlayer = findViewById(R.id.youtubePlayer);
-        actividad = getIntent().getExtras().getParcelable("actividad");
+        actividad = (Actividad) getIntent().getSerializableExtra("actividad");
     }
 
     @Override
@@ -39,6 +39,8 @@ public class ActividadActivity  extends AppCompatActivity implements View.OnClic
         botonEnviar.setOnClickListener(this);
         botonAtrasActividad.setOnClickListener(this);
 
+        tituloActividad.setText(actividad.getNombre());
+
         getLifecycle().addObserver(youtubePlayer);
 
         youtubePlayer.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
@@ -46,7 +48,7 @@ public class ActividadActivity  extends AppCompatActivity implements View.OnClic
             public void onApiChange(YouTubePlayer youTubePlayer) {
                 super.onApiChange(youTubePlayer);
 
-                String id ="bCnn-o6gEaQ";
+                String id = actividad.getDireccionMultimedia();
                 //youTubePlayer.loadVideo(id,0);
             }
         });

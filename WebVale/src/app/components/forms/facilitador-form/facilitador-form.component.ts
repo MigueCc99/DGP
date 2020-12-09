@@ -25,6 +25,10 @@ export class FacilitadorFormComponent implements OnInit {
       )
     }*/
 
+    formatoFecha(fecha:any) {
+    return fecha.replace(/^(\d{4})-(\d{2})-(\d{2})$/g, '$3/$2/$1');
+}
+
    cambiarDatos(tlf: any) {
     if (tlf == '') {
       confirm("Faltan parámetros");
@@ -42,6 +46,20 @@ export class FacilitadorFormComponent implements OnInit {
         console.error(err)
       })
       
+  }
+
+  nuevoFacilitador(nombre: string, apellidos: string, fN: any, correo: string, tlf: any ){
+
+    var fecha = this.formatoFecha(fN);
+    
+    this.facilitadoresService.crearFacilitador(nombre,apellidos,fecha,correo,tlf).subscribe(
+      res => {
+        this.router.navigate(['/centro']);
+      },
+      err => {
+        console.error(err)
+      })
+
   }
   
 }

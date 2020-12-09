@@ -23,7 +23,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Sistema sistema;
-    private boolean debug = false;
+    private boolean debug = true;
 
     private void init (){
         sistema = new Sistema();

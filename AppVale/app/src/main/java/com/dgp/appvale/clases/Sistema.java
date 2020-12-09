@@ -31,7 +31,7 @@ public class Sistema extends AppCompatActivity {
         socioPrueba = new Socio("Miguel Ángel", "Campos", fecha, 100);
     }
 
-
+/*
     public boolean comparaContrasenia(int[] otra_contrasenia){
         boolean iguales = false;
         if(socioPrueba.getContrasenia().length == otra_contrasenia.length){
@@ -44,7 +44,7 @@ public class Sistema extends AppCompatActivity {
 
         return iguales;
     }
-
+*/
     public Socio getSocio(){ return socioPrueba; }
 
 }
