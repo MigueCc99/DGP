@@ -80,7 +80,7 @@ const routes: Routes = [
     component: SocioInfoPageComponent
   },
   {
-    path: 'socios/ver/actividad/:idSocio-:idActividad',
+    path: 'socios/ver/actividad/:idSocio/:idActividad',
     component: SocioActividadPageComponent
   },
 
