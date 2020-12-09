@@ -32,6 +32,8 @@ public class Data{
 
     public void setRegistrado(boolean registrado){ this.registrado = registrado; }
 
+    public Socio getSocio() { return socio; }
+
     public boolean getRegistrado(){ return registrado; }
 /*
     cargarSocio(JSON)

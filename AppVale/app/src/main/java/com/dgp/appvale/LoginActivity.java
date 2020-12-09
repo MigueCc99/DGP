@@ -104,8 +104,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     apellidoSocio = response.getString("apellidos");
                     idSocio = response.getInt("id");
                     Data.getData().setRegistrado(true);
+                    System.out.println("Por favor imprime: " + nombreSocio + " por favor: " + apellidoSocio + " idsocio: " + idSocio + " registrado: " + Data.getData().getRegistrado());
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    System.out.println("error... " + e.toString());
+                    Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
                     Data.getData().setRegistrado(false);
                 }
 
@@ -123,7 +126,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         requestQueue.add(jsonObjectRequest);
 
-        return Data.getData().getRegistrado();
+        System.out.println("venga porfa: " + Data.getData().getRegistrado());
+
+        return true;
     }
 
     @Override

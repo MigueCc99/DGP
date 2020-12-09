@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.ImageButton;
 
+import com.dgp.appvale.clases.Data;
 import com.dgp.appvale.clases.Sistema;
 import com.dgp.appvale.clases.Socio;
 
@@ -30,9 +31,9 @@ public class PerfilActivity extends AppCompatActivity implements  View.OnClickLi
     }
 
     private void generarDatosPerfil(){
-        nombrePerfil.setText("Nombre: " + sistema.getSocio().getNombre());
-        apellidosPerfil.setText("Apellidos: " + sistema.getSocio().getApellidos());
-        fechaNacPerfil.setText("FechaNac: " + sistema.getSocio().getFechaNacimiento());
+        nombrePerfil.setText("Nombre: " + Data.getData().getSocio().getNombre());
+        apellidosPerfil.setText("Apellidos: " + Data.getData().getSocio().getApellidos());
+        fechaNacPerfil.setText("FechaNac: " + Data.getData().getSocio().getFechaNacimiento());
     }
 
     @Override

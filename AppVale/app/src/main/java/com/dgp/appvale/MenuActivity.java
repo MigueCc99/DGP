@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.dgp.appvale.clases.Data;
 import com.dgp.appvale.clases.Sistema;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
@@ -28,14 +29,13 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
         init();
+
+        textoHola.setText("Hola, "+ Data.getData().getSocio().getNombre());
 
         botonSalida.setOnClickListener(this);
         botonPerfil.setOnClickListener(this);
         botonObjetivos.setOnClickListener(this);
-
-        textoHola.setText("Hola, "+ sistema.getSocio().getNombre());
     }
 
     @Override
