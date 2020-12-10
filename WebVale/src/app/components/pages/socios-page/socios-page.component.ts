@@ -41,4 +41,8 @@ export class SociosPageComponent implements OnInit {
   navegaVer (id : number | string) {
     this.router.navigate(['/socios/ver/' + id]);
   }
+
+  navegaRecuperarContraSocio () {
+    this.router.navigate(['/centro/recuperar-contra/socios']);
+  }
 }
