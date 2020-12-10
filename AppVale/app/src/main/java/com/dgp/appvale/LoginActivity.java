@@ -81,11 +81,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private boolean checkUser() {
+    private void checkUser() {
         String url = Global.URL_FIJA + Global.URL_LOGIN;
         for (int i = 0; i < contraseniaProvisional.size(); i++) {
             url += Integer.toString(contraseniaProvisional.get(i));
         }
+        final Intent i = new Intent(this, MenuActivity.class);
 
         updateAndroidSecurityProvider();
 
@@ -102,16 +103,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     nombreSocio = response.getString("nombre");
                     apellidoSocio = response.getString("apellidos");
                     idSocio = response.getInt("id");
-                    Data.getData().setRegistrado(true);
-                    System.out.println("Por favor imprime: " + nombreSocio + " por favor: " + apellidoSocio + " idsocio: " + idSocio + " registrado: " + Data.getData().getRegistrado());
+                    Data.getData().setSocio(new Socio(nombreSocio, apellidoSocio, new Date(), idSocio));
+                    reset();
+                    // Lanzo Activity Menu
+                    startActivity(i);
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    System.out.println("error... " + e.toString());
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
-                    Data.getData().setRegistrado(false);
+                    reset();
+                    Toast.makeText(getApplicationContext(), "Contraseña Incorrecta", Toast.LENGTH_LONG).show();
                 }
-
-                Data.getData().setSocio(new Socio(nombreSocio, apellidoSocio, new Date(), idSocio));
             }
         }, new Response.ErrorListener() {
             @Override
@@ -120,14 +121,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                 System.out.println("error... " + e.toString());
                 Data.getData().setRegistrado(false);
+                reset();
+                Toast.makeText(getApplicationContext(), "Contraseña Incorrecta", Toast.LENGTH_LONG).show();
             }
         });
 
         requestQueue.add(jsonObjectRequest);
-
-        System.out.println("venga porfa: " + Data.getData().getRegistrado());
-
-        return true;
     }
 
     @Override
@@ -196,16 +195,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (v.getId() == R.id.botonAcceso) {
             Sistema sistema = new Sistema();
-
-            if (checkUser()) {
-                reset();
-                Intent i = new Intent(this, MenuActivity.class);
-                // Lanzo Activity Menu
-                startActivity(i);
-            } else {
-                reset();
-                Toast.makeText(getApplicationContext(), "Contraseña Incorrecta", Toast.LENGTH_LONG).show();
-            }
+            checkUser();
         } else {
             // Guardo la última posición donde clicka el usuario
 

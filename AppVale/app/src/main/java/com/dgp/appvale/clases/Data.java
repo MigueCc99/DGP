@@ -35,6 +35,7 @@ public class Data{
     public Socio getSocio() { return socio; }
 
     public boolean getRegistrado(){ return registrado; }
+
 /*
     cargarSocio(JSON)
     getIdSocio()
