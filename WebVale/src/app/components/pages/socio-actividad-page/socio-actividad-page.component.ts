@@ -59,7 +59,8 @@ export class SocioActividadPageComponent implements OnInit {
       },
       err => console.error(err)
     );
-    this._location.back();
+    setTimeout(() => {
+      this._location.back()}, 500);
   }
 
   rechazarSolucion() : void {
