@@ -21,4 +21,8 @@ export class CentroPageComponent implements OnInit {
     this.router.navigate(['/centro/recuperar-contra/socios']);
   }
 
+  eliminarFacilitador() {
+    this.router.navigate(['/centro/facilitador/eliminar']);
+  }
+
 }

@@ -18,6 +18,7 @@ import { SociosRecuperaContraPageComponent } from './components/pages/socios-rec
 import { NuevaContraFormComponent } from './components/forms/nueva-contra-form/nueva-contra-form.component';
 import { Facilitador } from './models/Facilitador';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -94,8 +95,12 @@ const routes: Routes = [
     component: NuevaContraFormComponent
   },
   {
-    path: 'centro/crearFacilitador',
+    path: 'centro/facilitador/crear',
     component: FacilitadorFormComponent
+  },
+  {
+    path: 'centro/facilitador/eliminar',
+    component: FacilitadoresPageComponent
   },
 
 ];

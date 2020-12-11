@@ -14,11 +14,28 @@ export class FacilitadoresPageComponent implements OnInit {
   listadoFacilitadoresFiltrado : Facilitador[] = [];
   filtro : string = '';
 
-  constructor(private facilitadoresService :  FacilitadoresService) {
+  constructor(private facilitadoresService: FacilitadoresService) {
     }
 
   ngOnInit(): void {
     this.getFacilitadores();
+
+  }
+
+  eliminar(correo: string): void {
+    //console.log(correo);
+    this.facilitadoresService.eliminarFacilitador(correo)
+      .subscribe(
+        res => {
+         console.log(res);
+          setTimeout(() => {
+            this.getFacilitadores()
+          }, 100
+          )
+        },
+        err => console.error(err)
+      );
+
   }
   
    getFacilitadores() {
@@ -36,5 +53,7 @@ export class FacilitadoresPageComponent implements OnInit {
       facilitador.nombre.toLowerCase().includes(this.filtro.toLowerCase())
     )
   }
+
+
 
 }

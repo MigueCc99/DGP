@@ -38,5 +38,10 @@ export class FacilitadoresService {
                                                 "correo": [correo],
                                                 "telefono":[tlf] }); 
   }
+
+  eliminarFacilitador(correo: string){
+    return this.http.delete(`${this.API_URI}/${correo}`);
+
+  }
   }
 

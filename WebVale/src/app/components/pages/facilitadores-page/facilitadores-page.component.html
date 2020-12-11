@@ -22,11 +22,16 @@
             <ul *ngFor="let facilitador of listadoFacilitadoresFiltrado">
                 <li>
                     {{facilitador.nombre}} {{facilitador.apellidos}}
+                    <input type="hidden" value="{{facilitador.correo}}" #correo name="correo">
                     <button type="button" (click)="facilitador.toggle=!facilitador.toggle" class="boton-ver fa fa-eye"></button>
+                    <button type="button" (click)="eliminar(correo.value)" class="btn btn-danger fa fa-trash"></button>
+
                     <p *ngIf="facilitador.toggle">{{facilitador.contrasena}}</p>
-                </li>
+                </li>  
             </ul>
+          
         </div>
+       
     </div>
 </div>
 

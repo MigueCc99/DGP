@@ -14,17 +14,7 @@ export class FacilitadorFormComponent implements OnInit {
     private router: Router, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit(): void {}
-    /*const params = this.activatedRoute.snapshot.params;
-    if(params.correo){
-      this.facilitadoresService.getFacilitador(params.correo)
-      .subscribe(
-        res => {
-          console.log(res);
-        },
-        err => console.error(err)
-      )
-    }*/
-
+  
     formatoFecha(fecha:any) {
     return fecha.replace(/^(\d{4})-(\d{2})-(\d{2})$/g, '$3/$2/$1');
 }
