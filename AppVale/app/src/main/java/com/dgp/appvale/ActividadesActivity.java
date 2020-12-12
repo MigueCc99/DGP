@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.dgp.appvale.clases.Actividad;
+import com.dgp.appvale.clases.Data;
 
 import java.util.ArrayList;
 
@@ -40,6 +41,10 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
 
         actividadAux = new Actividad("Poner la lavadora", "Debes poner la lavadora y enviar un vídeo", "lavadora.png", "XGKF5hxTnfo");
         actividadesTest.add(actividadAux);
+    }
+
+    private void getActividadesSocio(){
+        String url = Global.URL_FIJA + Global.URL_SOCIOS + "/" + Data.getData().getSocio().getID() + Global.URL_ACTIVIDADES;
     }
 
     private void gestiónActividadActual() {

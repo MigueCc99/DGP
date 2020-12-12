@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Socio extends Usuario {
     private ArrayList<Actividad> actividades;
-    private String[] contrasenia = {"1", "1", "1", "1", "1", "1"};
+    private int contrasenia = 000000;
 
     public Socio(){
         super("Nombre socio", "Apellido socio", new Date(), 1);
@@ -15,5 +15,9 @@ public class Socio extends Usuario {
         super(nombre, apellidos, fechaNacimiento, ID);
     }
 
-    public String[] getContrasenia (){ return this.contrasenia; }
+    public Socio(String nombre, String apellidos, Date fechaNacimiento, int ID, int contrasenia){
+        super(nombre, apellidos, fechaNacimiento, ID);
+        this.contrasenia = contrasenia;
+    }
+
 }

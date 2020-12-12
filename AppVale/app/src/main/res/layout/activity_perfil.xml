@@ -45,11 +45,11 @@
         android:layout_height="100dp"
         android:layout_marginStart="152dp"
         android:layout_marginTop="40dp"
+        android:contentDescription="TODO"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fechaNacPerfil"
-        app:srcCompat="@drawable/atras"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/home" />
 
     <ImageView
         android:id="@+id/imagenAvatar"

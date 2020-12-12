@@ -27,6 +27,8 @@ import org.json.JSONObject;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -82,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void checkUser() {
-        String url = Global.URL_FIJA + Global.URL_LOGIN;
+        String url = Global.URL_FIJA + Global.URL_SOCIOS +Global.URL_LOGIN;
         for (int i = 0; i < contraseniaProvisional.size(); i++) {
             url += Integer.toString(contraseniaProvisional.get(i));
         }
@@ -96,18 +98,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void onResponse(JSONObject response) {
-                String nombreSocio = null;
-                String apellidoSocio = null;
+                String nombreSocio = "";
+                String apellidoSocio = "";
+                String fechaNacimiento = "";
+                int contrasena = 0;
                 int idSocio = 0;
                 try {
                     nombreSocio = response.getString("nombre");
                     apellidoSocio = response.getString("apellidos");
+                    fechaNacimiento = response.getString("nacimiento");
                     idSocio = response.getInt("id");
-                    Data.getData().setSocio(new Socio(nombreSocio, apellidoSocio, new Date(), idSocio));
+                    contrasena = response.getInt("contrasena");
+                    Data.getData().setSocio(new Socio(nombreSocio, apellidoSocio, new SimpleDateFormat("dd/MM/YYYY").parse(fechaNacimiento), idSocio, contrasena));
                     reset();
                     // Lanzo Activity Menu
                     startActivity(i);
-                } catch (JSONException e) {
+                } catch (JSONException | ParseException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                     reset();
