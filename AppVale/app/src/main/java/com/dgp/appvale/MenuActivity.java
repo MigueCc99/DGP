@@ -13,7 +13,7 @@ import com.dgp.appvale.clases.Sistema;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView textoHola;
-    private ImageButton botonSalida, botonPerfil, botonObjetivos;
+    private ImageButton botonSalida, botonPerfil, botonObjetivos, botonActividades;
     private Sistema sistema;
 
     private void init(){
@@ -21,6 +21,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         botonSalida = findViewById(R.id.botonSalida);
         botonPerfil = findViewById(R.id.botonPerfil);
         botonObjetivos = findViewById(R.id.botonObjetivos);
+        botonActividades = findViewById(R.id.botonActividades);
 
         sistema = new Sistema();
     }
@@ -36,6 +37,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         botonSalida.setOnClickListener(this);
         botonPerfil.setOnClickListener(this);
         botonObjetivos.setOnClickListener(this);
+        botonActividades.setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +50,9 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
         }else if(v.getId() == R.id.botonObjetivos){
             Intent i = new Intent(this, ObjetivosActivity.class);
+            startActivity(i);
+        }else if(v.getId() == R.id.botonActividades){
+            Intent i = new Intent(this, ActividadesActivity.class);
             startActivity(i);
         }
     }

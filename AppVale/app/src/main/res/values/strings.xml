@@ -15,6 +15,7 @@
     <string name="textoSalir">SALIR</string>
     <string name="textoPerfil">PERFIL</string>
     <string name="textoObjetivos">OBJETIVOS</string>
+    <string name="textoActividades">ACTIVIDADES</string>
 
     <string name="nombrePerfil">Nombre:</string>
     <string name="apellidosPerfil">Apellidos:</string>
