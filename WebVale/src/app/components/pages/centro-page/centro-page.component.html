@@ -7,14 +7,14 @@
             <h1>Centro</h1>
             <div class="opcionesFacilitadores">
                 <h3>Facilitadores</h3>
-                <button type="button" [routerLink]= "['/centro/crearFacilitador']" class="btn btn-success">CREAR</button>
+                <button type="button" [routerLink]= "['/centro/facilitador/crear']" class="btn btn-success">CREAR</button>
                 <button type="button" (click)="eliminarFacilitador()" class="btn btn-danger">ELIMINAR</button>
                 <button type="button" (click)="navegaRecuperarContraFacilitador()" class="btn btn-info">RECUPERAR CONTRASEÑA</button>
             </div>
             <br>
             <div class="opcionesSocios">
                 <h3>Socios</h3>
-                <button type="button" class="btn btn-success">CREAR</button>
+                <button type="button" [routerLink]= "['/centro/socio/crear']"class="btn btn-success">CREAR</button>
                 <button type="button" class="btn btn-danger">ELIMINAR</button>
                 <button type="button" (click)="navegaRecuperarContraSocio()" class="btn btn-info">RECUPERAR CONTRASEÑA</button>
             </div>

@@ -1,1 +1,21 @@
-<p>socio-form works!</p>
+<div class="col-md-4 offset-md-4">
+    <form action="/centro/socio/crear">
+        <div class="text-center">
+            <img id="img1" src="./../../../../assets/LogoAVale.png" />
+        </div>
+        <div class="container">
+
+            <label for="name"><b>Nombre</b></label>
+            <input type="text" placeholder="Añadir nombre" #name name="name" required>
+
+            <label for="apellidos"><b>Apellidos</b></label>
+            <input type="text" placeholder="Añadir apellidos" #apellidos name="apellidos" required>
+
+            <label for="fechNac"><b>Fecha de nacimiento</b></label>
+            <input type="date" placeholder="Añadir fecha" #fechNac name="fechNac" required>
+
+            <button type="button"
+                (click)="nuevoSocio(name.value, apellidos.value, fechNac.value)">Aceptar</button>
+        </div>
+    </form>
+</div>

@@ -46,4 +46,14 @@ export class SociosService {
     return this.http.put(`${this.API_URI}/${id}/actividades/solucion/${actividad}`, { "a_repetir": [a_repetir], 
                                                                                       "aceptada": [aceptada]});
   }
+
+  crearSocio(nombre: string, apellidos: string, fN: string) {
+    
+    return this.http.post(`${this.API_URI}/`, {
+      "nombre": [nombre],
+      "apellidos": [apellidos],
+      "nacimiento": [fN],
+      "contrasena": "",
+    });
+  }
 }

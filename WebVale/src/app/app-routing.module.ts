@@ -15,6 +15,7 @@ import { SocioActividadPageComponent } from './components/pages/socio-actividad-
 import { SocioInfoPageComponent } from './components/pages/socio-info-page/socio-info-page.component';
 import { SociosPageComponent } from './components/pages/socios-page/socios-page.component';
 import { SociosRecuperaContraPageComponent } from './components/pages/socios-recupera-contra-page/socios-recupera-contra-page.component';
+import { SocioFormComponent } from './components/forms/socio-form/socio-form.component';
 import { NuevaContraFormComponent } from './components/forms/nueva-contra-form/nueva-contra-form.component';
 import { Facilitador } from './models/Facilitador';
 
@@ -101,6 +102,10 @@ const routes: Routes = [
   {
     path: 'centro/facilitador/eliminar',
     component: FacilitadoresPageComponent
+  },
+  {
+    path: 'centro/socio/crear',
+    component: SocioFormComponent
   },
 
 ];
