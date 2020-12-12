@@ -36,6 +36,22 @@ public class Data{
 
     public boolean getRegistrado(){ return registrado; }
 
+    public void addActividad(Actividad actividad){
+        actividades.add(actividad);
+    }
+
+    @Override
+    public String toString(){
+        String d = "";
+
+        d += socio.toString();
+
+        for(int i=0; i<actividades.size(); i++)
+            d += actividades.get(i).toString();
+
+        return d;
+    }
+
 /*
     cargarSocio(JSON)
     getIdSocio()

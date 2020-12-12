@@ -45,12 +45,13 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
         botonFlechaIzquierda = findViewById(R.id.botonFlechaIzquierda);
         tituloActAct = findViewById(R.id.tituloActAct);
 
-        actividades = new ArrayList<>();
         actividad = new Actividad();
         actividadAux = new Actividad();
         generarArrayActividadesTest();
         gestiónActividadActual();
         getActividadesSocio();
+
+        System.out.println(Data.getData().toString());;
     }
 
     private void generarArrayActividadesTest(){
@@ -88,9 +89,8 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
                                 descripcionActividad = jsonObject.getString("descripcion");
                                 imagenActividad = jsonObject.getString("imagen");
                                 multimediaActividad = jsonObject.getString("multimedia");
-                                actividad = new Actividad(idActividad, nombreActividad, descripcionActividad, imagenActividad, multimediaActividad);
-                                System.out.println("Actividad: " + actividad.toString());
-                                actividades.add(actividad);
+                                actividadAux = new Actividad(idActividad, nombreActividad, descripcionActividad, imagenActividad, multimediaActividad);
+                                Data.getData().addActividad(actividadAux);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

@@ -20,4 +20,17 @@ public class Socio extends Usuario {
         this.contrasenia = contrasenia;
     }
 
+    @Override
+    public String toString(){
+        String socio = "";
+
+        socio += "ID: " + this.getID() + "\n";
+        socio += "Nombre: " + this.getNombre() + "\n";
+        socio += "Apellido: " + this.getApellidos() + "\n";
+        socio += "Fecha Nacimiento: " + this.getFechaNacimiento() + "\n";
+        socio += "Contraseña: " + this.contrasenia + "\n";
+
+        return socio;
+    }
+
 }
