@@ -8,7 +8,10 @@ public class Actividad implements Serializable {
     private String direccionFoto;
     private String direccionMultimedia;
 
+    private int id;
+
     public Actividad(){
+        this.id = 0;
         this.nombre = "Nombre Actividad";
         this.descripcion = "Descripcion Actividad";
         this.direccionFoto = "URL Foto";
@@ -16,6 +19,15 @@ public class Actividad implements Serializable {
     }
 
     public Actividad(String nombre, String descripcion, String direccionFoto, String direccionMultimedia){
+        this.id = 0;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.direccionFoto = direccionFoto;
+        this.direccionMultimedia = direccionMultimedia;
+    }
+
+    public Actividad(int id, String nombre, String descripcion, String direccionFoto, String direccionMultimedia){
+        this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.direccionFoto = direccionFoto;
