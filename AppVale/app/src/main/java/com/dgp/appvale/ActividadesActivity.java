@@ -89,7 +89,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
                                 imagenActividad = jsonObject.getString("imagen");
                                 multimediaActividad = jsonObject.getString("multimedia");
                                 actividad = new Actividad(idActividad, nombreActividad, descripcionActividad, imagenActividad, multimediaActividad);
-                                System.out.println("Actividad: " + actividad.getNombre());
+                                System.out.println("Actividad: " + actividad.toString());
                                 actividades.add(actividad);
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -108,7 +108,6 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void gestiónActividadActual() {
-
         actividad = actividadesTest.get(actividadActual);
         System.out.println("Actividad actual= " + actividadActual);
         if(actividad.getDireccionFoto() == "cordones.png")

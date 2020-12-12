@@ -41,4 +41,17 @@ public class Actividad implements Serializable {
     public String getDireccionFoto(){ return direccionFoto; }
 
     public String getDireccionMultimedia(){ return direccionMultimedia; }
+
+    @Override
+    public String toString() {
+        String actividad = "";
+
+        actividad += "ID= " + id + "\n";
+        actividad += "Nombre= " + nombre + "\n";
+        actividad += "Descripcion= " + descripcion + "\n";
+        actividad += "DireccionFoto= " + direccionFoto + "\n";
+        actividad += "DireccionMultimedia= " + direccionMultimedia + "\n";
+
+        return actividad;
+    }
 }
