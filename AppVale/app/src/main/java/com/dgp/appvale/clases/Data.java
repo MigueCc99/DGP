@@ -1,11 +1,14 @@
 package com.dgp.appvale.clases;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Data{
     Socio socio;
     ArrayList<Objetivo> objetivos;
     ArrayList<Actividad> actividades;
+    ArrayList<ArrayList<Actividad>> actividadesObjetivos;
+
     boolean registrado = false;
 
     private static final Data data = new Data();
@@ -18,6 +21,7 @@ public class Data{
         socio = new Socio();
         objetivos = new ArrayList<>();
         actividades = new ArrayList<>();
+        actividadesObjetivos = new ArrayList<ArrayList<Actividad>>();
     }
 
     private Data(Socio socio, ArrayList<Objetivo> objetivos, ArrayList<Actividad> actividades){
@@ -37,6 +41,8 @@ public class Data{
     public ArrayList<Objetivo> getObjetivos(){ return objetivos; }
 
     public ArrayList<Actividad> getActividades(){ return actividades; }
+
+    public ArrayList<ArrayList<Actividad>> getActividadesObjetivos(){ return actividadesObjetivos; }
 
     public void addActividad(Actividad actividad){
         actividades.add(actividad);

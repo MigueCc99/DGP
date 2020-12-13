@@ -79,7 +79,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                                 imagenActividad = jsonObject.getString("imagen");
                                 multimediaActividad = jsonObject.getString("multimedia");
                                 actividadAux = new Actividad(idActividad, nombreActividad, descripcionActividad, imagenActividad, multimediaActividad);
-                                System.out.println("Actividad: " + actividadAux.toString());
                                 Data.getData().addActividad(actividadAux);
                             } catch (JSONException e) {
                                 e.printStackTrace();

@@ -34,6 +34,8 @@ public class Actividad implements Serializable {
         this.direccionMultimedia = direccionMultimedia;
     }
 
+    public int getID(){ return id; }
+
     public String getNombre(){ return nombre; }
 
     public String getDescripcion(){ return descripcion; }
