@@ -6,6 +6,7 @@ public class Global {
     static final String URL_SOCIOS = "/socios";
     static final String URL_LOGIN = "/login/";
     static final String URL_ACTIVIDADES = "/actividades/";
+    static final String URL_OBJETIVOS = "/objetivos/";
 
     public static final int CODIGO_ARBOL = 1;
     public static final int CODIGO_CORAZON = 2;

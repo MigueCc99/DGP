@@ -34,6 +34,8 @@ public class Data{
 
     public Socio getSocio() { return socio; }
 
+    public ArrayList<Objetivo> getObjetivos(){ return objetivos; }
+
     public ArrayList<Actividad> getActividades(){ return actividades; }
 
     public void addActividad(Actividad actividad){

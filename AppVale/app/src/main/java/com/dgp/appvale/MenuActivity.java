@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.dgp.appvale.clases.Actividad;
 import com.dgp.appvale.clases.Data;
+import com.dgp.appvale.clases.Objetivo;
 import com.dgp.appvale.clases.Sistema;
 
 import org.json.JSONArray;
@@ -35,6 +36,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         botonActividades = findViewById(R.id.botonActividades);
 
         getActividadesSocio();
+        getObjetivosSocio();
     }
 
     @Override
@@ -79,6 +81,44 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                                 actividadAux = new Actividad(idActividad, nombreActividad, descripcionActividad, imagenActividad, multimediaActividad);
                                 System.out.println("Actividad: " + actividadAux.toString());
                                 Data.getData().addActividad(actividadAux);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("Error.Response", error.toString());
+                    }
+                }
+        );
+        queue.add(jsonArrayRequest);
+    }
+
+    private void getObjetivosSocio(){
+        String url = Global.URL_FIJA + Global.URL_SOCIOS + "/" + Data.getData().getSocio().getID() + Global.URL_OBJETIVOS;
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>(){
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        JSONObject jsonObject;
+                        int id = 0;
+                        String nombreObjetivo, descripcionObjetivo, imgFoto;
+                        Objetivo objetivo;
+                        for(int i=0; i<response.length(); i++){
+                            try {
+                                jsonObject = (JSONObject) response.get(i);
+                                id = jsonObject.getInt("id");
+                                nombreObjetivo = jsonObject.getString("nombre");
+                                descripcionObjetivo = jsonObject.getString("descripcion");
+                                imgFoto = jsonObject.getString("imagen");
+                                objetivo = new Objetivo(id, nombreObjetivo, descripcionObjetivo, imgFoto);
+                                Data.getData().getObjetivos().add(objetivo);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

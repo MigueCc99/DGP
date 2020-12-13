@@ -53,7 +53,6 @@ public class ActividadActivity  extends AppCompatActivity implements View.OnClic
                 //youTubePlayer.loadVideo(id,0);
             }
         });
-        System.out.println("NUMERO ACTIVIDADES!!! -> " + Data.getData().getActividades().size());
     }
 
     @Override
