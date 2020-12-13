@@ -72,7 +72,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void gestiónActividadActual() {
-        actividad = Data.getData().getActividades().get(actividadActual);
+        actividad = Data.getData().getActividadesObjetivos().get(actividadActual);
         System.out.println("Actividad actual= " + actividadActual);
         if(actividad.getDireccionFoto() == "cordones.png")
             botonActActividades.setImageResource(R.drawable.cordon);

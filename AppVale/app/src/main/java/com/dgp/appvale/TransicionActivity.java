@@ -40,14 +40,17 @@ public class TransicionActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONArray>() {
+                new Response.Listener<JSONArray>(){
                     @Override
                     public void onResponse(JSONArray response) {
                         JSONObject jsonObject;
+                        Actividad actividadAux;
+                        String nombreActividad = "";
+                        String descripcionActividad = "";
+                        String imagenActividad = "";
+                        String multimediaActividad = "";
                         int idActividad = 0;
-                        String nombreActividad, descripcionActividad, imagenActividad, multimediaActividad;
-                        Actividad actividad;
-                        for (int i = 0; i < response.length(); i++) {
+                        for(int i=0; i<response.length(); i++){
                             try {
                                 jsonObject = (JSONObject) response.get(i);
                                 idActividad = jsonObject.getInt("id");
@@ -55,16 +58,15 @@ public class TransicionActivity extends AppCompatActivity {
                                 descripcionActividad = jsonObject.getString("descripcion");
                                 imagenActividad = jsonObject.getString("imagen");
                                 multimediaActividad = jsonObject.getString("multimedia");
-                                actividad = new Actividad(idActividad, nombreActividad, descripcionActividad, imagenActividad, multimediaActividad);
-                                System.out.println("actividad: " + actividad.toString());
-                                Data.getData().getActividadesObjetivos().add(actividad);
+                                actividadAux = new Actividad(idActividad, nombreActividad, descripcionActividad, imagenActividad, multimediaActividad);
+                                Data.getData().getActividadesObjetivos().add(actividadAux);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 },
-                new Response.ErrorListener() {
+                new Response.ErrorListener(){
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d("Error.Response", error.toString());
