@@ -2,31 +2,15 @@ package com.dgp.appvale;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.dgp.appvale.clases.Actividad;
 import com.dgp.appvale.clases.Data;
-import com.dgp.appvale.clases.Socio;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class ActividadesActivity extends AppCompatActivity implements View.OnClickListener{
@@ -37,11 +21,11 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
     int actividadActual = 0;;
 
     private void init(){
-        botonActActividades = findViewById(R.id.botonActActividades);
+        botonActActividades = findViewById(R.id.botonActActividadesObj);
         botonAtrasActividades = findViewById(R.id.botonAtrasActividades);
-        botonFlechaDerecha = findViewById(R.id.botonFlechaDerecha);
-        botonFlechaIzquierda = findViewById(R.id.botonFlechaIzquierda);
-        tituloActAct = findViewById(R.id.tituloActAct);
+        botonFlechaDerecha = findViewById(R.id.botonFlechaDerechaObj);
+        botonFlechaIzquierda = findViewById(R.id.botonFlechaIzquierdaObj);
+        tituloActAct = findViewById(R.id.tituloActActObj);
 
         actividad = new Actividad();
         generarArrayActividadesTest();
@@ -51,7 +35,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_actividades_objetivos);
+        setContentView(R.layout.activity_actividades);
         init();
 
         botonActActividades.setOnClickListener(this);
@@ -73,11 +57,15 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
 
     private void gestiónActividadActual() {
         actividad = Data.getData().getActividades().get(actividadActual);
-        System.out.println("Actividad actual= " + actividadActual);
+
         if(actividad.getDireccionFoto() == "cordones.png")
             botonActActividades.setImageResource(R.drawable.cordon);
         else if(actividad.getDireccionFoto() == "lavadora.png")
             botonActActividades.setImageResource(R.drawable.lavadora);
+        else if(actividad.getDireccionFoto() == "washhands.png")
+            botonActActividades.setImageResource(R.drawable.washhands);
+        else if(actividad.getDireccionFoto() == "makebed.png")
+            botonActActividades.setImageResource(R.drawable.makebed);
         else
             botonActActividades.setImageResource(R.drawable.activity);
 
@@ -86,7 +74,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.botonActActividades){
+        if(v.getId() == R.id.botonActActividadesObj){
             // Intent a Actividad concreta
             Intent i = new Intent(this, ActividadActivity.class);
             gestiónActividadActual();
@@ -94,7 +82,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
             startActivity(i);
         }else if(v.getId() == R.id.botonAtrasActividades){
             finish();
-        }else if(v.getId() == R.id.botonFlechaDerecha){
+        }else if(v.getId() == R.id.botonFlechaDerechaObj){
             /* Enlaza a actividad siguiente si la hay
                ACT1 -- ACT2 -- ACT3 (array 3 actividades)
                Si estamos en ACT1 (pantalla muestra ACT1)
@@ -104,7 +92,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
                 actividadActual += 1;
                 gestiónActividadActual();
             }
-        }else if(v.getId() == R.id.botonFlechaIzquierda){
+        }else if(v.getId() == R.id.botonFlechaIzquierdaObj){
             /* Enlaza a actividad anterior si la hay
                ACT1 -- ACT2 -- ACT3 (array 3 actividades)
                Si estamos en ACT2 (pantalla muestra ACT2)

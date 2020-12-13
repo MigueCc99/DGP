@@ -7,14 +7,14 @@
     android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/botonActActividades"
+        android:id="@+id/botonActActividadesObj"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="25dp"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloActAct"
+        app:layout_constraintTop_toBottomOf="@+id/tituloActActObj"
         app:srcCompat="@drawable/activity" />
 
     <ImageButton
@@ -25,33 +25,33 @@
         android:layout_marginTop="188dp"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonActActividades"
+        app:layout_constraintTop_toBottomOf="@+id/botonActActividadesObj"
         app:srcCompat="@drawable/atras" />
 
     <ImageButton
-        android:id="@+id/botonFlechaDerecha"
+        android:id="@+id/botonFlechaDerechaObj"
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="40dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonActActividades"
+        app:layout_constraintTop_toBottomOf="@+id/botonActActividadesObj"
         app:srcCompat="@drawable/flecha_derecha" />
 
     <ImageButton
-        android:id="@+id/botonFlechaIzquierda"
+        android:id="@+id/botonFlechaIzquierdaObj"
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="48dp"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonActActividades"
+        app:layout_constraintTop_toBottomOf="@+id/botonActActividadesObj"
         app:srcCompat="@drawable/flecha_izquierda" />
 
     <TextView
-        android:id="@+id/tituloActAct"
+        android:id="@+id/tituloActActObj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
