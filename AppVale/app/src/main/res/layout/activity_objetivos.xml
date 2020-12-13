@@ -8,32 +8,22 @@
 
     <ListView
         android:id="@+id/listaObjetivos"
-        android:layout_width="350dp"
-        android:layout_height="400dp"
+        android:layout_width="330dp"
+        android:layout_height="550dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/botonAtrasObj"
+        android:id="@+id/botonHomeObj"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="152dp"
-        android:layout_marginTop="20dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonActividades"
-        app:srcCompat="@drawable/atras" />
-
-    <ImageButton
-        android:id="@+id/botonActividades"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listaObjetivos"
-        app:srcCompat="@drawable/actividades" />
+        app:srcCompat="@drawable/home" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
