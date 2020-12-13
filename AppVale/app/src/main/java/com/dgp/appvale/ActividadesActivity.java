@@ -58,16 +58,9 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
     private void gestiónActividadActual() {
         actividad = Data.getData().getActividades().get(actividadActual);
 
-        if(actividad.getDireccionFoto() == "cordones.png")
-            botonActActividades.setImageResource(R.drawable.cordon);
-        else if(actividad.getDireccionFoto() == "lavadora.png")
-            botonActActividades.setImageResource(R.drawable.lavadora);
-        else if(actividad.getDireccionFoto() == "washhands.png")
-            botonActActividades.setImageResource(R.drawable.washhands);
-        else if(actividad.getDireccionFoto() == "makebed.png")
-            botonActActividades.setImageResource(R.drawable.makebed);
-        else
-            botonActActividades.setImageResource(R.drawable.activity);
+        System.out.println(actividad.getDireccionFoto());
+
+        botonActActividades.setImageResource(getResources().getIdentifier(actividad.getDireccionFoto().split("\\.")[0],"drawable",getApplicationInfo().packageName));
 
         tituloActAct.setText(actividad.getNombre());
     }

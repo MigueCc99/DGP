@@ -55,13 +55,8 @@ import java.util.ArrayList;
 
         private void gestiónActividadActual() {
             actividad = Data.getData().getActividadesObjetivos().get(actividadActual);
-            System.out.println("Actividad actual= " + actividad.toString());
-            if(actividad.getDireccionFoto() == "cordones.png")
-                botonActActividadesObj.setImageResource(R.drawable.cordon);
-            else if(actividad.getDireccionFoto() == "lavadora.png")
-                botonActActividadesObj.setImageResource(R.drawable.lavadora);
-            else
-                botonActActividadesObj.setImageResource(R.drawable.activity);
+
+            botonActActividadesObj.setImageResource(getResources().getIdentifier(actividad.getDireccionFoto().split("\\.")[0],"drawable",getApplicationInfo().packageName));
 
             tituloActAct.setText(actividad.getNombre());
         }
