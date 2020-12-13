@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -18,12 +19,15 @@ public class ObjetivosActivity extends AppCompatActivity implements View.OnClick
     private ImageButton botonAtrasObjetivos;
     private ListView lvObjetivos;
     private AdaptadorObjetivos adaptador;
+    private Intent i;
 
     private void init(){
         botonAtrasObjetivos = findViewById(R.id.botonHomeObj);
         lvObjetivos = (ListView) findViewById(R.id.listaObjetivos);
         adaptador = new AdaptadorObjetivos(this, Data.getData().getObjetivos());
         lvObjetivos.setAdapter(adaptador);
+
+        i = new Intent(this, TransicionActivity.class);
     }
 
     @Override
@@ -34,6 +38,14 @@ public class ObjetivosActivity extends AppCompatActivity implements View.OnClick
 
         //lvObjetivos.setOnClickListener(this);
         botonAtrasObjetivos.setOnClickListener(this);
+
+        lvObjetivos.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                i.putExtra("objetivo", (Objetivo)lvObjetivos.getItemAtPosition(position));
+                startActivity(i);
+            }
+        });
     }
 
     @Override

@@ -19,6 +19,7 @@ package com.dgp.appvale;
         import com.android.volley.toolbox.Volley;
         import com.dgp.appvale.clases.Actividad;
         import com.dgp.appvale.clases.Data;
+        import com.dgp.appvale.clases.Objetivo;
         import com.dgp.appvale.clases.Socio;
 
         import org.json.JSONArray;
@@ -29,11 +30,14 @@ package com.dgp.appvale;
         import java.text.SimpleDateFormat;
         import java.util.ArrayList;
 
-public class ActividadesObjetivoActivity extends AppCompatActivity implements View.OnClickListener{
-    ImageButton botonAtrasActividades, botonActActividades, botonFlechaDerecha, botonFlechaIzquierda;
-    TextView tituloActAct;
-    Actividad actividad;
-    int actividadActual = 0;;
+public class ActividadesActivityObj extends AppCompatActivity implements View.OnClickListener{
+    private ImageButton botonAtrasActividades, botonActActividades, botonFlechaDerecha, botonFlechaIzquierda;
+    private TextView tituloActAct;
+    private ArrayList<Actividad> actividades;
+    private Actividad actividad;
+    private Objetivo objetivo;
+    private int posicion = 0;
+    private int actividadActual = 0;;
 
     private void init(){
         botonActActividades = findViewById(R.id.botonActActividades);
@@ -43,7 +47,8 @@ public class ActividadesObjetivoActivity extends AppCompatActivity implements Vi
         tituloActAct = findViewById(R.id.tituloActAct);
 
         actividad = new Actividad();
-        getActividadesObjetivos();
+        objetivo = new Objetivo();
+        actividades = Data.getData().getActividadesObjetivos();
         gestiónActividadActual();
     }
 
@@ -60,7 +65,7 @@ public class ActividadesObjetivoActivity extends AppCompatActivity implements Vi
     }
 
     private void gestiónActividadActual() {
-        actividad = Data.getData().getActividades().get(actividadActual);
+        actividad = actividades.get(actividadActual);
         System.out.println("Actividad actual= " + actividadActual);
         if(actividad.getDireccionFoto() == "cordones.png")
             botonActActividades.setImageResource(R.drawable.cordon);
@@ -70,46 +75,6 @@ public class ActividadesObjetivoActivity extends AppCompatActivity implements Vi
             botonActActividades.setImageResource(R.drawable.activity);
 
         tituloActAct.setText(actividad.getNombre());
-    }
-
-    private void getActividadesObjetivos(){
-        for(int i=0; i<Data.getData().getObjetivos().size(); i++){
-            String url = Global.URL_FIJA + Global.URL_OBJETIVOS + "/" + Data.getData().getActividades().get(i).getID() + Global.URL_ACTIVIDADES;
-            RequestQueue queue = Volley.newRequestQueue(this);
-
-            JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-                    new Response.Listener<JSONArray>(){
-                        @Override
-                        public void onResponse(JSONArray response) {
-                            JSONObject jsonObject;
-                            int idActividad = 0;
-                            String nombreActividad, descripcionActividad, imagenActividad, multimediaActividad;
-                            Actividad actividad;
-                            for(int i=0; i<response.length(); i++){
-                                try {
-                                    jsonObject = (JSONObject) response.get(i);
-                                    idActividad = jsonObject.getInt("id");
-                                    nombreActividad = jsonObject.getString("nombre");
-                                    descripcionActividad = jsonObject.getString("descripcion");
-                                    imagenActividad = jsonObject.getString("imagen");
-                                    multimediaActividad = jsonObject.getString("multimedia");
-                                    actividad = new Actividad(idActividad, nombreActividad, descripcionActividad, imagenActividad, multimediaActividad);
-                                    Data.getData().getActividadesObjetivos().get(i).add(actividad);
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    },
-                    new Response.ErrorListener(){
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.d("Error.Response", error.toString());
-                        }
-                    }
-            );
-            queue.add(jsonArrayRequest);
-        }
     }
 
     @Override
@@ -128,7 +93,7 @@ public class ActividadesObjetivoActivity extends AppCompatActivity implements Vi
                Si estamos en ACT1 (pantalla muestra ACT1)
                Si pulsamos botonFlechaDerecha pasamos a mostrar ACT2
              */
-            if(actividadActual+1 < Data.getData().getActividades().size()){
+            if(actividadActual+1 < Data.getData().getActividadesObjetivos().size()){
                 actividadActual += 1;
                 gestiónActividadActual();
             }

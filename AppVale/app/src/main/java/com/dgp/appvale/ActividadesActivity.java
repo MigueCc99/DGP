@@ -100,7 +100,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
                Si estamos en ACT1 (pantalla muestra ACT1)
                Si pulsamos botonFlechaDerecha pasamos a mostrar ACT2
              */
-            if(actividadActual+1 < Data.getData().getActividades().size()){
+            if(actividadActual+1 < Data.getData().getActividadesObjetivos().size()){
                 actividadActual += 1;
                 gestiónActividadActual();
             }

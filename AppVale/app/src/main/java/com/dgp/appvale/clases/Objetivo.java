@@ -2,7 +2,9 @@ package com.dgp.appvale.clases;
 
 import com.dgp.appvale.R;
 
-public class Objetivo {
+import java.io.Serializable;
+
+public class Objetivo implements Serializable {
     private int ID;
     private int imgFoto;
     private String nombre;

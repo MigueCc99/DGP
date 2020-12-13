@@ -7,7 +7,7 @@ public class Data{
     Socio socio;
     ArrayList<Objetivo> objetivos;
     ArrayList<Actividad> actividades;
-    ArrayList<ArrayList<Actividad>> actividadesObjetivos;
+    ArrayList<Actividad> actividadesObjetivos;
 
     boolean registrado = false;
 
@@ -21,14 +21,16 @@ public class Data{
         socio = new Socio();
         objetivos = new ArrayList<>();
         actividades = new ArrayList<>();
-        actividadesObjetivos = new ArrayList<ArrayList<Actividad>>();
+        actividadesObjetivos = new ArrayList<>();
     }
 
     private Data(Socio socio, ArrayList<Objetivo> objetivos, ArrayList<Actividad> actividades){
+        this();
         this.socio = socio;
         this.objetivos = objetivos;
         this.actividades = actividades;
     }
+
 
     public void setSocio(Socio socio){
         this.socio = socio;
@@ -42,7 +44,7 @@ public class Data{
 
     public ArrayList<Actividad> getActividades(){ return actividades; }
 
-    public ArrayList<ArrayList<Actividad>> getActividadesObjetivos(){ return actividadesObjetivos; }
+    public ArrayList<Actividad> getActividadesObjetivos(){ return actividadesObjetivos; }
 
     public void addActividad(Actividad actividad){
         actividades.add(actividad);
