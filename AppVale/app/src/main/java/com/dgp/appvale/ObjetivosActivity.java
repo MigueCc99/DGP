@@ -36,7 +36,6 @@ public class ObjetivosActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_objetivos);
         init();
 
-        //lvObjetivos.setOnClickListener(this);
         botonAtrasObjetivos.setOnClickListener(this);
 
         lvObjetivos.setOnItemClickListener(new AdapterView.OnItemClickListener(){

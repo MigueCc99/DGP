@@ -51,7 +51,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_actividades);
+        setContentView(R.layout.activity_actividades_objetivos);
         init();
 
         botonActActividades.setOnClickListener(this);
@@ -72,7 +72,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void gestiónActividadActual() {
-        actividad = Data.getData().getActividadesObjetivos().get(actividadActual);
+        actividad = Data.getData().getActividades().get(actividadActual);
         System.out.println("Actividad actual= " + actividadActual);
         if(actividad.getDireccionFoto() == "cordones.png")
             botonActActividades.setImageResource(R.drawable.cordon);
@@ -100,7 +100,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
                Si estamos en ACT1 (pantalla muestra ACT1)
                Si pulsamos botonFlechaDerecha pasamos a mostrar ACT2
              */
-            if(actividadActual+1 < Data.getData().getActividadesObjetivos().size()){
+            if(actividadActual+1 < Data.getData().getActividades().size()){
                 actividadActual += 1;
                 gestiónActividadActual();
             }

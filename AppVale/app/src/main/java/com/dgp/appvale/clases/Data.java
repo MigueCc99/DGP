@@ -31,7 +31,6 @@ public class Data{
         this.actividades = actividades;
     }
 
-
     public void setSocio(Socio socio){
         this.socio = socio;
     }
@@ -46,9 +45,7 @@ public class Data{
 
     public ArrayList<Actividad> getActividadesObjetivos(){ return actividadesObjetivos; }
 
-    public void addActividad(Actividad actividad){
-        actividades.add(actividad);
-    }
+    public void clearActividadesObjetivos(){ actividadesObjetivos.clear(); }
 
     @Override
     public String toString(){

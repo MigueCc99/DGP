@@ -34,7 +34,7 @@ import java.util.ArrayList;
         ArrayList<Actividad> actividadesTest;
         TextView tituloActAct;
         Actividad actividad;
-        int actividadActual = 0;;
+        int actividadActual = 0;
 
         private void init(){
             botonActActividades = findViewById(R.id.botonActActividades);
@@ -51,7 +51,7 @@ import java.util.ArrayList;
         @Override
         protected void onCreate(Bundle savedInstanceState){
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_actividades);
+            setContentView(R.layout.activity_actividades_objetivos);
             init();
 
             botonActActividades.setOnClickListener(this);
@@ -72,8 +72,8 @@ import java.util.ArrayList;
         }
 
         private void gestiónActividadActual() {
-            actividad = Data.getData().getActividades().get(actividadActual);
-            System.out.println("Actividad actual= " + actividadActual);
+            actividad = Data.getData().getActividadesObjetivos().get(actividadActual);
+            System.out.println("Actividad actual= " + actividad.toString());
             if(actividad.getDireccionFoto() == "cordones.png")
                 botonActActividades.setImageResource(R.drawable.cordon);
             else if(actividad.getDireccionFoto() == "lavadora.png")
@@ -90,7 +90,6 @@ import java.util.ArrayList;
                 // Intent a Actividad concreta
                 Intent i = new Intent(this, ActividadActivity.class);
                 gestiónActividadActual();
-                i.putExtra("actividad", actividad);
                 startActivity(i);
             }else if(v.getId() == R.id.botonAtrasActividades){
                 finish();

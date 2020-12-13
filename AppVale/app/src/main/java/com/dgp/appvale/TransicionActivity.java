@@ -26,17 +26,19 @@ public class TransicionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_actividades);
+        setContentView(R.layout.activity_transicion);
 
         objetivo = (Objetivo) getIntent().getSerializableExtra("objetivo");
 
+        Data.getData().clearActividadesObjetivos();
         getActividadesObjetivos();
         Intent i = new Intent(this, ActividadesActivityObj.class);
         startActivity(i);
     }
 
     private void getActividadesObjetivos() {
-        String url = Global.URL_FIJA + Global.URL_OBJETIVOS + objetivo.getID() + Global.URL_ACTIVIDADES;
+        String url = Global.URL_FIJA + Global.URL_OBJETIVOS + objetivo.getID() + "/actividades";
+        //String url = Global.URL_FIJA + "/objetivos/1/actividades";
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
