@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.dgp.appvale.clases.Actividad;
+import com.dgp.appvale.clases.Data;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
@@ -52,6 +53,7 @@ public class ActividadActivity  extends AppCompatActivity implements View.OnClic
                 //youTubePlayer.loadVideo(id,0);
             }
         });
+        System.out.println("NUMERO ACTIVIDADES!!! -> " + Data.getData().getActividades().size());
     }
 
     @Override

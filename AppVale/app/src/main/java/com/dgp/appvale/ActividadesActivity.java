@@ -32,10 +32,8 @@ import java.util.ArrayList;
 public class ActividadesActivity extends AppCompatActivity implements View.OnClickListener{
     ImageButton botonAtrasActividades, botonActActividades, botonFlechaDerecha, botonFlechaIzquierda;
     ArrayList<Actividad> actividadesTest;
-    ArrayList<Actividad> actividades;
     TextView tituloActAct;
     Actividad actividad;
-    Actividad actividadAux;
     int actividadActual = 0;;
 
     private void init(){
@@ -46,12 +44,20 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
         tituloActAct = findViewById(R.id.tituloActAct);
 
         actividad = new Actividad();
-        actividadAux = new Actividad();
         generarArrayActividadesTest();
         gestiónActividadActual();
-        getActividadesSocio();
+    }
 
-        System.out.println(Data.getData().toString());;
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_actividades);
+        init();
+
+        botonActActividades.setOnClickListener(this);
+        botonAtrasActividades.setOnClickListener(this);
+        botonFlechaDerecha.setOnClickListener(this);
+        botonFlechaIzquierda.setOnClickListener(this);
     }
 
     private void generarArrayActividadesTest(){
@@ -65,50 +71,8 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
         actividadesTest.add(actividadAux);
     }
 
-    private void getActividadesSocio(){
-        String url = Global.URL_FIJA + Global.URL_SOCIOS + "/" + Data.getData().getSocio().getID() + Global.URL_ACTIVIDADES;
-
-        //final RequestQueue requestQueue = SingletonRequestQueue.getInstance(getApplicationContext()).getRequestQueue();
-        RequestQueue queue = Volley.newRequestQueue(this);
-
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONArray>(){
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        JSONObject jsonObject;
-                        String nombreActividad = "";
-                        String descripcionActividad = "";
-                        String imagenActividad = "";
-                        String multimediaActividad = "";
-                        int idActividad = 0;
-                        for(int i=0; i<response.length(); i++){
-                            try {
-                                jsonObject = (JSONObject) response.get(i);
-                                idActividad = jsonObject.getInt("id");
-                                nombreActividad = jsonObject.getString("nombre");
-                                descripcionActividad = jsonObject.getString("descripcion");
-                                imagenActividad = jsonObject.getString("imagen");
-                                multimediaActividad = jsonObject.getString("multimedia");
-                                actividadAux = new Actividad(idActividad, nombreActividad, descripcionActividad, imagenActividad, multimediaActividad);
-                                Data.getData().addActividad(actividadAux);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                },
-                new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d("Error.Response", error.toString());
-                    }
-                }
-        );
-        queue.add(jsonArrayRequest);
-    }
-
     private void gestiónActividadActual() {
-        actividad = actividadesTest.get(actividadActual);
+        actividad = Data.getData().getActividades().get(actividadActual);
         System.out.println("Actividad actual= " + actividadActual);
         if(actividad.getDireccionFoto() == "cordones.png")
             botonActActividades.setImageResource(R.drawable.cordon);
@@ -118,18 +82,6 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
             botonActActividades.setImageResource(R.drawable.activity);
 
         tituloActAct.setText(actividad.getNombre());
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_actividades);
-        init();
-
-        botonActActividades.setOnClickListener(this);
-        botonAtrasActividades.setOnClickListener(this);
-        botonFlechaDerecha.setOnClickListener(this);
-        botonFlechaIzquierda.setOnClickListener(this);
     }
 
     @Override
@@ -148,7 +100,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
                Si estamos en ACT1 (pantalla muestra ACT1)
                Si pulsamos botonFlechaDerecha pasamos a mostrar ACT2
              */
-            if(actividadActual+1 < actividadesTest.size()){
+            if(actividadActual+1 < Data.getData().getActividades().size()){
                 actividadActual += 1;
                 gestiónActividadActual();
             }

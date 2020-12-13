@@ -34,7 +34,7 @@ public class Data{
 
     public Socio getSocio() { return socio; }
 
-    public boolean getRegistrado(){ return registrado; }
+    public ArrayList<Actividad> getActividades(){ return actividades; }
 
     public void addActividad(Actividad actividad){
         actividades.add(actividad);
