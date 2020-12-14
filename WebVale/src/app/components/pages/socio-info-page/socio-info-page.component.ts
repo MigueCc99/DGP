@@ -5,14 +5,23 @@ import { Objetivo } from 'src/app/models/Objetivo';
 import { Socio } from 'src/app/models/Socio';
 import { SociosService } from 'src/app/services/socios.service';
 
+interface Food {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-socio-info-page',
   templateUrl: './socio-info-page.component.html',
   styleUrls: ['./socio-info-page.component.css']
 })
+
 export class SocioInfoPageComponent implements OnInit {
 
+  selectedValue: any;
+  actividad: any;
   socio : any = new Socio();
+  listadoActividadesNoAsignadas : Actividad[] = [];
   listadoActividadesNoAceptadas : Actividad[] = [];
   listadoActividadesNoEntregadas : Actividad[] = [];
   listadoObjetivos : Objetivo[] = [];
@@ -33,6 +42,7 @@ export class SocioInfoPageComponent implements OnInit {
 
     this.getActividades();
     this.getObjetivos();
+    this.getActividadesNoAsignadas(this.id);
   }
 
   getActividades() {
@@ -59,8 +69,29 @@ export class SocioInfoPageComponent implements OnInit {
     );
    }
 
+   getActividadesNoAsignadas(id : number) {
+    this.sociosService.getActividadesNoAsignadasSocio(id).subscribe(
+      res => {
+        this.listadoActividadesNoAsignadas = res as Actividad[];
+        //console.log(this.listadoActividadesNoAsignadas)
+      },
+      err => console.error(err)
+    );
+   }
+
    navegaVerActividad(idActividad : number){
     this.router.navigate(['/socios/ver/actividad/' + this.id + '/' + idActividad]);
+   }
+
+   Anadir(idact: number){
+    this.sociosService.addActividadUsuario(this.id, idact).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    );
+    window.location.href = this.router.url;
+     return true;
    }
 
 }
