@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
 import pool from '../database'
+import { Feedback } from '../models/feedback';
 
 class ActividadesController {
 
@@ -20,6 +21,30 @@ class ActividadesController {
             }
             res.status(404).json({message: "La actividad no existe"});
         });
+    }
+
+    public async getFeedback (req: Request, res: Response): Promise<void> {
+        const id = req.params.id;   
+        var feedback : Feedback = new Feedback();
+        feedback.id_actividad = parseInt(id);
+
+        var query = "SELECT feedback.id_actividad,"
+        + " (SELECT COUNT(*) FROM actividad_asignada_socio WHERE id_actividad=feedback.id_actividad AND es_util IS NOT NULL)   as votos ,"
+        + " (SELECT COUNT(*) FROM actividad_asignada_socio WHERE id_actividad=feedback.id_actividad AND es_util=1)  as utiles,"
+        + " (SELECT COUNT(*) FROM actividad_asignada_socio WHERE id_actividad=feedback.id_actividad AND es_dificil=1)  as dificiles,"
+        + " (SELECT COUNT(*) FROM actividad_asignada_socio WHERE id_actividad=feedback.id_actividad AND es_gustado=1)  as gustados "
+        + " FROM (SELECT DISTINCT id_actividad FROM actividad_asignada_socio WHERE id_actividad=?) feedback";
+
+        await pool.query( query, [id], (err, result, fields) => {
+                if (err) throw err;
+                return res.json(result[0]);
+            }
+        )
+    }
+
+    public async getVotosFeedback(req: Request, res: Response): Promise<void> {
+        const id = req.params.id;   
+        
     }
 
     public async create (req: Request, res: Response): Promise<void> {

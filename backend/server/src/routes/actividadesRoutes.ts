@@ -17,6 +17,7 @@ class ActividadesRoutes {
         this.router.delete('/:id', actividadesController.delete);
         this.router.put('/:id', actividadesController.update);//updat
         this.router.get('/:id/objetivos', actividadesController.getObjetivosDeActividad);  
+        this.router.get('/:id/feedback', actividadesController.getFeedback)
     }
 
 }

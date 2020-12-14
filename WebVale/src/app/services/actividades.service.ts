@@ -28,4 +28,8 @@ export class ActividadesService {
   updateActividad(id: string | number, updatedActividad: Actividad){
     return this.http.put(`${this.API_URI}/${id}`, updatedActividad);
   }
+
+  getFeedback (id : number){
+    return this.http.get(`${this.API_URI}/${id}/feedback`)
+  }
 }

@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.actividadesController = void 0;
 const database_1 = __importDefault(require("../database"));
+const feedback_1 = require("../models/feedback");
 class ActividadesController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -35,6 +36,29 @@ class ActividadesController {
                 }
                 res.status(404).json({ message: "La actividad no existe" });
             });
+        });
+    }
+    getFeedback(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            var feedback = new feedback_1.Feedback();
+            feedback.id_actividad = parseInt(id);
+            var query = "SELECT feedback.id_actividad,"
+                + " (SELECT COUNT(*) FROM actividad_asignada_socio WHERE id_actividad=feedback.id_actividad AND es_util IS NOT NULL)   as votos ,"
+                + " (SELECT COUNT(*) FROM actividad_asignada_socio WHERE id_actividad=feedback.id_actividad AND es_util=1)  as utiles,"
+                + " (SELECT COUNT(*) FROM actividad_asignada_socio WHERE id_actividad=feedback.id_actividad AND es_dificil=1)  as dificiles,"
+                + " (SELECT COUNT(*) FROM actividad_asignada_socio WHERE id_actividad=feedback.id_actividad AND es_gustado=1)  as gustados "
+                + " FROM (SELECT DISTINCT id_actividad FROM actividad_asignada_socio WHERE id_actividad=?) feedback";
+            yield database_1.default.query(query, [id], (err, result, fields) => {
+                if (err)
+                    throw err;
+                return res.json(result[0]);
+            });
+        });
+    }
+    getVotosFeedback(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
         });
     }
     create(req, res) {
