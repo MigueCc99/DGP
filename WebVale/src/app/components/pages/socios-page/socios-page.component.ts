@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Socio } from 'src/app/models/Socio';
 import { Router } from '@angular/router';
 import { SociosService } from 'src/app/services/socios.service';
+import { ConstantsComponent } from '../../constants/constants.component';
 
 @Component({
   selector: 'app-socios-page',
@@ -14,12 +15,20 @@ export class SociosPageComponent implements OnInit {
   listadoSociosFiltrado : Socio[] = [];
   filtro : string = '';
 
+  //Para el crud
+  centro: boolean = ConstantsComponent.centro;
+
+
 
   constructor( private sociosService : SociosService, private router: Router) {
    }
 
   ngOnInit(): void {
     this.getSocios();
+  }
+
+  isCentro() {
+    return this.centro;
   }
 
   getSocios() {

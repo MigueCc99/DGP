@@ -1,0 +1,5 @@
+.listado .disabled {
+    background-color: rgb(110, 110, 110);
+    color: white;
+    border-color:rgb(68, 68, 68);
+}
