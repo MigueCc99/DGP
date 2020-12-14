@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.dgp.appvale.R;
 
 import java.util.ArrayList;
@@ -45,7 +47,7 @@ public class AdaptadorObjetivos extends BaseAdapter {
         TextView nombreObjetivo = (TextView) convertView.findViewById(R.id.nombreObjetivo);
         TextView descripcionObjetivo = (TextView) convertView.findViewById(R.id.descripcionObjetivo);
 
-        imagenObjetivo.setImageResource(objetivo.getImgFoto());
+        imagenObjetivo.setImageResource(R.drawable.objetivo);
         nombreObjetivo.setText(objetivo.getNombre());
         descripcionObjetivo.setText(objetivo.getDescripcionObjetivo());
 

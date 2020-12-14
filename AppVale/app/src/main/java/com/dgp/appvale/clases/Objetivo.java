@@ -1,12 +1,14 @@
 package com.dgp.appvale.clases;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.dgp.appvale.R;
 
 import java.io.Serializable;
 
-public class Objetivo implements Serializable {
+public class Objetivo extends AppCompatActivity implements Serializable {
     private int ID;
-    private int imgFoto;
+    private String imgFoto;
     private String nombre;
     private String descripcionObjetivo;
 
@@ -14,19 +16,20 @@ public class Objetivo implements Serializable {
         this.ID = 0;
         this.nombre = "Objetivo por defecto";
         this.descripcionObjetivo = "Descripción por defecto";
-        this.imgFoto = R.drawable.objetivo;
+        this.imgFoto = "objetivo.png";
     }
 
-    public Objetivo (String nombre, String descripcionObjetivo, int imgFoto){
+    public Objetivo (String nombre, String descripcionObjetivo, String imgFoto){
         super();
         this.nombre = nombre;
         this.descripcionObjetivo = descripcionObjetivo;
         this.imgFoto = imgFoto;
     }
 
-    public Objetivo (int ID, String nombre, String descripcionObjetivo, int imgFoto){
+    public Objetivo (int ID, String nombre, String descripcionObjetivo, String imgFoto){
         this(nombre, descripcionObjetivo, imgFoto);
         this.ID = ID;
+        this.imgFoto = imgFoto;
     }
 
     public int getID (){ return ID; }
@@ -35,6 +38,6 @@ public class Objetivo implements Serializable {
 
     public String getDescripcionObjetivo (){ return descripcionObjetivo; }
 
-    public int getImgFoto (){ return imgFoto; }
+    public int getImgFoto (){ return getResources().getIdentifier(imgFoto.split("\\.")[0],"drawable",getApplicationInfo().packageName); }
 
 }

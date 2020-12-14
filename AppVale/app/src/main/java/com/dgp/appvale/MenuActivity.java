@@ -115,8 +115,9 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                                 id = jsonObject.getInt("id");
                                 nombreObjetivo = jsonObject.getString("nombre");
                                 descripcionObjetivo = jsonObject.getString("descripcion");
-                                //imgFoto = jsonObject.getString("imagen");
-                                objetivo = new Objetivo(id, nombreObjetivo, descripcionObjetivo, R.drawable.objetivo);
+                                imgFoto = jsonObject.getString("imagen");
+                                System.out.println("imgfoto" + imgFoto);
+                                objetivo = new Objetivo(id, nombreObjetivo, descripcionObjetivo, imgFoto);
                                 Data.getData().getObjetivos().add(objetivo);
                             } catch (JSONException e) {
                                 e.printStackTrace();

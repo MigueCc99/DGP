@@ -67,6 +67,7 @@ import java.util.ArrayList;
                 // Intent a Actividad concreta
                 Intent i = new Intent(this, ActividadActivity.class);
                 gestiónActividadActual();
+                i.putExtra("actividad", actividad);
                 startActivity(i);
             }else if(v.getId() == R.id.botonAtrasActividades){
                 finish();

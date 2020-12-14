@@ -59,6 +59,7 @@ public class ActividadActivity  extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         if(v.getId() == R.id.botonActividadEnviar){
             Intent i = new Intent(this, EnviarSolucionActivity.class);
+            i.putExtra("actividad", actividad);
             startActivity(i);
         }else if(v.getId() == R.id.botonAtrasActividad){
             finish();
