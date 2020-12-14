@@ -7,19 +7,15 @@
     tools:context=".EnviarSolucionActivity">
 
     <ImageButton
-        android:id="@+id/botonAtrasEnviarSolucion"
+        android:id="@+id/botonHomeEnviarAct"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="291dp"
-        android:layout_marginTop="514dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="37dp"
+        android:layout_marginTop="560dp"
+        android:layout_marginEnd="30dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloActividadEnviar"
-        app:srcCompat="@drawable/atras" />
+        app:layout_constraintEnd_toStartOf="@+id/botonActividadesEnviar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home" />
 
     <TextView
         android:id="@+id/tituloActividadEnviar"
@@ -68,21 +64,15 @@
         android:layout_width="114dp"
         android:layout_height="74dp"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="161dp"
-        android:layout_marginEnd="149dp"
-        android:layout_marginBottom="146dp"
+        android:layout_marginTop="120dp"
         android:background="@color/colorPrimary"
         android:enabled="false"
         android:text="@string/textoEnviar"
         android:textAlignment="center"
         android:textSize="24sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoVideo"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textoVideo" />
 
     <VideoView
         android:id="@+id/videoSolucion"
@@ -100,16 +90,49 @@
         android:id="@+id/botonEliminar"
         android:layout_width="159dp"
         android:layout_height="49dp"
-        android:layout_marginStart="214dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
         android:background="@android:color/holo_red_dark"
         android:enabled="false"
         android:text="@string/textoEliminar"
         android:textColor="@color/design_default_color_background"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoVideo" />
+
+    <EditText
+        android:id="@+id/SolucionTexto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="400dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/solucionTexto"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/botonActividadesEnviar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="560dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/activity" />
+
+    <ImageButton
+        android:id="@+id/botonObjetivosEnviar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="560dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toEndOf="@+id/botonActividadesEnviar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icono_medalla" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

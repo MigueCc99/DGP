@@ -37,4 +37,6 @@
 
     <string name="textoEnviar">ENVIAR</string>
     <string name="textoEliminar">ELIMINAR SOLUCIÓN</string>
+
+    <string name="solucionTexto">Agregar solucion...</string>
 </resources>
