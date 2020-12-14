@@ -78,8 +78,6 @@ public class EnviarSolucionActivity extends AppCompatActivity implements View.On
         botonEliminar.setEnabled(false);
         botonEliminar.setVisibility(View.INVISIBLE);
 
-        botonEnviar.setEnabled(false);
-
         //Enseñamos el boton para enviar solucion
         botonVideo.setEnabled(true);
         botonVideo.setVisibility(View.VISIBLE);
@@ -138,6 +136,9 @@ public class EnviarSolucionActivity extends AppCompatActivity implements View.On
                     haySolucion();
                     Data.getData().getSolucion().setTexto(solucionTexto.getText().toString());
                     enviarSolucion();
+                    Intent i = new Intent(this, FeedbackActivity.class);
+                    i.putExtra("actividad", actividad);
+                    startActivity(i);
                 }else{
                     Toast.makeText(getApplicationContext(), "Agrega una solución...", Toast.LENGTH_LONG).show();
                 }
