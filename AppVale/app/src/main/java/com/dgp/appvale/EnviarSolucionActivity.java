@@ -6,20 +6,38 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.dgp.appvale.clases.Actividad;
+import com.dgp.appvale.clases.Data;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.sql.Blob;
 
 public class EnviarSolucionActivity extends AppCompatActivity implements View.OnClickListener{
     private static final int VIDEO_REQUEST_CODE = 1;
     private static Uri videoUri = null;
 
-    TextView tituloActividad, textoVideo;
-    ImageButton botonVideo, botonAtras;
-    Button botonEnviar, botonEliminar;
-    VideoView videoSolucion;
+    private TextView tituloActividad, textoVideo;
+    private ImageButton botonVideo, botonAtras;
+    private Button botonEnviar, botonEliminar;
+    private VideoView videoSolucion;
+
+    private Actividad actividad;
 
     private void init(){
         tituloActividad = findViewById(R.id.tituloActividadEnviar);
@@ -29,6 +47,8 @@ public class EnviarSolucionActivity extends AppCompatActivity implements View.On
         botonAtras = findViewById(R.id.botonAtrasEnviarSolucion);
         videoSolucion = findViewById(R.id.videoSolucion);
         botonEliminar = findViewById(R.id.botonEliminar);
+
+        actividad = (Actividad) getIntent().getSerializableExtra("actividad");
     }
 
     private void haySolucion(){
@@ -61,6 +81,28 @@ public class EnviarSolucionActivity extends AppCompatActivity implements View.On
         textoVideo.setVisibility(View.VISIBLE);
     }
 
+    private void enviarSolucion() throws JSONException {
+        JSONObject sol = new JSONObject();
+        //sol.put("multimedia_solucion", Data.getData().getSolucion().getVideo());
+        sol.put("solucion_texto", Data.getData().getSolucion().getTexto());
+
+        String url = Global.URL_FIJA + Global.URL_SOCIOS +  Data.getData().getSocio().getID() + Global.URL_ACTIVIDADES + "solucion/" + actividad.getID();
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Toast.makeText(getApplicationContext(), "Solución enviada!!!", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("Error.Response", error.toString());
+            }
+        });
+        queue.add(jsonObjectRequest);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,8 +113,13 @@ public class EnviarSolucionActivity extends AppCompatActivity implements View.On
         botonAtras.setOnClickListener(this);
         botonEnviar.setOnClickListener(this);
         botonEliminar.setOnClickListener(this);
+    }
 
-        if(videoUri != null){
+    @Override
+    protected void onStart(){
+        super.onStart();
+        //if(videoUri != null || Data.getData().getSolucion().getTexto() != "" || Data.getData().getSolucion().getVideo() != null){
+        if(videoUri != null || Data.getData().getSolucion().getTexto() != ""){
             haySolucion();
         }else{
             noHaySolucion();

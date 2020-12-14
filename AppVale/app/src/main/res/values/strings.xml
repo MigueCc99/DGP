@@ -29,6 +29,8 @@
     <string name="tituloActividad">Título Actividad</string>
     <string name="tituloActAct">Título Actividad</string>
 
+    <string name="descripcionActividad">Descripcion Actividad</string>
+
     <string name="textoVideo">Añadir Vídeo</string>
 
     <string name="descripcionBotonVideo">Boton para añadir Video</string>

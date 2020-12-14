@@ -8,6 +8,7 @@ public class Data{
     ArrayList<Objetivo> objetivos;
     ArrayList<Actividad> actividades;
     ArrayList<Actividad> actividadesObjetivos;
+    Solucion solucion;
 
     boolean registrado = false;
 
@@ -22,6 +23,7 @@ public class Data{
         objetivos = new ArrayList<>();
         actividades = new ArrayList<>();
         actividadesObjetivos = new ArrayList<>();
+        solucion = new Solucion();
     }
 
     private Data(Socio socio, ArrayList<Objetivo> objetivos, ArrayList<Actividad> actividades){
@@ -44,6 +46,8 @@ public class Data{
     public ArrayList<Actividad> getActividades(){ return actividades; }
 
     public ArrayList<Actividad> getActividadesObjetivos(){ return actividadesObjetivos; }
+
+    public Solucion getSolucion(){ return solucion; }
 
     public void clearActividadesObjetivos(){ actividadesObjetivos.clear(); }
 

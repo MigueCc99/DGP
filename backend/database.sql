@@ -57,6 +57,33 @@ CREATE TABLE actividad_asignada_socio(
 );
 
 -- *****************************************************************************
+// TEST COHERENTE
+INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('david','baez','0123',false,'david@vale.org','612345678','23/07/1995');
+INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('ana','baez','0123',true,'ana@vale.org','612345678','23/07/1995');
+
+INSERT INTO socios(id,nombre,apellidos,nacimiento,contrasena) VALUES ("1","Federico","García Lorca", "10/02/1959","111111");
+INSERT INTO socios(id,nombre,apellidos,nacimiento,contrasena) VALUES ("2","María","Rodriguez de los Santos", "01/05/1979","222222");
+
+INSERT INTO objetivos(id,nombre,descripcion,imagen) VALUES ("1",'Vida adulta','Independencia para poder vivir sin necesitar a nadie',"vidaadulta.png");
+INSERT INTO objetivos(id,nombre,descripcion,imagen) VALUES ("2",'Ofimática','Habilidades para manejar programas básicos del ordenador',"ordenador.png");
+
+INSERT INTO actividades(nombre,descripcion,imagen,multimedia) VALUES ('Lavarse las manos', 'Debes lavarte las manos que está el coronavirus', "washhands.png", "RvYBf9gHkMA");
+INSERT INTO actividades(nombre,descripcion,imagen,multimedia) VALUES ('Hacerse la cama', 'Debes hacerte la cama todos los días al levantarte', "makebed.png", "-9X2obbSECU");
+INSERT INTO actividades(nombre,descripcion,imagen,multimedia) VALUES ('Hacer una videollamada con tu mejor amigo', 'Debes llamar a tu mejor amigo porque hay que cuidarlo', "videollamada.png", "W_EGo398Aps");
+INSERT INTO actividades(nombre,descripcion,imagen,multimedia) VALUES ('Hacer un dibujo con paint', 'Debes abrir tu ordenador y usar el programa' "paint.png", "4L_aR5v9LjU");
+
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('1','1');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('2','1');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('3','2');
+INSERT INTO actividad_pertenece_objetivo (id_actividad,id_objetivo) VALUES ('4','2');
+
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('1','1', '0');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('2','1', '0');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('3','1', '0');
+INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES ('4','1', '0');
+-- *****************************************************************************
+
+-- *****************************************************************************
 INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('david','baez','0123',false,'david@vale.org','612345678','23/07/1995');
 INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nacimiento) VALUES ('ana','baez','0123',true,'ana@vale.org','612345678','23/07/1995');
 
