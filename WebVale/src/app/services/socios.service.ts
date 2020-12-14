@@ -38,6 +38,14 @@ export class SociosService {
     return this.http.get(`${this.API_URI}/${id}/objetivos`)
   }
 
+  addActividadUsuario(id : number, idact : number){
+    return this.http.put(`${this.API_URI}/${id}/objetivos/add/${idact}`, {})
+  }
+
+  getActividadesNoAsignadasSocio(id : number){
+    return this.http.get(`${this.API_URI}/${id}/actividades/no-asignadas`)
+  }
+
   actualizaSolucion (id : number, actividad : number, solucion : Solucion)
   {
     console.log(solucion)

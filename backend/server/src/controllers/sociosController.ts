@@ -91,6 +91,14 @@ class SociosController {
         });
     }
 
+    public async getActividadesSinAsignar (req: Request, res: Response): Promise<void> {
+        const id = req.params.id;
+        await pool.query('SELECT * FROM actividades WHERE id NOT IN (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio = ?)',[id], function(err, result, fields) {
+            if (err) throw err;
+            res.json(result);
+        });
+    }
+
     public async getObjetivos (req: Request, res: Response): Promise<void> {
         const id = req.params.id;
         await pool.query('SELECT DISTINCT * FROM objetivos WHERE id in (SELECT id_objetivo FROM actividad_pertenece_objetivo WHERE id_actividad IN (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio=?))',[id], function(err, result, fields) {
@@ -108,6 +116,12 @@ class SociosController {
             }
             res.status(404).json({message: "El socio no existe"});
         });
+    }
+
+    public async add (req: Request, res: Response): Promise<void> {//completar
+        const id = req.params.id;
+        const idact = req.params.idact;
+        await pool.query('INSERT INTO actividad_asignada_socio (id_actividad,id_socio) VALUES (?,?)',[idact,id], function(err, result, fields) {});
     }
 }
 

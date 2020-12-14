@@ -125,6 +125,16 @@ class SociosController {
             });
         });
     }
+    getActividadesSinAsignar(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            yield database_1.default.query('SELECT * FROM actividades WHERE id NOT IN (SELECT id_actividad FROM actividad_asignada_socio WHERE id_socio = ?)', [id], function (err, result, fields) {
+                if (err)
+                    throw err;
+                res.json(result);
+            });
+        });
+    }
     getObjetivos(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const id = req.params.id;
@@ -146,6 +156,13 @@ class SociosController {
                 }
                 res.status(404).json({ message: "El socio no existe" });
             });
+        });
+    }
+    add(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            const idact = req.params.idact;
+            yield database_1.default.query('INSERT INTO actividad_asignada_socio (id_actividad,id_socio) VALUES (?,?)', [idact, id], function (err, result, fields) { });
         });
     }
 }

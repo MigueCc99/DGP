@@ -23,7 +23,14 @@
                         {{actividad.nombre}}
                     </li>
                 </ul>
-                <button type="button" class="btn btn-lg btn-outline-success asignar">Asignar una nueva actividad</button>
+                <select matNativeControl [(ngModel)]="actividad" name="actividad">
+                    <option value="" selected></option>
+                    <option *ngFor="let actividad of listadoActividadesNoAsignadas" [value]="actividad.id">
+                      {{actividad.nombre}}
+                    </option>
+                </select>
+                
+                <button type="button" (click)="Anadir(actividad)">Añadir Actividad</button>
             </div>
             <div class="order-2 p-2 lista">
                 <img src="../../../../assets/medalla.png" style="max-width: 15%; height: auto; " class="img-fluid" alt="Responsive image">
