@@ -70,5 +70,5 @@
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonActActividadesObj"
-        app:srcCompat="@drawable/icono_medalla" />
+        app:srcCompat="@drawable/activity" />
 </androidx.constraintlayout.widget.ConstraintLayout>

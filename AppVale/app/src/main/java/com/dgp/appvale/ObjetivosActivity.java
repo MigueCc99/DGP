@@ -69,7 +69,7 @@ public class ObjetivosActivity extends AppCompatActivity implements View.OnClick
         if(v.getId() == R.id.botonHomeObj){
             finish();
         }else if(v.getId() == R.id.botonActividadesObjetivos){
-            Intent i = new Intent(this, ActividadesActivity.class);
+            Intent i = new Intent(this, TransicionActivity.class);
             startActivity(i);
         }
     }
