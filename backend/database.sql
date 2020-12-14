@@ -62,6 +62,7 @@ INSERT INTO facilitadores(nombre,apellidos,contrasena,centro,correo,telefono,nac
 
 INSERT INTO socios(id,nombre,apellidos,nacimiento,contrasena) VALUES ("1","Federico","García Lorca", "10/02/1959","111111");
 INSERT INTO socios(id,nombre,apellidos,nacimiento,contrasena) VALUES ("2","María","Rodriguez de los Santos", "01/05/1979","222222");
+INSERT INTO socios(id,nombre,apellidos,nacimiento,contrasena) VALUES ("3","Carlos","Moreno Pizarro", "17/05/1990","222222");
 
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Matemáticas', 'Desarrollar habilidades matemáticas para el manejo de situaciones de la vida cotidiana');
 INSERT INTO objetivos(nombre,descripcion) VALUES ('Inglés', 'Hablar y entender inglés correctamente');
@@ -111,3 +112,8 @@ INSERT INTO actividad_asignada_socio (id_actividad, id_socio, aceptada) VALUES (
 
 
 
+--Para ver el diagrama de la actividad 10 introducir estos inserts
+
+INSERT actividad_asignada_socio (id_actividad, id_socio, solucion_texto, aceptada, es_util, es_dificil, es_gustado) VALUES ('10','1','Ayer llamé a mi amigo Juan','0','0','1','1');
+INSERT actividad_asignada_socio (id_actividad, id_socio, solucion_texto, aceptada, es_util, es_dificil, es_gustado) VALUES ('10','2','Ayer llamé a mi amigo Juan','0','0','0','1');
+INSERT actividad_asignada_socio (id_actividad, id_socio, solucion_texto, aceptada, es_util, es_dificil, es_gustado) VALUES ('10','3','Ayer llamé a mi amigo Juan','0','1','1','1');
