@@ -15,7 +15,8 @@
             <h2>
                 Estadísticas
             </h2>
-            <p>Han participado {{feedback.votos}} socios en este feedback</p> <br>
+            <br>
+            <p>Han participado {{feedback.votos}} socios en el feedback de esta actividad.</p>
             <ng-container *ngIf="showFeedback(); then feedbackBlock"></ng-container>
             <ng-template #feedbackBlock>
                 <p>¿Te ha parecido útil? {{100*feedback.utiles/feedback.votos}}%</p>
