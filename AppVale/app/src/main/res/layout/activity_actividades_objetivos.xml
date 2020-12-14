@@ -49,4 +49,26 @@
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/botonHomeActividadesObj"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="225dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonActActividadesObj"
+        app:srcCompat="@drawable/home" />
+
+    <ImageButton
+        android:id="@+id/botonActividadesObjetivosObj"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="225dp"
+        android:layout_marginEnd="50dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonActActividadesObj"
+        app:srcCompat="@drawable/icono_medalla" />
 </androidx.constraintlayout.widget.ConstraintLayout>

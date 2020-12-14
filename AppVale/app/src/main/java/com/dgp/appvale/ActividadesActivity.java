@@ -14,7 +14,7 @@ import com.dgp.appvale.clases.Data;
 import java.util.ArrayList;
 
 public class ActividadesActivity extends AppCompatActivity implements View.OnClickListener{
-    ImageButton botonAtrasActividades, botonActActividades, botonFlechaDerecha, botonFlechaIzquierda;
+    ImageButton botonHomeActividades, botonActActividades, botonFlechaDerecha, botonFlechaIzquierda, botonObjetivos;
     ArrayList<Actividad> actividadesTest;
     TextView tituloActAct;
     Actividad actividad;
@@ -22,9 +22,10 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
 
     private void init(){
         botonActActividades = findViewById(R.id.botonActActividadesObj);
-        botonAtrasActividades = findViewById(R.id.botonAtrasActividades);
+        botonHomeActividades = findViewById(R.id.botonHomeActividades);
         botonFlechaDerecha = findViewById(R.id.botonFlechaDerechaObj);
         botonFlechaIzquierda = findViewById(R.id.botonFlechaIzquierdaObj);
+        botonObjetivos = findViewById(R.id.botonObjetivosActividades);
         tituloActAct = findViewById(R.id.tituloActActObj);
 
         actividad = new Actividad();
@@ -39,9 +40,10 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
         init();
 
         botonActActividades.setOnClickListener(this);
-        botonAtrasActividades.setOnClickListener(this);
+        botonHomeActividades.setOnClickListener(this);
         botonFlechaDerecha.setOnClickListener(this);
         botonFlechaIzquierda.setOnClickListener(this);
+        botonObjetivos.setOnClickListener(this);
     }
 
     private void generarArrayActividadesTest(){
@@ -73,7 +75,7 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
             gestiónActividadActual();
             i.putExtra("actividad", actividad);
             startActivity(i);
-        }else if(v.getId() == R.id.botonAtrasActividades){
+        }else if(v.getId() == R.id.botonHomeActividades){
             finish();
         }else if(v.getId() == R.id.botonFlechaDerechaObj){
             /* Enlaza a actividad siguiente si la hay
@@ -95,6 +97,9 @@ public class ActividadesActivity extends AppCompatActivity implements View.OnCli
                 actividadActual -= 1;
                 gestiónActividadActual();
             }
+        }else if(v.getId() == R.id.botonObjetivosActividades){
+            Intent i = new Intent(this, ObjetivosActivity.class);
+            startActivity(i);
         }
     }
 }

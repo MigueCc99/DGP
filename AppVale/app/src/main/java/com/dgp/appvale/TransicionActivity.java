@@ -29,7 +29,11 @@ public class TransicionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_transicion);
 
         objetivo = (Objetivo) getIntent().getSerializableExtra("objetivo");
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
         Data.getData().clearActividadesObjetivos();
         getActividadesObjetivos();
         Intent i = new Intent(this, ActividadesActivityObj.class);

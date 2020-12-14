@@ -14,7 +14,7 @@ import com.dgp.appvale.clases.Data;
 import java.util.ArrayList;
 
     public class ActividadesActivityObj extends AppCompatActivity implements View.OnClickListener{
-        ImageButton botonActActividadesObj, botonFlechaDerechaObj, botonFlechaIzquierdaObj;
+        ImageButton botonActActividadesObj, botonFlechaDerechaObj, botonFlechaIzquierdaObj, botonActividadesObjetivosObj, botonHomeActividadesObj;
         ArrayList<Actividad> actividadesTest;
         TextView tituloActAct;
         Actividad actividad;
@@ -24,6 +24,8 @@ import java.util.ArrayList;
             botonActActividadesObj = findViewById(R.id.botonActActividadesObj);
             botonFlechaDerechaObj = findViewById(R.id.botonFlechaDerechaObj);
             botonFlechaIzquierdaObj = findViewById(R.id.botonFlechaIzquierdaObj);
+            botonActividadesObjetivosObj = findViewById(R.id.botonActividadesObjetivosObj);
+            botonHomeActividadesObj = findViewById(R.id.botonHomeActividadesObj);
             tituloActAct = findViewById(R.id.tituloActActObj);
 
             actividad = new Actividad();
@@ -40,6 +42,8 @@ import java.util.ArrayList;
             botonActActividadesObj.setOnClickListener(this);
             botonFlechaDerechaObj.setOnClickListener(this);
             botonFlechaIzquierdaObj.setOnClickListener(this);
+            botonActividadesObjetivosObj.setOnClickListener(this);
+            botonHomeActividadesObj.setOnClickListener(this);
         }
 
         private void generarArrayActividadesTest(){
@@ -69,7 +73,7 @@ import java.util.ArrayList;
                 gestiónActividadActual();
                 i.putExtra("actividad", actividad);
                 startActivity(i);
-            }else if(v.getId() == R.id.botonAtrasActividades){
+            }else if(v.getId() == R.id.botonHomeActividades){
                 finish();
             }else if(v.getId() == R.id.botonFlechaDerechaObj){
             /* Enlaza a actividad siguiente si la hay
@@ -91,6 +95,12 @@ import java.util.ArrayList;
                     actividadActual -= 1;
                     gestiónActividadActual();
                 }
+            }else if(v.getId() == R.id.botonHomeActividadesObj){
+                Intent i = new Intent(this, MenuActivity.class);
+                startActivity(i);
+            }else if(v.getId() == R.id.botonActividadesObjetivosObj){
+                Intent i = new Intent(this, ActividadesActivity.class);
+                startActivity(i);
             }
         }
     }
