@@ -28,10 +28,10 @@ class SociosController {
     }
 
     public async delete (req: Request, res: Response): Promise<void> {
-        const id = req.params;
+        const {id} = req.params;
         await pool.query('DELETE FROM socios WHERE id=?',[id], function(err, result, fields) {
             if (err) throw err;
-            res.json({message: "El socio fue eliminado"});
+            res.json({message: "El socio con id " + id + " fue eliminado"});
         });
     }
 

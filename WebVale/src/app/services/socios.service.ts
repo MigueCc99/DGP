@@ -56,4 +56,8 @@ export class SociosService {
       "contrasena": "",
     });
   }
+
+  eliminarSocio(id: any){
+    return this.http.delete(`${this.API_URI}/${id}`);
+  }
 }

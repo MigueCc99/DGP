@@ -54,4 +54,17 @@ export class SociosPageComponent implements OnInit {
   navegaRecuperarContraSocio () {
     this.router.navigate(['/centro/recuperar-contra/socios']);
   }
+
+  eliminar(id: any){
+    console.log(id);
+    this.sociosService.eliminarSocio(id).subscribe(res => {
+      console.log(res);
+      setTimeout(() => {
+        this.getSocios()
+      }, 100
+      )
+    },
+      err => console.log(err)
+    );    
+  }
 }

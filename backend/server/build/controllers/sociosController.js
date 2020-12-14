@@ -45,11 +45,11 @@ class SociosController {
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const id = req.params;
+            const { id } = req.params;
             yield database_1.default.query('DELETE FROM socios WHERE id=?', [id], function (err, result, fields) {
                 if (err)
                     throw err;
-                res.json({ message: "El socio fue eliminado" });
+                res.json({ message: "El socio con id " + id + " fue eliminado" });
             });
         });
     }

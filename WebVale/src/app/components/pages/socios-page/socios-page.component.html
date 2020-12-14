@@ -23,7 +23,7 @@
                 <ul *ngFor="let socio of listadoSociosFiltrado">
                     <li>
                         {{socio.nombre}} {{socio.apellidos}}
-                        <button type="button" class="btn btn-danger fa fa-trash"></button>
+                        <button type="button" (click)="eliminar(socio.id)" class="btn btn-danger fa fa-trash"></button>
                         <button type="button" (click)="navegaRecuperarContraSocio()" class="btn btn-warning fa fa-key"></button>
                         <button type="button" [routerLink]= "['/centro/socio/crear']" class="btn btn-success fa fa-plus"></button>
                         <button (click)="navegaVer(socio.id)"  class="boton-ver fa fa-eye"></button>
@@ -37,7 +37,7 @@
                 <ul *ngFor="let socio of listadoSociosFiltrado">
                     <li>
                         {{socio.nombre}} {{socio.apellidos}}
-                        <button type="button" class="btn btn-danger fa fa-trash disabled" disabled></button>
+                        <button type="button" (click)="eliminar(socio.id)" class="btn btn-danger fa fa-trash disabled" disabled></button>
                         <button type="button" (click)="navegaRecuperarContraSocio()" class="btn btn-warning fa fa-key disabled" disabled></button>
                         <button type="button" [routerLink]= "['/centro/socio/crear']" class="btn btn-success fa fa-plus disabled" disabled></button>
                         <button (click)="navegaVer(socio.id)"  class="boton-ver fa fa-eye"></button>
