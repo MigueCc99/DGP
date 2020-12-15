@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -16,9 +17,11 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
     Button botonEnviar, botonAtras;
     ImageButton botonSi1, botonSi2, botonSi3, botonNo1, botonNo2, botonNo3;
     TextView tituloActividad;
+    EditText comentario;
 
     ArrayList<Boolean> contestado;
     ArrayList<Boolean> feedback;
+    String comment = "";
 
     private void init(){
         botonEnviar = findViewById(R.id.botonEnviarFeedback);
@@ -33,11 +36,14 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         botonNo3 = findViewById(R.id.botonNo3);
 
         tituloActividad = findViewById(R.id.textoNombreActividad);
+        comentario = findViewById(R.id.textInputEditText);
 
-        feedback = new ArrayList<>(3);
-        contestado = new ArrayList<>(3);
-        for(int i=0; i<feedback.size(); i++){
-            System.out.println("eh: "+i);
+        feedback = new ArrayList<>();
+        contestado = new ArrayList<>();
+
+        for(int i=0; i<3; i++){
+            contestado.add(false);
+            feedback.add(false);
         }
     }
 
@@ -78,6 +84,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
 
         if(v.getId() == R.id.botonEnviarFeedback){
             // Enviar por http
+            comment = comentario.getText().toString();
         }else if(v.getId() == R.id.botonAtrasFeedback){
             finish();
         }else if(v.getId() == R.id.botonSi1){

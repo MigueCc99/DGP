@@ -89,17 +89,27 @@ public class EnviarSolucionActivity extends AppCompatActivity implements View.On
         String url = Global.URL_FIJA + Global.URL_SOCIOS + "/" +  Data.getData().getSocio().getID() + Global.URL_ACTIVIDADES + "solucion/" + actividad.getID();
         RequestQueue queue = Volley.newRequestQueue(this);
 
+        JSONObject sol = new JSONObject();
+        try {
+            sol.put("solucion_texto", Data.getData().getSolucion().getTexto());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                JSONObject sol = new JSONObject();
-                try {
-                    sol.put("solucion_texto", Data.getData().getSolucion().getTexto());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                    try{
+                        Log.d("JSON", String.valueOf(response));
+                        String Error = response.getString("httpStatus");
+                        if(Error.equals("OK")){
+                            JSONObject body = response.getJSONObject("body");
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 Toast.makeText(getApplicationContext(), "Solución enviada!!!", Toast.LENGTH_SHORT).show();
-            }
+                }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {

@@ -73,7 +73,6 @@ public class ActividadActivity  extends AppCompatActivity implements View.OnClic
                 }
             }
         });
-
     }
 
             @Override
