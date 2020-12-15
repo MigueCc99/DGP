@@ -27,6 +27,8 @@ import com.dgp.appvale.clases.Data;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+
 public class EnviarSolucionActivity extends AppCompatActivity implements View.OnClickListener{
     private static final int VIDEO_REQUEST_CODE = 1;
     private static Uri videoUri = null;
@@ -89,14 +91,14 @@ public class EnviarSolucionActivity extends AppCompatActivity implements View.On
         String url = Global.URL_FIJA + Global.URL_SOCIOS + "/" +  Data.getData().getSocio().getID() + Global.URL_ACTIVIDADES + "solucion/" + actividad.getID();
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        JSONObject sol = new JSONObject();
+        final JSONObject sol = new JSONObject();
         try {
             sol.put("solucion_texto", Data.getData().getSolucion().getTexto());
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                     try{
@@ -115,7 +117,17 @@ public class EnviarSolucionActivity extends AppCompatActivity implements View.On
             public void onErrorResponse(VolleyError error) {
                 Log.d("Error.Response", error.toString());
             }
-        });
+        }){
+            @Override
+            public byte[] getBody() {
+                try {
+                    return sol.toString().getBytes("UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        };
         queue.add(jsonObjectRequest);
     }
 
