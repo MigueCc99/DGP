@@ -35,6 +35,16 @@ public class TransicionActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    @Override
+    protected void onStart(){
+        super.onStart();
+        objetivo = (Objetivo) getIntent().getSerializableExtra("objetivo");
+        Data.getData().clearActividadesObjetivos();
+        getActividadesObjetivos();
+        Intent i = new Intent(this, ActividadesActivityObj.class);
+        startActivity(i);
+    }
+
     private void getActividadesObjetivos() {
         String url = Global.URL_FIJA + Global.URL_OBJETIVOS + objetivo.getID() + "/actividades";
         //String url = Global.URL_FIJA + "/objetivos/1/actividades";
