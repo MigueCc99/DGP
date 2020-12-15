@@ -3,14 +3,27 @@ package com.dgp.appvale;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.dgp.appvale.clases.Actividad;
+import com.dgp.appvale.clases.Data;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 public class FeedbackActivity extends AppCompatActivity implements View.OnClickListener{
@@ -22,6 +35,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
     ArrayList<Boolean> contestado;
     ArrayList<Boolean> feedback;
     String comment = "";
+    Actividad actividad;
 
     private void init(){
         botonEnviar = findViewById(R.id.botonEnviarFeedback);
@@ -40,6 +54,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
 
         feedback = new ArrayList<>();
         contestado = new ArrayList<>();
+        actividad = (Actividad) getIntent().getSerializableExtra("actividad");
 
         for(int i=0; i<3; i++){
             contestado.add(false);
@@ -74,6 +89,43 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    private void enviarSolucion(String name, Object obj) throws JSONException {
+        //sol.put("multimedia_solucion", Data.getData().getSolucion().getVideo());
+        String url = Global.URL_FIJA + Global.URL_SOCIOS + "/" +  Data.getData().getSocio().getID() + Global.URL_ACTIVIDADES + "solucion/" + actividad.getID();
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        final JSONObject sol = new JSONObject();
+        try {
+            sol.put(name, obj);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.d("JSON", String.valueOf(response));
+                Toast.makeText(getApplicationContext(), "Feedback enviado!!!", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("Error.Response", error.toString());
+            }
+        }){
+            @Override
+            public byte[] getBody() {
+                try {
+                    return sol.toString().getBytes("UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        };
+        queue.add(jsonObjectRequest);
+    }
+
     private void actualiza(){
         if(contestado.get(0) && contestado.get(1) && contestado.get(2))
             botonEnviar.setEnabled(true);
@@ -85,6 +137,14 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         if(v.getId() == R.id.botonEnviarFeedback){
             // Enviar por http
             comment = comentario.getText().toString();
+            try {
+                enviarSolucion("es_util", feedback.get(0));
+                enviarSolucion("es_dificil", feedback.get(1));
+                enviarSolucion("es_gustado", feedback.get(2));
+                enviarSolucion("comentario", comment);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }else if(v.getId() == R.id.botonAtrasFeedback){
             finish();
         }else if(v.getId() == R.id.botonSi1){
